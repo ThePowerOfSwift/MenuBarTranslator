@@ -17,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = NSImage(named: "StatusBarButtonImage")
+//            button.image = NSImage(named: "StatusBarButtonImage")
+            button.image = #imageLiteral(resourceName: "translate")
             button.action = #selector(togglePopover(_:))
         }
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
