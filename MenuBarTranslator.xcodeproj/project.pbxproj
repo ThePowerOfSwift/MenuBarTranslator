@@ -12,7 +12,6 @@
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
 		A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */; };
 		A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */; };
-		A1BE3C671F2BC7EB00C9F9CE /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C661F2BC7EB00C9F9CE /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		A1BE3C5C1F2B97C100C9F9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
-		A1BE3C661F2BC7EB00C9F9CE /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
-				A1BE3C661F2BC7EB00C9F9CE /* EventMonitor.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
@@ -142,7 +139,6 @@
 			files = (
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
-				A1BE3C671F2BC7EB00C9F9CE /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

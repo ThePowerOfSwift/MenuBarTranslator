@@ -13,22 +13,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system().statusItem(withLength: -2)
     let popover = NSPopover()
-    var eventMonitor: EventMonitor?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        statusItem.highlightMode = true
+        statusItem.alternateImage = NSImage(named: "translate-inversed")
+        
+        
         if let button = statusItem.button {
-//            button.image = NSImage(named: "StatusBarButtonImage")
-            button.image = #imageLiteral(resourceName: "translate")
+            button.image = NSImage(named: "translate")
             button.action = #selector(togglePopover(_:))
         }
-        popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
-            if self.popover.isShown {
-                self.closePopover(event)
-            }
-        }
-        eventMonitor?.start()
+        
+        popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
+        popover.behavior = NSPopoverBehavior.transient
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -19,6 +19,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
         super.viewDidLoad()
         inputTextField.delegate = self
         outputTextField.isHidden = true
+        changeViewHeight(delta: outputTextField.frame.height)
     }
     
     override func viewDidAppear() {
@@ -30,10 +31,20 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
         if(inputTextField.stringValue.characters.count == 0 && !isOutputTextFieldAlreadyHidden){
             isOutputTextFieldAlreadyHidden = true
             outputTextField.isHidden = true
+            changeViewHeight(delta: -outputTextField.frame.height)
         }
         else if (isOutputTextFieldAlreadyHidden){
             isOutputTextFieldAlreadyHidden = false
             outputTextField.isHidden = false
+            changeViewHeight(delta: outputTextField.frame.height)
         }
     }
+    
+    
+    func changeViewHeight(delta: CGFloat) {
+        let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
+        let newSize = NSSize(width: self.view.frame.width, height: self.view.frame.height + delta)
+        
+    }
+    
 }
