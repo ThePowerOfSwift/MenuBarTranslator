@@ -44,7 +44,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     func changeViewHeight(delta: CGFloat) {
         let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
         let newSize = NSSize(width: self.view.frame.width, height: self.view.frame.height + delta)
-        
+        appDelegate.popover.contentSize = newSize
     }
     
 }
