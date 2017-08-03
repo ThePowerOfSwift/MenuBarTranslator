@@ -24,9 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(_:))
         }
         
-        
+        popover.animates = true
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

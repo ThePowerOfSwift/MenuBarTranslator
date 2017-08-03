@@ -10,10 +10,10 @@ import Cocoa
 
 class TranslateViewController: NSViewController, NSTextFieldDelegate {
 
-    @IBOutlet weak var inputTextField: NSTextField!
-    @IBOutlet weak var outputTextField: NSTextField!
+    @IBOutlet weak var inputTextField: ResizableTextField!
+    @IBOutlet weak var outputTextField: ResizableTextField!
     
-    var isOutputTextFieldAlreadyHidden: Bool = true
+    static var isOutputTextFieldAlreadyHidden: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +27,21 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     
     
     override func controlTextDidChange(_ obj: Notification) {
-        if(inputTextField.stringValue.characters.count == 0 && !isOutputTextFieldAlreadyHidden){
-            isOutputTextFieldAlreadyHidden = true
+        if(inputTextField.stringValue.characters.count == 0 && !TranslateViewController.isOutputTextFieldAlreadyHidden){
+            TranslateViewController.isOutputTextFieldAlreadyHidden = true
             outputTextField.isHidden = true
         }
-        else if (isOutputTextFieldAlreadyHidden){
-            isOutputTextFieldAlreadyHidden = false
+        else if (TranslateViewController.isOutputTextFieldAlreadyHidden){
+            TranslateViewController.isOutputTextFieldAlreadyHidden = false
             outputTextField.isHidden = false
         }
         outputTextField.stringValue = inputTextField.stringValue
-        let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
-        appDelegate.popover.contentSize = self.view.frame.size
     }
+    
+    func plusHeight (delta : CGFloat){
+        let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
+        appDelegate.popover.contentSize.height += delta
+    }
+    
     
 }

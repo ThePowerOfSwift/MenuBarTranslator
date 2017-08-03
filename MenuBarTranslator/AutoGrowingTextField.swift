@@ -10,9 +10,9 @@ import Foundation
 import Cocoa
 
 
-class AutoGrowingTextField: NSTextField {
+class ResizableTextField: NSTextField {
     
-    var minHeight: CGFloat? = 100
+    var minHeight: CGFloat? = 22
     let bottomSpace: CGFloat = 5
     
     var heightLimit: CGFloat?
@@ -38,6 +38,9 @@ class AutoGrowingTextField: NSTextField {
         var minSize: NSSize {
             var size = super.intrinsicContentSize
             size.height = minHeight ?? 0
+            if(TranslateViewController.isOutputTextFieldAlreadyHidden){
+                size.height = size.height * 2 + 5
+            }
             return size
         }
         if isEditing || lastSize == nil {
@@ -48,6 +51,7 @@ class AutoGrowingTextField: NSTextField {
                 else {
                     return lastSize ?? minSize
             }
+    
             var newSize = super.intrinsicContentSize
             newSize.height = newHeight + bottomSpace
             
@@ -61,8 +65,11 @@ class AutoGrowingTextField: NSTextField {
                 minHeight = minHeight, newSize.height < minHeight {
                 newSize.height = minHeight
             }
-            
             lastSize = newSize
+            
+            if(TranslateViewController.isOutputTextFieldAlreadyHidden){
+                return minSize
+            }
             return newSize
         }
         else {
