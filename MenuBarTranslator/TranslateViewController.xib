@@ -19,35 +19,31 @@
             <rect key="frame" x="0.0" y="0.0" width="656" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix">
-                    <rect key="frame" x="20" y="148" width="616" height="78"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mnZ-T9-4nK">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="AutoGrowingTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="20" y="204" width="616" height="22"/>
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mnZ-T9-4nK">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR">
-                    <rect key="frame" x="20" y="20" width="616" height="118"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rgG-nm-uol">
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="AutoGrowingTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="20" y="172" width="616" height="22"/>
+                    <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rgG-nm-uol">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcD-9U-zya">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bcD-9U-zya">
                     <rect key="frame" x="292" y="227" width="73" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Swap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbh-1j-tEl">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VvO-bu-u3I">
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VvO-bu-u3I">
                     <rect key="frame" x="18" y="232" width="146" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="eOn-VZ-r4b">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -57,9 +53,8 @@
                         </segments>
                     </segmentedCell>
                 </segmentedControl>
-                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-oj-V08">
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-oj-V08">
                     <rect key="frame" x="567" y="232" width="71" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="L2h-GK-WF4">
                         <font key="font" metaFont="system"/>
                         <segments>
@@ -69,6 +64,20 @@
                     </segmentedCell>
                 </segmentedControl>
             </subviews>
+            <constraints>
+                <constraint firstItem="bcD-9U-zya" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="17" id="0IG-Tv-brg"/>
+                <constraint firstItem="oyL-iI-LeR" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="59H-sT-IFG"/>
+                <constraint firstItem="VvO-bu-u3I" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="17" id="EU7-u4-Qyn"/>
+                <constraint firstItem="xqr-oj-V08" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="17" id="NQ1-uT-943"/>
+                <constraint firstItem="bcD-9U-zya" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Rli-Kv-oyj"/>
+                <constraint firstAttribute="trailing" secondItem="eBd-Rd-Qix" secondAttribute="trailing" constant="20" id="aU2-QX-ixt"/>
+                <constraint firstItem="VvO-bu-u3I" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="aqL-Xk-UVY"/>
+                <constraint firstAttribute="trailing" secondItem="oyL-iI-LeR" secondAttribute="trailing" constant="20" id="dbn-DP-doL"/>
+                <constraint firstAttribute="trailing" secondItem="xqr-oj-V08" secondAttribute="trailing" constant="20" id="lWS-da-gv6"/>
+                <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="pnh-BJ-cFC"/>
+                <constraint firstItem="oyL-iI-LeR" firstAttribute="top" secondItem="eBd-Rd-Qix" secondAttribute="bottom" constant="10" id="syL-0w-727"/>
+                <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="46" id="y2U-cK-Z7M"/>
+            </constraints>
             <point key="canvasLocation" x="220" y="168"/>
         </customView>
     </objects>

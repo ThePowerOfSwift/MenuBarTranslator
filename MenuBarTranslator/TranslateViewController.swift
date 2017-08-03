@@ -38,6 +38,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             outputTextField.isHidden = false
             changeViewHeight(delta: outputTextField.frame.height)
         }
+        outputTextField.stringValue = inputTextField.stringValue
     }
     
     

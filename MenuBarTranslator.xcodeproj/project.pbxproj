@@ -12,6 +12,7 @@
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
 		A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */; };
 		A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */; };
+		A1F7C5FA1F32A0B400CF4AD0 /* AutoGrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C5F91F32A0B400CF4AD0 /* AutoGrowingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A1BE3C5C1F2B97C100C9F9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
+		A1F7C5F91F32A0B400CF4AD0 /* AutoGrowingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoGrowingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
+				A1F7C5F91F32A0B400CF4AD0 /* AutoGrowingTextField.swift */,
 				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
+				A1F7C5FA1F32A0B400CF4AD0 /* AutoGrowingTextField.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
