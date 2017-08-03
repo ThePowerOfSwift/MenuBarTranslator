@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="576" height="263"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-zv-lSZ">
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-zv-lSZ">
                     <rect key="frame" x="0.0" y="-8" width="593" height="271"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="yp2-N5-UpG">
@@ -67,16 +67,16 @@
                             </constraints>
                         </customView>
                         <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-nN-XqN">
-                            <rect key="frame" x="0.0" y="0.0" width="593" height="202"/>
+                            <rect key="frame" x="0.0" y="0.0" width="593" height="210"/>
                             <clipView key="contentView" id="Qgs-mo-yVP">
-                                <rect key="frame" x="1" y="1" width="576" height="185"/>
+                                <rect key="frame" x="1" y="1" width="576" height="193"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Drb-qi-lTT">
-                                        <rect key="frame" x="0.0" y="0.0" width="576" height="185"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="194"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="143" width="536" height="22"/>
+                                                <rect key="frame" x="20" y="152" width="536" height="22"/>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mnZ-T9-4nK">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -84,8 +84,8 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="111" width="536" height="22"/>
-                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="rgG-nm-uol">
+                                                <rect key="frame" x="20" y="120" width="536" height="22"/>
+                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="justified" drawsBackground="YES" id="rgG-nm-uol">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -100,23 +100,23 @@
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="height" secondItem="eBd-Rd-Qix" secondAttribute="height" id="JOH-FW-org"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="trailing" secondItem="oyL-iI-LeR" secondAttribute="trailing" id="MFh-Tn-tnW"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="oyL-iI-LeR" secondAttribute="leading" id="Zdk-Rx-2A6"/>
-                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="111" id="ty8-Ze-tx0"/>
+                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="120" id="ty8-Ze-tx0"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Drb-qi-lTT" firstAttribute="leading" secondItem="Qgs-mo-yVP" secondAttribute="leading" id="146-ji-ttC"/>
-                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" id="eUD-h0-Umf"/>
+                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" constant="-1" id="eUD-h0-Umf"/>
                                     <constraint firstAttribute="trailing" secondItem="Drb-qi-lTT" secondAttribute="trailing" id="rtA-l4-IsC"/>
                                 </constraints>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
                             <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="wIU-kj-yNe">
-                                <rect key="frame" x="1" y="186" width="576" height="15"/>
+                                <rect key="frame" x="1" y="194" width="576" height="15"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
-                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1k4-co-h39">
-                                <rect key="frame" x="577" y="1" width="15" height="185"/>
+                            <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="1k4-co-h39">
+                                <rect key="frame" x="577" y="1" width="15" height="193"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
