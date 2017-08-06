@@ -14,7 +14,6 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var outputTextField: ResizableTextField!
     
     static var isOutputTextFieldAlreadyHidden: Bool = true
-    var lastQueryTimeAgo: TimeInterval?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +37,8 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     }
     
     override func controlTextDidEndEditing(_ obj: Notification) {
-        switchHiddennessOutputTextField()
         if(inputTextField.stringValue.characters.count != 0){
-            let translator = TranslateClient()
-            translator.translateText(inputTextField.stringValue, toLanguage: "ru") { translatedText in
+            TranslateClient.shared.translateText(inputTextField.stringValue, toLanguage: "ru") { translatedText in
                 DispatchQueue.main.sync {
                     self.outputTextField.stringValue = translatedText
                 }
@@ -50,6 +47,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     }
     
     override func controlTextDidChange(_ obj: Notification) {
+        switchHiddennessOutputTextField()
     }
     
 }

@@ -27,7 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.animates = true
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
-        
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

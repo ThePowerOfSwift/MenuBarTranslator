@@ -13,6 +13,9 @@ class TranslateClient {
     
     private let API_KEY = "trnsl.1.1.20170804T195228Z.43cbafd05327100f.0b80728653b33567b49b4c25d39b50a6f4b18127"
     private let BASE_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+    private init() { }
+    
+    static let shared = TranslateClient()
     
     func translateText(_ text: String, fromLanguage from: String = "", toLanguage to: String, completionHandler:@escaping (String)->Void) {
         let requestor = RequestClient(URL: BASE_URL)
