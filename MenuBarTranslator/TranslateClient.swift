@@ -14,7 +14,7 @@ class TranslateClient {
     private let API_KEY = "trnsl.1.1.20170804T195228Z.43cbafd05327100f.0b80728653b33567b49b4c25d39b50a6f4b18127"
     private let BASE_URL = "https://translate.yandex.net/api/v1.5/tr.json/translate"
     
-    func translateText(_ text: String, fromLanguage from: String = "", toLanguage to: String) -> String {
+    func translateText(_ text: String, fromLanguage from: String = "", toLanguage to: String, completionHandler:@escaping (String)->Void) {
         let requestor = RequestClient(URL: BASE_URL)
         requestor.addParam(byKey: "key", withValue: API_KEY)
         requestor.addParam(byKey: "text", withValue: text)
@@ -23,7 +23,6 @@ class TranslateClient {
         
         requestor.makeCall(method: .POST,
                            success: { (data, response, error) in
-                                print("success1")
                                     do {
                                         if let data = data,
                                         let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject],
@@ -36,13 +35,11 @@ class TranslateClient {
                                     } catch let error {
                                         print(error.localizedDescription)
                                     }
-                                print("translatedText closure2 " + translatedText)
-                            
+                                completionHandler(translatedText)
                             },
                            failure: { (data, response, error) in
+                                completionHandler(text)
                             })
-        print("translatedText3  \(translatedText)")
-        return translatedText
     }
 
 }
