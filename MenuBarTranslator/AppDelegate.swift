@@ -10,7 +10,7 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     let statusItem = NSStatusBar.system().statusItem(withLength: -2)
     let popover = NSPopover()
     
@@ -27,9 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.animates = true
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
-        
+        Translator.translateText("Hello, it's me", toLanguage: "ru")
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
     }
     

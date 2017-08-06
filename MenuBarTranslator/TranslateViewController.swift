@@ -36,12 +36,6 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             outputTextField.isHidden = false
         }
         outputTextField.stringValue = inputTextField.stringValue
-    }
-    
-    func plusHeight (delta : CGFloat){
-        let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
-        appDelegate.popover.contentSize.height += delta
-    }
-    
+    }    
     
 }

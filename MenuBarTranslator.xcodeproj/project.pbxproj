@@ -12,7 +12,9 @@
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
 		A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */; };
 		A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */; };
+		A1EF2BC61F352C6800235995 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BC51F352C6800235995 /* Request.swift */; };
 		A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */; };
+		A1F7C60A1F3506F900CF4AD0 /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C6091F3506F900CF4AD0 /* TranslateAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +25,9 @@
 		A1BE3C5C1F2B97C100C9F9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TranslateViewController.xib; sourceTree = "<group>"; };
+		A1EF2BC51F352C6800235995 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
+		A1F7C6091F3506F900CF4AD0 /* TranslateAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
-				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
-				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
-				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
-				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
+				A1EF2BCC1F353EA600235995 /* Views */,
+				A1EF2BCB1F353E9000235995 /* Constrollers */,
+				A1EF2BCD1F353EED00235995 /* ServiceClasses */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
-				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
 				A1BE3C5C1F2B97C100C9F9CE /* Info.plist */,
 			);
 			path = MenuBarTranslator;
+			sourceTree = "<group>";
+		};
+		A1EF2BCB1F353E9000235995 /* Constrollers */ = {
+			isa = PBXGroup;
+			children = (
+				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
+			);
+			name = Constrollers;
+			sourceTree = "<group>";
+		};
+		A1EF2BCC1F353EA600235995 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
+				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A1EF2BCD1F353EED00235995 /* ServiceClasses */ = {
+			isa = PBXGroup;
+			children = (
+				A1EF2BC51F352C6800235995 /* Request.swift */,
+				A1F7C6091F3506F900CF4AD0 /* TranslateAPI.swift */,
+			);
+			name = ServiceClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */,
+				A1F7C60A1F3506F900CF4AD0 /* TranslateAPI.swift in Sources */,
+				A1EF2BC61F352C6800235995 /* Request.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 			);
