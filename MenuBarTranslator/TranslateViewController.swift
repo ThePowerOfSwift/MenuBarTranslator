@@ -25,8 +25,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
         super.viewDidAppear()
     }
     
-    
-    override func controlTextDidChange(_ obj: Notification) {
+    func switchOutputTextField () {
         if(inputTextField.stringValue.characters.count == 0 && !TranslateViewController.isOutputTextFieldAlreadyHidden){
             TranslateViewController.isOutputTextFieldAlreadyHidden = true
             outputTextField.isHidden = true
@@ -35,7 +34,15 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             TranslateViewController.isOutputTextFieldAlreadyHidden = false
             outputTextField.isHidden = false
         }
-        outputTextField.stringValue = inputTextField.stringValue
-    }    
+    }
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        switchOutputTextField()
+        if(inputTextField.stringValue.characters.count != 0){
+            let translator = TranslateClient()
+//            print("--Переведенный текст4: " + translator.translateText(inputTextField.stringValue, toLanguage: "ru"))
+            outputTextField.stringValue = translator.translateText(inputTextField.stringValue, toLanguage: "ru")
+        }
+    }
     
 }

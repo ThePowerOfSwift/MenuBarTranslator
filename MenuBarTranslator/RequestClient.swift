@@ -1,5 +1,5 @@
 //
-//  Request.swift
+//  RequestClient.swift
 //  MenuBarTranslator
 //
 //  Created by Artem Bobrov on 05.08.17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Request {
+class RequestClient {
     enum Method : String {
         case POST
         case GET
@@ -33,29 +33,22 @@ class Request {
         request.httpMethod = method.rawValue
         
         let session = URLSession.shared
-        session.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                print("error=\(error.debugDescription)")
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response.debugDescription)")
-            }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] {
-                    print("responseString = \(json)")
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
+                    success(data , response , error as NSError?)
+                } else {
+                    failure(data , response as? HTTPURLResponse, error as NSError?)
                 }
+            } else {
+                failure(data , response as? HTTPURLResponse, error as NSError?)
                 
-            } catch let error {
-                print(error.localizedDescription)
             }
-        }.resume()
-        
-        
+        }
+        task.resume()
     }
+    
 }
 
 
