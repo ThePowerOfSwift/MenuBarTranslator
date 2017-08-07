@@ -37,12 +37,13 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     }
     
     override func controlTextDidEndEditing(_ obj: Notification) {
-        if(inputTextField.stringValue.characters.count != 0){
-            TranslateClient.shared.translateText(inputTextField.stringValue, toLanguage: "ru") { translatedText in
-                DispatchQueue.main.sync {
-                    self.outputTextField.stringValue = translatedText
+        if(inputTextField.stringValue.characters.count != 0) {
+            TranslateClient.shared.translateText(inputTextField.stringValue, toLanguage: "ru", completionHandler: { text in
+                guard let text = text else {
+                    return
                 }
-            }
+                self.outputTextField.stringValue = text
+            })
         }
     }
     
