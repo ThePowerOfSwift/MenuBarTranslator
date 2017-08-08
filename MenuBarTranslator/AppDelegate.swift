@@ -27,6 +27,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.animates = true
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
+        
+//        TranslateClient.shared.languages(completion: { langsArray in
+//            guard let langs = langsArray else {
+//                return
+//            }
+//            print(langs)
+//        })
+//        print(TranslateClient.langsMap)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

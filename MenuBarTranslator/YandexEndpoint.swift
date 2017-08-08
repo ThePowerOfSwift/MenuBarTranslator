@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum YandexEndpoint {
+enum Yandex {
     case translate(text: String, lang: String)
     
     case languages
@@ -19,6 +19,7 @@ enum YandexEndpoint {
         components.queryItems = queryComponents
         
         let url = components.url!
+//        print("URL: \(url)")
         return URLRequest(url: url)
     }
     

@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EF2BCC1F353EA600235995 /* Views */,
-				A1EF2BCB1F353E9000235995 /* Constrollers */,
+				A1EF2BCB1F353E9000235995 /* Constroller */,
 				A1EF2BCD1F353EED00235995 /* Model */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
 				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
@@ -72,12 +72,12 @@
 			path = MenuBarTranslator;
 			sourceTree = "<group>";
 		};
-		A1EF2BCB1F353E9000235995 /* Constrollers */ = {
+		A1EF2BCB1F353E9000235995 /* Constroller */ = {
 			isa = PBXGroup;
 			children = (
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 			);
-			name = Constrollers;
+			name = Constroller;
 			sourceTree = "<group>";
 		};
 		A1EF2BCC1F353EA600235995 /* Views */ = {
