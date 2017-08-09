@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            }
 //            print(langs)
 //        })
-//        print(TranslateClient.langsMap)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -13,6 +13,8 @@ enum Yandex {
     
     case languages
     
+    case detectLanguage(text: String)
+    
     var request: URLRequest {
         var components = URLComponents(string: baseUrl)!
         components.path += path
@@ -37,6 +39,8 @@ enum Yandex {
                 return "/translate"
             case .languages:
                 return "/getLangs"
+            case .detectLanguage:
+                return "/detect"
         }
     }
     
@@ -60,6 +64,12 @@ enum Yandex {
             case .languages:
                 let parameters: [String: Any] = [
                     ParameterKeys.key: keyAPI
+                ]
+                return parameters
+            case .detectLanguage(let text):
+                let parameters: [String : Any] = [
+                    ParameterKeys.key: keyAPI,
+                    ParameterKeys.text: text
                 ]
                 return parameters
         }
