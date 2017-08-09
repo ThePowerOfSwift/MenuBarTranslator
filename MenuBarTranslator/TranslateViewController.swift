@@ -23,6 +23,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     
     override func viewDidAppear() {
         super.viewDidAppear()
+        
     }
     
     func switchHiddennessOutputTextField () {
