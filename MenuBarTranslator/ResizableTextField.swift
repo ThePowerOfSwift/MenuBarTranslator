@@ -21,6 +21,7 @@ class ResizableTextField: NSTextField {
     
     override func textDidBeginEditing(_ notification: Notification) {
         super.textDidBeginEditing(notification)
+        
         isEditing = true
     }
     
