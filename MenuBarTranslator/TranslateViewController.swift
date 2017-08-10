@@ -15,7 +15,6 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var outputTextField: ResizableTextField!
     
     @IBOutlet weak var langsListPushButton: NSButton!
-    @IBOutlet weak var detectLangPushButton: NSButton!
     @IBOutlet weak var fromLangSegControl: FromStandartLangsSegmentControl!
     @IBOutlet weak var toLangSegControl: ToStandartLangsSegmentControl!
     
@@ -49,13 +48,17 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             outputTextField.stringValue = inputTextField.stringValue
             return
         }
-        let langDirection = "\(TranslateClient.langsMap[fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment)!]!)-\(TranslateClient.langsMap[toLangSegControl.label(forSegment: toLangSegControl.selectedSegment)!]!)"
-        TranslateClient.shared.translateText(inputTextField.stringValue, toLanguage: langDirection, completionHandler: { text in
-            guard let text = text else {
-                return
-            }
-            self.outputTextField.stringValue = text
-        })
+        if let fromLang = fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment)?.characters.split(separator: " ").map(String.init)[0],
+            let toLang = toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+            let langDirection = "\(TranslateClient.langsMap[fromLang]!)-\(TranslateClient.langsMap[toLang]!)"
+            
+            TranslateClient.shared.translateText(inputTextField.stringValue, byLanguageDirection: langDirection, completionHandler: { text in
+                guard let text = text else {
+                    return
+                }
+                self.outputTextField.stringValue = text
+            })
+        }
     }
     
     override func controlTextDidChange(_ obj: Notification) {
@@ -81,16 +84,9 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             toLangSegControl.selectedSegment = (toLangSegControl.selectedSegment + 1) % toLangSegControl.segmentCount
             self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "FromUpdateLang")))
         }
-    }
-    
-    @IBAction func toSegmentControlButton(_ sender: ToStandartLangsSegmentControl) {
-        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
-            fromLangSegControl.selectedSegment = (fromLangSegControl.selectedSegment + 1) % fromLangSegControl.segmentCount
-            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "ToUpdateLang")))
+        guard fromLangSegControl.selectedSegment == 3 else {
+            return
         }
-    }
-    
-    @IBAction func detectLangButtonClicked(_ sender: NSButton) {
         guard inputTextField.stringValue.characters.count != 0 else {
             return
         }
@@ -100,12 +96,21 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             }
             for (key, value) in TranslateClient.langsMap {
                 if value == lang {
-                    self.detectLangPushButton.title = "\(key)(auto)"
+                    self.fromLangSegControl.setLabel("\(key) (auto)", forSegment: self.fromLangSegControl.selectedSegment)
                     return
                 }
             }
-            self.detectLangPushButton.title = "Error"
+            self.fromLangSegControl.setLabel("Error to detect", forSegment: self.fromLangSegControl.selectedSegment)
         })
         
     }
+    
+    @IBAction func toSegmentControlButton(_ sender: ToStandartLangsSegmentControl) {
+        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+            fromLangSegControl.selectedSegment = (fromLangSegControl.selectedSegment + 1) % fromLangSegControl.segmentCount
+            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "ToUpdateLang")))
+        }
+    }
+    
+    
 }
