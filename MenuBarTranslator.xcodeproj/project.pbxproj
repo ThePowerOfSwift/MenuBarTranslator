@@ -15,6 +15,10 @@
 		A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BC51F352C6800235995 /* RequestProcessor.swift */; };
 		A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */; };
 		A1EF2BE61F391B5800235995 /* TranslateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE51F391B5800235995 /* TranslateClient.swift */; };
+		A1F06BBA1F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */; };
+		A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */; };
+		A1F06BBF1F3BD1C90012B7BD /* MoreLanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BBD1F3BD1C90012B7BD /* MoreLanguagesViewController.swift */; };
+		A1F06BC01F3BD1C90012B7BD /* MoreLanguagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F06BBE1F3BD1C90012B7BD /* MoreLanguagesViewController.xib */; };
 		A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		A1EF2BC51F352C6800235995 /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
 		A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
 		A1EF2BE51F391B5800235995 /* TranslateClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslateClient.swift; path = ../../../../../Desktop/TranslateClient.swift; sourceTree = "<group>"; };
+		A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromStandartLangsSegmentControl.swift; sourceTree = "<group>"; };
+		A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToStandartLangsSegmentControl.swift; sourceTree = "<group>"; };
+		A1F06BBD1F3BD1C90012B7BD /* MoreLanguagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreLanguagesViewController.swift; sourceTree = "<group>"; };
+		A1F06BBE1F3BD1C90012B7BD /* MoreLanguagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreLanguagesViewController.xib; sourceTree = "<group>"; };
 		A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +83,7 @@
 		A1EF2BCB1F353E9000235995 /* Constroller */ = {
 			isa = PBXGroup;
 			children = (
+				A1F06BBD1F3BD1C90012B7BD /* MoreLanguagesViewController.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 			);
 			name = Constroller;
@@ -84,8 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
+				A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */,
 				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */,
 				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
+				A1F06BBE1F3BD1C90012B7BD /* MoreLanguagesViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */,
+				A1F06BC01F3BD1C90012B7BD /* MoreLanguagesViewController.xib in Resources */,
 				A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */,
 				A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */,
 			);
@@ -176,9 +189,12 @@
 				A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */,
 				A1EF2BE61F391B5800235995 /* TranslateClient.swift in Sources */,
 				A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */,
+				A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */,
 				A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
+				A1F06BBF1F3BD1C90012B7BD /* MoreLanguagesViewController.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
+				A1F06BBA1F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
