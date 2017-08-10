@@ -76,6 +76,20 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
         langsPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
     }
     
+    @IBAction func fromSegmentControlButton(_ sender: FromStandartLangsSegmentControl) {
+        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+            toLangSegControl.selectedSegment = (toLangSegControl.selectedSegment + 1) % toLangSegControl.segmentCount
+            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "FromUpdateLang")))
+        }
+    }
+    
+    @IBAction func toSegmentControlButton(_ sender: ToStandartLangsSegmentControl) {
+        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+            fromLangSegControl.selectedSegment = (fromLangSegControl.selectedSegment + 1) % fromLangSegControl.segmentCount
+            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "ToUpdateLang")))
+        }
+    }
+    
     @IBAction func detectLangButtonClicked(_ sender: NSButton) {
         guard inputTextField.stringValue.characters.count != 0 else {
             return

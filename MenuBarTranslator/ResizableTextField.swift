@@ -12,7 +12,7 @@ import Cocoa
 
 class ResizableTextField: NSTextField {
     
-    var minHeight: CGFloat? = 70
+    var minHeight: CGFloat? = 90
     let bottomSpace: CGFloat = 5
     
     var heightLimit: CGFloat?
