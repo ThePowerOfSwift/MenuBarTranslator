@@ -18,14 +18,19 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var fromLangSegControl: FromStandartLangsSegmentControl!
     @IBOutlet weak var toLangSegControl: ToStandartLangsSegmentControl!
     
-    let langsPopover = NSPopover()
     
+    let langsPopover = NSPopover()
     
     static var isOutputTextFieldAlreadyHidden: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.delegate = self
         outputTextField.isHidden = true
+        
+        langsPopover.behavior = NSPopoverBehavior.transient
+        langsPopover.animates = true
+        langsPopover.contentViewController = MoreLanguagesViewController(nibName: "MoreLanguagesViewController", bundle: nil)
+        
     }
     
     override func viewDidAppear() {
@@ -73,9 +78,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
         (inputTextField.stringValue, outputTextField.stringValue) = (outputTextField.stringValue, inputTextField.stringValue)
     }
     @IBAction func moreLanguagesButtonClicked(_ sender: NSButton) {
-        langsPopover.behavior = NSPopoverBehavior.transient
-        langsPopover.animates = true
-        langsPopover.contentViewController = MoreLanguagesViewController(nibName: "MoreLanguagesViewController", bundle: nil)
+        
         langsPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
     }
     
@@ -84,10 +87,7 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
             toLangSegControl.selectedSegment = (toLangSegControl.selectedSegment + 1) % toLangSegControl.segmentCount
             self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "FromUpdateLang")))
         }
-        guard fromLangSegControl.selectedSegment == 3 else {
-            return
-        }
-        guard inputTextField.stringValue.characters.count != 0 else {
+        guard fromLangSegControl.selectedSegment == 3 && inputTextField.stringValue.characters.count != 0 else {
             return
         }
         TranslateClient.shared.detectLanguage(byText: inputTextField.stringValue, completion: { lang in

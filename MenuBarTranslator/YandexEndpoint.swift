@@ -21,7 +21,6 @@ enum Yandex {
         components.queryItems = queryComponents
         
         let url = components.url!
-//        print("URL: \(url)")
         return URLRequest(url: url)
     }
     

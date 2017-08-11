@@ -11,13 +11,12 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let popover = NSPopover()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem.highlightMode = true
         statusItem.alternateImage = NSImage(named: "translate-inversed")
-        
         
         if let button = statusItem.button {
             button.image = NSImage(named: "translate")
@@ -27,22 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.animates = true
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
-        
-//        TranslateClient.shared.languages(completion: { langsArray in
-//            guard let langs = langsArray else {
-//                return
-//            }
-//            print(langs)
-//        })
+        popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
     }
     
     func showPopover(_ sender: AnyObject?) {
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-        }
+        popover.show(relativeTo: sender!.bounds, of: sender! as! NSView, preferredEdge: .maxY)
     }
     
     func closePopover(_ sender: AnyObject?) {
