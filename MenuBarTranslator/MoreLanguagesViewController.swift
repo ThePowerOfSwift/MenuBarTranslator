@@ -9,62 +9,63 @@
 import Cocoa
 
 class MoreLanguagesViewController: NSViewController {
-    
-//    var langsArray: Languages!
 
-    @IBOutlet weak var tableView: NSTableView!
-    
+
+	@IBOutlet weak var collectionView: NSCollectionView!
+	
+	var rowsColumns: Int {
+		var rows = 1
+		while rows  < Languages.shared.languages.count {
+			rows <<= 1
+		}
+		return Int(sqrt(Double(rows)))
+	}
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.columnAutoresizingStyle = NSTableViewColumnAutoresizingStyle.firstColumnOnlyAutoresizingStyle
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        
-        tableView.target = self
-        tableView.doubleAction = #selector(tableViewDoubleClick(_:))
     }
     
-    func tableViewDoubleClick(_ sender:AnyObject) {
+	func configureCollectionView() {
+		let flowLayout = NSCollectionViewFlowLayout()
+		flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
+		flowLayout.sectionInset = EdgeInsets(top: 30.0, left: 20.0, bottom: 30.0, right: 20.0)
+		flowLayout.minimumInteritemSpacing = 20.0
+		flowLayout.minimumLineSpacing = 20.0
+		flowLayout.sectionHeadersPinToVisibleBounds = true
+		collectionView.collectionViewLayout = flowLayout
+		view.wantsLayer = true
+		collectionView.layer?.backgroundColor = NSColor.black.cgColor
+	}
+}
 
-		guard 0..<Languages.shared.languages.count ~= tableView.selectedRow  else {
-			return
+extension MoreLanguagesViewController: NSCollectionViewDataSource {
+	func numberOfSections(in collectionView: NSCollectionView) -> Int {
+		return rowsColumns
+	}
+
+
+	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+		return rowsColumns
+	}
+
+	func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+		print(indexPath)
+		let item = collectionView.makeItem(withIdentifier: "LanguageCollectionViewItem", for: indexPath)
+		guard let collectionViewItem = item as? LanguageCollectionViewItem else {
+			return item
 		}
-        
-        // set a lang in segment control
-    }
-    
-    
-}
 
-extension MoreLanguagesViewController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        var rows = 1
-        while rows  < Languages.shared.languages.count {
-            rows <<= 1
-        }
-//        return Int(sqrt(Double(rows)))
-        return Languages.shared.languages.count
-        
-    }
-    
-    
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return Languages.shared.languages.count
-    }
+		let language = Languages.shared.languages[indexPath.section]
+		collectionViewItem.language = language
+		return item
+	}
+
 }
 
 
-extension MoreLanguagesViewController: NSTableViewDelegate {
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if let cell = tableView.make(withIdentifier: (tableColumn?.identifier)!, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = Languages.shared.languages[row].fullName
-            return cell
-        }
-        return nil
-    }
+extension MoreLanguagesViewController: NSCollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+//		return NSSize(width: 1000, height: 40)
+		return NSZeroSize
+	}
 }
-
-

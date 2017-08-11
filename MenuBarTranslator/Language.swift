@@ -20,8 +20,6 @@ struct Language {
     }
 }
 
-
-
 class Languages {
 	var languages: [Language] = [Language(shortName: "az", fullName: "азербайджанский"),
 		Language(shortName: "ml", fullName: "малаялам"),
@@ -148,7 +146,15 @@ class Languages {
         }
         return nil
     }
-    
+
+	func isDirectionExists(fromLanguage from: String, toLanguage to: String) -> Bool {
+		if let array = languageDirections[from] {
+			return array.contains(to)
+		}
+		return false
+	}
+
+
     func searchLanguage(byShortName shortName: String) -> String? {
         for language in languages {
             if language.shortName == shortName {

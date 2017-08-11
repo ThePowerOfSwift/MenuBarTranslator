@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A129AD591F3E7102001D8123 /* LanguageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129AD571F3E7102001D8123 /* LanguageCollectionViewItem.swift */; };
 		A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EAB481F3E3E2E00FE54E4 /* Language.swift */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A129AD571F3E7102001D8123 /* LanguageCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewItem.swift; sourceTree = "<group>"; };
 		A13EAB481F3E3E2E00FE54E4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
 				A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */,
 				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A129AD571F3E7102001D8123 /* LanguageCollectionViewItem.swift */,
 				A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */,
 				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
 				A1F06BBE1F3BD1C90012B7BD /* MoreLanguagesViewController.xib */,
@@ -196,6 +199,7 @@
 				A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */,
 				A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
+				A129AD591F3E7102001D8123 /* LanguageCollectionViewItem.swift in Sources */,
 				A1F06BBF1F3BD1C90012B7BD /* MoreLanguagesViewController.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 				A1F06BBA1F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift in Sources */,
@@ -312,12 +316,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EX9Z9UFRL5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MenuBarTranslator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-work.MenuBarTranslator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -326,12 +332,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = EX9Z9UFRL5;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MenuBarTranslator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-work.MenuBarTranslator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
