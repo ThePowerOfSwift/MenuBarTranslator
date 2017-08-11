@@ -49,14 +49,15 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     }
     
     override func controlTextDidEndEditing(_ obj: Notification) {
-        guard fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) != toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) &&  inputTextField.stringValue.characters.count != 0 else {
+        guard fromLangSegControl[fromLangSegControl.selectedSegment] != toLangSegControl[toLangSegControl.selectedSegment] &&  inputTextField.stringValue.characters.count != 0 else {
             outputTextField.stringValue = inputTextField.stringValue
             return
         }
-        if let fromLang = fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment)?.characters.split(separator: " ").map(String.init)[0],
-            let toLang = toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
-            let langDirection = "\(TranslateClient.langsMap[fromLang]!)-\(TranslateClient.langsMap[toLang]!)"
-            
+        if let fromFullLanguage = fromLangSegControl[fromLangSegControl.selectedSegment]?.characters.split(separator: " ").map(String.init)[0],
+            let toFullLanguage = toLangSegControl[toLangSegControl.selectedSegment],
+			let fromShortLanguage = Languages.shared.searchLanguage(byFullName: fromFullLanguage),
+			let toShortLanguage = Languages.shared.searchLanguage(byFullName: toFullLanguage) {
+			let langDirection = "\(fromShortLanguage)-\(toShortLanguage)"
             TranslateClient.shared.translateText(inputTextField.stringValue, byLanguageDirection: langDirection, completionHandler: { text in
                 guard let text = text else {
                     return
@@ -83,32 +84,26 @@ class TranslateViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func fromSegmentControlButton(_ sender: FromStandartLangsSegmentControl) {
-        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+        if fromLangSegControl[fromLangSegControl.selectedSegment] ==  toLangSegControl[toLangSegControl.selectedSegment] {
             toLangSegControl.selectedSegment = (toLangSegControl.selectedSegment + 1) % toLangSegControl.segmentCount
-            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "FromUpdateLang")))
         }
         guard fromLangSegControl.selectedSegment == 3 && inputTextField.stringValue.characters.count != 0 else {
             return
         }
         TranslateClient.shared.detectLanguage(byText: inputTextField.stringValue, completion: { lang in
-            guard let lang = lang else {
+            guard let lang = lang,
+				let newLabel = Languages.shared.searchLanguage(byShortName: lang) else {
+				self.fromLangSegControl[self.fromLangSegControl.selectedSegment] = "Error to detect"
                 return
             }
-            for (key, value) in TranslateClient.langsMap {
-                if value == lang {
-                    self.fromLangSegControl.setLabel("\(key) (auto)", forSegment: self.fromLangSegControl.selectedSegment)
-                    return
-                }
-            }
-            self.fromLangSegControl.setLabel("Error to detect", forSegment: self.fromLangSegControl.selectedSegment)
+			self.fromLangSegControl[self.fromLangSegControl.selectedSegment] = "\(newLabel)(auto)"
         })
         
     }
     
     @IBAction func toSegmentControlButton(_ sender: ToStandartLangsSegmentControl) {
-        if fromLangSegControl.label(forSegment: fromLangSegControl.selectedSegment) ==  toLangSegControl.label(forSegment: toLangSegControl.selectedSegment) {
+		while fromLangSegControl[fromLangSegControl.selectedSegment] ==  toLangSegControl[toLangSegControl.selectedSegment] {
             fromLangSegControl.selectedSegment = (fromLangSegControl.selectedSegment + 1) % fromLangSegControl.segmentCount
-            self.controlTextDidEndEditing(Notification(name: Notification.Name.init(rawValue: "ToUpdateLang")))
         }
     }
     

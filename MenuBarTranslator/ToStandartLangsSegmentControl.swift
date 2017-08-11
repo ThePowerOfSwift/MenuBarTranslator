@@ -20,5 +20,13 @@ class ToStandartLangsSegmentControl: NSSegmentedControl {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
-    
+
+	subscript (index: Int) -> String? {
+		get {
+			return self.label(forSegment: index)
+		}
+		set (newValue){
+			self.setLabel(newValue ?? "", forSegment: index)
+		}
+	}
 }
