@@ -133,19 +133,19 @@
                                 <rect key="frame" x="1" y="1" width="892" height="209"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Drb-qi-lTT">
-                                        <rect key="frame" x="0.0" y="25" width="892" height="194"/>
+                                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drb-qi-lTT">
+                                        <rect key="frame" x="0.0" y="25" width="892" height="209"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="152" width="872" height="22"/>
+                                            <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="111" width="872" height="90"/>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mnZ-T9-4nK">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="120" width="872" height="22"/>
+                                            <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="11" width="872" height="90"/>
                                                 <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="justified" drawsBackground="YES" id="rgG-nm-uol">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -156,10 +156,10 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="eBd-Rd-Qix" secondAttribute="trailing" constant="10" id="2im-jt-L8P"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="Drb-qi-lTT" secondAttribute="leading" constant="10" id="4KQ-Vf-CmM"/>
-                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="20" id="9Hq-9I-gwC"/>
+                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="8" id="9Hq-9I-gwC"/>
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="top" secondItem="eBd-Rd-Qix" secondAttribute="bottom" constant="10" symbolic="YES" id="HFX-p1-5Js"/>
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="height" secondItem="eBd-Rd-Qix" secondAttribute="height" id="JOH-FW-org"/>
-                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="120" id="Jah-e7-iX7"/>
+                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="11" id="Jah-e7-iX7"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="trailing" secondItem="oyL-iI-LeR" secondAttribute="trailing" id="MFh-Tn-tnW"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="oyL-iI-LeR" secondAttribute="leading" id="Zdk-Rx-2A6"/>
                                         </constraints>
@@ -167,7 +167,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Drb-qi-lTT" firstAttribute="leading" secondItem="Qgs-mo-yVP" secondAttribute="leading" id="146-ji-ttC"/>
-                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" constant="-10" id="eUD-h0-Umf"/>
+                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" id="eUD-h0-Umf"/>
                                     <constraint firstAttribute="trailing" secondItem="Drb-qi-lTT" secondAttribute="trailing" id="rtA-l4-IsC"/>
                                 </constraints>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -177,7 +177,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1k4-co-h39">
-                                <rect key="frame" x="728" y="1" width="15" height="209"/>
+                                <rect key="frame" x="878" y="1" width="15" height="209"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
@@ -203,7 +203,7 @@
                 <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>
                 <constraint firstAttribute="bottom" secondItem="0Vx-zv-lSZ" secondAttribute="bottom" id="mJ9-HQ-47T"/>
             </constraints>
-            <point key="canvasLocation" x="2095" y="-28"/>
+            <point key="canvasLocation" x="2292" y="-309"/>
         </customView>
     </objects>
     <resources>
