@@ -29,7 +29,7 @@ class TranslateViewController: NSViewController {
         
         langsPopover.behavior = NSPopoverBehavior.transient
         langsPopover.animates = true
-        langsPopover.contentViewController = MoreLanguagesViewController(nibName: "MoreLanguagesViewController", bundle: nil)
+        langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
         
     }
     

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="LanguageCollectionViewItem" customModule="MenuBarTranslator" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEN-Rg-ynf">
+                    <rect key="frame" x="0.0" y="0.0" width="170" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" drawsBackground="YES" id="cv8-vQ-7ku">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MEN-Rg-ynf" secondAttribute="bottom" id="B5L-MM-v02"/>
+                <constraint firstAttribute="trailing" secondItem="MEN-Rg-ynf" secondAttribute="trailing" id="FnN-j2-80c"/>
+                <constraint firstItem="MEN-Rg-ynf" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="H6e-m4-K9w"/>
+                <constraint firstItem="MEN-Rg-ynf" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="JM3-mS-enI"/>
+                <constraint firstItem="MEN-Rg-ynf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="zGV-Zq-DMe"/>
+            </constraints>
+            <point key="canvasLocation" x="52" y="151"/>
+        </customView>
+        <customObject id="7d8-Vr-lnn" customClass="LanguageCollectionViewItem" customModule="MenuBarTranslator" customModuleProvider="target">
+            <connections>
+                <outlet property="textField" destination="MEN-Rg-ynf" id="fje-3e-2ye"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="pch-iK-Cfp"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
