@@ -11,8 +11,8 @@ import Foundation
 
 struct Language: Equatable {
 
-	let shortName: String!
-	let fullName: String!
+	let shortName: String
+	let fullName: String
 
 	init(shortName: String, fullName: String) {
 		self.shortName = shortName
@@ -128,7 +128,6 @@ class Languages {
 	                             Language(shortName: "jv", fullName: "яванский"),
 	                             Language(shortName: "ja", fullName: "японский")]
 
-	//    var languageDirections = [String: [String]]()
 	var languageDirections = ["no": ["en", "ru"], "ca": ["en", "ru"], "cs": ["be", "en", "ru", "uk"], "sr": ["be", "ru", "uk"], "de": ["be", "en", "es", "fr", "it", "ru", "tr", "uk"], "sq": ["en", "ru"], "pl": ["be", "ru", "uk"], "lt": ["en", "ru"], "ro": ["be", "ru", "uk"], "et": ["en", "ru"], "hu": ["en", "ru"], "be": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "ru": ["az", "be", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fi", "fr", "hr", "hu", "hy", "it", "lt", "lv", "mk", "nl", "no", "pl", "pt", "ro", "sk", "sl", "sq", "sr", "sv", "tr", "uk"], "sk": ["en", "ru"], "sv": ["en", "ru"], "hy": ["ru"], "da": ["en", "ru"], "fi": ["en", "ru"], "mk": ["en", "ru"], "uk": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "el": ["en", "ru"], "en": ["be", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hu", "it", "lt", "lv", "mk", "nl", "no", "pt", "ru", "sk", "sl", "sq", "sv", "tr", "uk"], "sl": ["en", "ru"], "es": ["be", "de", "en", "ru", "uk"], "pt": ["en", "ru"], "it": ["be", "de", "en", "ru", "uk"], "tr": ["be", "de", "en", "ru", "uk"], "nl": ["en", "ru"], "hr": ["ru"], "az": ["ru"], "bg": ["be", "ru", "uk"], "lv": ["en", "ru"], "fr": ["be", "de", "en", "ru", "uk"]]
 	static var shared = Languages()
 
@@ -153,10 +152,10 @@ class Languages {
 		languages.append(language)
 	}
 
-	func searchLanguage(byFullName fullName: String) -> String? {
+	func searchLanguage(byFullName fullName: String) -> Language? {
 		for language in languages {
 			if language.fullName == fullName {
-				return language.shortName
+				return language
 			}
 		}
 		return nil
@@ -170,11 +169,11 @@ class Languages {
 	}
 
 
-	func searchLanguage(byShortName shortName: String) -> String? {
+	func searchLanguage(byShortName shortName: String) -> Language? {
 		
 		for language in languages {
 			if language.shortName == shortName {
-				return language.fullName
+				return language
 			}
 		}
 		return nil
