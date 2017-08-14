@@ -1,5 +1,5 @@
 //
-//  FromStandartLangsSegmentControl.swift
+//  LanguagesSegmentControl.swift
 //  MenuBarTranslator
 //
 //  Created by Artem Bobrov on 09.08.17.
@@ -7,25 +7,23 @@
 //
 
 import Cocoa
-@IBDesignable
-class FromStandartLangsSegmentControl: NSSegmentedControl {
-    
-    enum StandartLanguages: String {
-        case russian = "русский"
-        case english = "английский"
-        case german = "немецкий"
 
-		static let values = [russian, english, german]
-    }
+@IBDesignable
+class LanguagesSegmentControl: NSSegmentedControl {
 
 	override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-		for (idx, lang) in StandartLanguages.values.enumerated() {
-			self[idx] = lang.rawValue
-		}
     }
 
 	var queue : QueueInt!	
+
+	var values: [Language]! {
+		didSet {
+			for (idx, lang) in values.enumerated() {
+				self[idx] = lang.fullName
+			}
+		}
+	}
 
 	subscript (index: Int) -> String? {
 		get {

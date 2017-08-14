@@ -18,7 +18,16 @@ class ResizableTextField: NSTextField {
     var heightLimit: CGFloat?
     var lastSize: NSSize?
     var isEditing = false
-    
+
+	var isEmpty: Bool {
+		return self.stringValue.characters.count == 0
+	}
+
+	override func draw(_ dirtyRect: NSRect) {
+		super.draw(dirtyRect)
+		self.focusRingType = NSFocusRingType.none
+	}
+
     override func textDidBeginEditing(_ notification: Notification) {
         super.textDidBeginEditing(notification)
         isEditing = true
@@ -39,7 +48,7 @@ class ResizableTextField: NSTextField {
         var minSize: NSSize {
             var size = super.intrinsicContentSize
             size.height = minHeight ?? 0
-            if(TranslateViewController.isOutputTextFieldAlreadyHidden){
+            if(self.isEmpty){
                 size.height = size.height * 2 + 5
             }
             return size
@@ -68,7 +77,7 @@ class ResizableTextField: NSTextField {
             }
             lastSize = newSize
             
-            if(TranslateViewController.isOutputTextFieldAlreadyHidden){
+            if(self.isEmpty){
                 return minSize
             }
             return newSize

@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Language {
+struct Language: Equatable {
 
 	let shortName: String!
 	let fullName: String!
@@ -18,9 +18,22 @@ struct Language {
 		self.shortName = shortName
 		self.fullName = fullName
 	}
+
+	static func ==(lang1: Language, lang2: Language) -> Bool {
+		return lang1.fullName == lang2.fullName && lang2.shortName == lang1.shortName
+	}
 }
 
 class Languages {
+
+	static var StandartLanguages: [Language] {
+		let english = Language(shortName: "en", fullName: "английский")
+		let russian = Language(shortName: "ru", fullName: "русский")
+		let german = Language(shortName: "de", fullName: "немецкий")
+
+		return [english, russian, german]
+	}
+
 	var languages: [Language] = [Language(shortName: "az", fullName: "азербайджанский"),
 	                             Language(shortName: "sq", fullName: "албанский"),
 	                             Language(shortName: "am", fullName: "амхарский"),
@@ -125,14 +138,14 @@ class Languages {
 		guard let directions = directionsArray else {
 			return
 		}
-		for direction in directions {
-			if var array = languageDirections[direction.0] {
-				array += [direction.1]
-				languageDirections[direction.0] = array
+		directions.forEach({
+			if var array = languageDirections[$0.0] {
+				array += [$0.1]
+				languageDirections[$0.0] = array
 			} else {
-				languageDirections[direction.0] = [direction.1]
+				languageDirections[$0.0] = [$0.1]
 			}
-		}
+		})
 	}
 
 
@@ -158,6 +171,7 @@ class Languages {
 
 
 	func searchLanguage(byShortName shortName: String) -> String? {
+		
 		for language in languages {
 			if language.shortName == shortName {
 				return language.fullName

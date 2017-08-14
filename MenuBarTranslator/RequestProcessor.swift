@@ -50,15 +50,4 @@ class RequestProcessor {
         }
         task.resume()
     }
-    
-    private func bodyString(withParams params: [String: String]) -> String {
-        var body = String()
-        for pair in params {
-            body += "\(pair.key)=\(pair.value)&"
-        }
-        if(body.characters.count != 0){
-            body.characters.removeLast()
-        }
-        return body
-    }
 }

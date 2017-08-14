@@ -10,15 +10,39 @@ import Cocoa
 
 class LanguageCollectionViewItem: NSCollectionViewItem {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		isChoosen = false
+		isHighlighted = false
+	}
 
-	override var isSelected: Bool {
+	private func getToNormal () {
+		self.view.layer?.borderColor = NSColor.clear.cgColor
+		self.view.layer?.borderWidth = 0.0
+		self.view.layer?.backgroundColor = NSColor.white.cgColor
+	}
+
+	var isChoosen : Bool! {
 		didSet {
-			self.view.layer?.borderColor = isSelected ? NSColor.gray.cgColor : NSColor.clear.cgColor
-			self.view.layer?.borderWidth = isSelected ? 2.0 : 0.0
+			if isChoosen {
+				self.view.layer?.borderColor = NSColor(red:0.6, green:0.6, blue:0.6, alpha:1.00).cgColor
+				self.view.layer?.borderWidth = 0.5
+				self.view.layer?.backgroundColor = NSColor(red:0.8, green:0.8, blue:0.8, alpha:1.00).cgColor
+			} else {
+				getToNormal ()
+			}
+		}
+	}
+
+	var isHighlighted: Bool! {
+		didSet {
+			if isHighlighted && !isChoosen {
+				self.view.layer?.borderColor = NSColor.blue.cgColor
+				self.view.layer?.borderWidth = 1.0
+				self.view.layer?.backgroundColor = NSColor(red:0.93, green:0.93, blue:0.93, alpha:1.00).cgColor
+			} else if !isChoosen {
+				getToNormal ()
+			}
 		}
 	}
 
@@ -33,4 +57,6 @@ class LanguageCollectionViewItem: NSCollectionViewItem {
 
 		}
 	}
+
+
 }

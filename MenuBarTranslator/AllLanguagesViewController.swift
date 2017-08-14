@@ -10,36 +10,48 @@ import Cocoa
 
 extension CGPoint {
 	static func ~=(point: CGPoint, rect: CGRect) -> Bool {
-		return rect.origin.x...rect.origin.x + rect.size.width ~= point.x &&
-			rect.origin.y...rect.origin.y + rect.size.height ~= point.y
+		let strangeConstant: CGFloat = 30.0
+		return strangeConstant + rect.origin.x...strangeConstant + rect.origin.x + rect.width ~= point.x && rect.origin.y...rect.origin.y + rect.height ~= point.y
 	}
 }
 
 class AllLanguagesViewController: NSViewController {
 
-
-
 	@IBOutlet weak var collectionView: NSCollectionView!
+
+	var languageSegmentControl: LanguagesSegmentControl!
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		collectionView.allowsMultipleSelection = false
 		collectionView.allowsEmptySelection = false
+
 	}
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
 		self.view.window?.acceptsMouseMovedEvents = true
+		guard let items = collectionView.visibleItems() as? [LanguageCollectionViewItem] else{
+			return
+		}
+
+		items.forEach({ $0.isChoosen = languageSegmentControl.values.contains($0.language!) })
 	}
 
 	override func mouseMoved(with event: NSEvent) {
 		let eventPoint = event.locationInWindow
 		let point = self.collectionView.convert(eventPoint, to: nil)
-		let items = collectionView.visibleItems()
-		for item in items {
-			item.isSelected =  point ~= item.view.frame ? true : false
+		guard let items = collectionView.visibleItems() as? [LanguageCollectionViewItem] else{
+			return
 		}
+		items.forEach({$0.isHighlighted = point ~= $0.view.frame})
+	}
+
+	func doubleClickView(item: LanguageCollectionViewItem) {
+		print(item.language?.fullName ?? "")
 	}
 }
 
@@ -60,5 +72,24 @@ extension AllLanguagesViewController: NSCollectionViewDataSource {
 
 
 extension AllLanguagesViewController: NSCollectionViewDelegate {
+	func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+		guard indexPaths.count == 1,
+			let indexPath = indexPaths.first,
+			let item = collectionView.item(at: indexPath) as? LanguageCollectionViewItem else {
+			return
+		}
+		guard let idx = languageSegmentControl.queue.frontToTheEnd(),
+			let language = item.language,
+			let items = collectionView.visibleItems() as? [LanguageCollectionViewItem] else {
+			return
+		}
+		languageSegmentControl.values[idx] = language
 
+		items.forEach({ $0.isChoosen = languageSegmentControl.values.contains($0.language!) })
+		let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
+		if let parentController = appDelegate.popover.contentViewController as? TranslateViewController {
+			parentController.langsPopover.close()
+		}
+
+ 	}
 }

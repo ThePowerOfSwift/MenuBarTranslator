@@ -76,11 +76,10 @@ enum Yandex {
     
     private var queryComponents: [URLQueryItem] {
         var components = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.append(queryItem)
-        }
+		parameters.forEach({
+			let queryItem = URLQueryItem(name: $0, value: "\($1)")
+			components.append(queryItem)
+		})
         return components
     }
 }

@@ -44,6 +44,7 @@ class Queue <T>{
 		}
 		pop()
 		push(value)
+		print(data)
 		return value
 	}
 }

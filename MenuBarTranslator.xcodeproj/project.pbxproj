@@ -21,8 +21,7 @@
 		A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BC51F352C6800235995 /* RequestProcessor.swift */; };
 		A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */; };
 		A1EF2BE61F391B5800235995 /* TranslateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE51F391B5800235995 /* TranslateClient.swift */; };
-		A1F06BBA1F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */; };
-		A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */; };
+		A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */; };
 		A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,8 +42,7 @@
 		A1EF2BC51F352C6800235995 /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
 		A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
 		A1EF2BE51F391B5800235995 /* TranslateClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslateClient.swift; path = ../../../../../Desktop/TranslateClient.swift; sourceTree = "<group>"; };
-		A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromStandartLangsSegmentControl.swift; sourceTree = "<group>"; };
-		A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToStandartLangsSegmentControl.swift; sourceTree = "<group>"; };
+		A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagesSegmentControl.swift; sourceTree = "<group>"; };
 		A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResizableTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,9 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
-				A1F06BB91F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift */,
+				A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */,
 				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
-				A1F06BBB1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift */,
 				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
 			);
 			name = MainPopover;
@@ -220,13 +217,12 @@
 				A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */,
 				A1EF2BE61F391B5800235995 /* TranslateClient.swift in Sources */,
 				A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */,
-				A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */,
 				A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */,
 				A1E6873E1F40DF4200D65C9B /* Queue.swift in Sources */,
 				A1E6873A1F40CC2400D65C9B /* LanguageCollectionViewItem.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
-				A1F06BBA1F3BBBCE0012B7BD /* FromStandartLangsSegmentControl.swift in Sources */,
+				A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
