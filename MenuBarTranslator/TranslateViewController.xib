@@ -9,83 +9,141 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
+                <outlet property="fromLangSegControl" destination="9Py-F7-msu" id="anX-qQ-M3y"/>
                 <outlet property="inputTextField" destination="eBd-Rd-Qix" id="Esb-ge-8bd"/>
                 <outlet property="outputTextField" destination="oyL-iI-LeR" id="dzQ-qV-Lvk"/>
+                <outlet property="toLangSegControl" destination="xqr-oj-V08" id="Dfu-qe-fCB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="576" height="263"/>
+            <rect key="frame" x="0.0" y="0.0" width="894" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vx-zv-lSZ">
-                    <rect key="frame" x="0.0" y="-8" width="593" height="271"/>
+                    <rect key="frame" x="0.0" y="0.0" width="894" height="272"/>
                     <subviews>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="yp2-N5-UpG">
-                            <rect key="frame" x="0.0" y="210" width="576" height="61"/>
+                            <rect key="frame" x="0.0" y="211" width="894" height="61"/>
                             <subviews>
-                                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VvO-bu-u3I">
-                                    <rect key="frame" x="18" y="18" width="146" height="24"/>
-                                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="eOn-VZ-r4b">
-                                        <font key="font" metaFont="system"/>
-                                        <segments>
-                                            <segment label="AUTO" width="46" selected="YES"/>
-                                            <segment label="EN" width="46" tag="1"/>
-                                            <segment label="RU" imageScaling="proportionallyUpOrDown" width="46"/>
-                                        </segments>
-                                    </segmentedCell>
-                                </segmentedControl>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bcD-9U-zya">
-                                    <rect key="frame" x="252" y="13" width="73" height="32"/>
+                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgI-Xt-0yc">
+                                    <rect key="frame" x="10" y="20" width="395" height="21"/>
+                                    <subviews>
+                                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Py-F7-msu" customClass="LanguagesSegmentControl" customModule="MenuBarTranslator" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="-2" width="378" height="24"/>
+                                            <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" refusesFirstResponder="YES" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="WY9-RA-3TR">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="английский" imageScaling="proportionallyUpOrDown" selected="YES"/>
+                                                    <segment label="русский" tag="1"/>
+                                                    <segment label="немецкий"/>
+                                                    <segment label="Detect language"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="fromSegmentControlButton:" target="-2" id="kEP-2p-CDZ"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Z4-Sh3">
+                                            <rect key="frame" x="370" y="-3" width="29" height="26"/>
+                                            <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:0EP-Ak-MHF:image" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="0EP-Ak-MHF">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="allFromLanguagesButtonClicked:" target="-2" id="Ohz-mC-Scy"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XB-s2-Sk7">
+                                    <rect key="frame" x="610" y="20" width="274" height="21"/>
+                                    <subviews>
+                                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-oj-V08" customClass="LanguagesSegmentControl" customModule="MenuBarTranslator" customModuleProvider="target">
+                                            <rect key="frame" x="-2" y="-2" width="257" height="24"/>
+                                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="L2h-GK-WF4">
+                                                <font key="font" metaFont="system"/>
+                                                <segments>
+                                                    <segment label="английский"/>
+                                                    <segment label="русский" imageScaling="proportionallyUpOrDown" selected="YES" tag="1"/>
+                                                    <segment label="немецкий"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="toSegmentControlButton:" target="-2" id="Z4r-uK-3tO"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5JL-y2-vLn">
+                                            <rect key="frame" x="249" y="-3" width="29" height="26"/>
+                                            <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:6Hf-bD-liF:image" imagePosition="only" borderStyle="border" inset="2" id="6Hf-bD-liF">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="allToLanguagesButtonClicked:" target="-2" id="usp-Yn-xhJ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcD-9U-zya">
+                                    <rect key="frame" x="411" y="13" width="73" height="32"/>
                                     <buttonCell key="cell" type="push" title="Swap" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbh-1j-tEl">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="swapButtonClicked:" target="-2" id="0LJ-cf-2No"/>
+                                    </connections>
                                 </button>
-                                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-oj-V08">
-                                    <rect key="frame" x="487" y="18" width="71" height="24"/>
-                                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="L2h-GK-WF4">
-                                        <font key="font" metaFont="system"/>
-                                        <segments>
-                                            <segment label="RU" width="32" selected="YES"/>
-                                            <segment label="EN" imageScaling="proportionallyUpOrDown" width="32" tag="1"/>
-                                        </segments>
-                                    </segmentedCell>
-                                </segmentedControl>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="xqr-oj-V08" secondAttribute="trailing" constant="20" symbolic="YES" id="5sF-MZ-fsj"/>
-                                <constraint firstAttribute="bottom" secondItem="VvO-bu-u3I" secondAttribute="bottom" constant="20" symbolic="YES" id="WgU-cH-05Z"/>
-                                <constraint firstItem="bcD-9U-zya" firstAttribute="baseline" secondItem="xqr-oj-V08" secondAttribute="baseline" id="YZB-A5-jIG"/>
-                                <constraint firstItem="bcD-9U-zya" firstAttribute="centerX" secondItem="yp2-N5-UpG" secondAttribute="centerX" id="bI1-cJ-YTe"/>
-                                <constraint firstItem="VvO-bu-u3I" firstAttribute="leading" secondItem="yp2-N5-UpG" secondAttribute="leading" constant="20" symbolic="YES" id="bXT-WM-kdH"/>
-                                <constraint firstItem="VvO-bu-u3I" firstAttribute="top" secondItem="yp2-N5-UpG" secondAttribute="top" constant="20" symbolic="YES" id="fYb-F7-8bO"/>
-                                <constraint firstItem="VvO-bu-u3I" firstAttribute="baseline" secondItem="bcD-9U-zya" secondAttribute="baseline" id="oMn-hA-9aP"/>
-                                <constraint firstItem="bcD-9U-zya" firstAttribute="leading" secondItem="VvO-bu-u3I" secondAttribute="trailing" constant="96" id="tBE-ZZ-F6T"/>
+                                <constraint firstItem="bcD-9U-zya" firstAttribute="top" secondItem="yp2-N5-UpG" secondAttribute="top" constant="20" id="7Ij-vm-GbK"/>
+                                <constraint firstItem="lgI-Xt-0yc" firstAttribute="leading" secondItem="yp2-N5-UpG" secondAttribute="leading" constant="10" id="K6L-FJ-GKB"/>
+                                <constraint firstItem="lgI-Xt-0yc" firstAttribute="centerY" secondItem="yp2-N5-UpG" secondAttribute="centerY" id="Tc5-Xl-dwe"/>
+                                <constraint firstItem="bcD-9U-zya" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cQB-Z4-Sh3" secondAttribute="trailing" constant="5" id="UVh-kP-vDw"/>
+                                <constraint firstAttribute="trailing" secondItem="2XB-s2-Sk7" secondAttribute="trailing" constant="10" id="g9p-xE-jET"/>
+                                <constraint firstAttribute="bottom" secondItem="bcD-9U-zya" secondAttribute="bottom" constant="20" id="iiw-mh-gfb"/>
+                                <constraint firstItem="2XB-s2-Sk7" firstAttribute="centerY" secondItem="yp2-N5-UpG" secondAttribute="centerY" id="meG-Ep-kxm"/>
                             </constraints>
                         </customView>
-                        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-nN-XqN">
-                            <rect key="frame" x="0.0" y="0.0" width="593" height="210"/>
+                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-nN-XqN">
+                            <rect key="frame" x="0.0" y="0.0" width="894" height="211"/>
                             <clipView key="contentView" id="Qgs-mo-yVP">
-                                <rect key="frame" x="1" y="1" width="576" height="193"/>
+                                <rect key="frame" x="1" y="1" width="892" height="209"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Drb-qi-lTT">
-                                        <rect key="frame" x="0.0" y="0.0" width="576" height="194"/>
+                                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drb-qi-lTT">
+                                        <rect key="frame" x="0.0" y="25" width="892" height="209"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="152" width="536" height="22"/>
+                                            <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-Rd-Qix" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="111" width="872" height="90"/>
                                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="mnZ-T9-4nK">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="120" width="536" height="22"/>
-                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="justified" drawsBackground="YES" id="rgG-nm-uol">
+                                            <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyL-iI-LeR" customClass="ResizableTextField" customModule="MenuBarTranslator" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="11" width="872" height="90"/>
+                                                <textFieldCell key="cell" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="justified" drawsBackground="YES" id="rgG-nm-uol">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -93,34 +151,39 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="eBd-Rd-Qix" secondAttribute="trailing" constant="20" symbolic="YES" id="2im-jt-L8P"/>
-                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="Drb-qi-lTT" secondAttribute="leading" constant="20" symbolic="YES" id="4KQ-Vf-CmM"/>
-                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="20" id="9Hq-9I-gwC"/>
+                                            <constraint firstAttribute="trailing" secondItem="eBd-Rd-Qix" secondAttribute="trailing" constant="10" id="2im-jt-L8P"/>
+                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="Drb-qi-lTT" secondAttribute="leading" constant="10" id="4KQ-Vf-CmM"/>
+                                            <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="8" id="9Hq-9I-gwC"/>
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="top" secondItem="eBd-Rd-Qix" secondAttribute="bottom" constant="10" symbolic="YES" id="HFX-p1-5Js"/>
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="height" secondItem="eBd-Rd-Qix" secondAttribute="height" id="JOH-FW-org"/>
+                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="11" id="Jah-e7-iX7"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="trailing" secondItem="oyL-iI-LeR" secondAttribute="trailing" id="MFh-Tn-tnW"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="oyL-iI-LeR" secondAttribute="leading" id="Zdk-Rx-2A6"/>
-                                            <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="120" id="ty8-Ze-tx0"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Drb-qi-lTT" firstAttribute="leading" secondItem="Qgs-mo-yVP" secondAttribute="leading" id="146-ji-ttC"/>
-                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" constant="-1" id="eUD-h0-Umf"/>
+                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" id="eUD-h0-Umf"/>
                                     <constraint firstAttribute="trailing" secondItem="Drb-qi-lTT" secondAttribute="trailing" id="rtA-l4-IsC"/>
                                 </constraints>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </clipView>
-                            <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="wIU-kj-yNe">
-                                <rect key="frame" x="1" y="194" width="576" height="15"/>
+                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wIU-kj-yNe">
+                                <rect key="frame" x="-100" y="-100" width="727" height="15"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
-                            <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="1k4-co-h39">
-                                <rect key="frame" x="577" y="1" width="15" height="193"/>
+                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1k4-co-h39">
+                                <rect key="frame" x="878" y="1" width="15" height="209"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="vyA-nN-XqN" firstAttribute="leading" secondItem="yp2-N5-UpG" secondAttribute="leading" id="1i5-9D-N0v"/>
+                        <constraint firstItem="vyA-nN-XqN" firstAttribute="trailing" secondItem="yp2-N5-UpG" secondAttribute="trailing" id="pI9-al-YgW"/>
+                        <constraint firstAttribute="trailing" secondItem="vyA-nN-XqN" secondAttribute="trailing" id="xUh-Dn-AWe"/>
+                    </constraints>
                     <visibilityPriorities>
                         <real value="1000"/>
                         <integer value="1000"/>
@@ -134,10 +197,114 @@
             <constraints>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="1Kh-bS-Pbm"/>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZBE-7U-flI"/>
-                <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" constant="-17" id="jm8-rI-tKT"/>
-                <constraint firstAttribute="bottom" secondItem="0Vx-zv-lSZ" secondAttribute="bottom" constant="-8" id="mJ9-HQ-47T"/>
+                <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>
+                <constraint firstAttribute="bottom" secondItem="0Vx-zv-lSZ" secondAttribute="bottom" id="mJ9-HQ-47T"/>
             </constraints>
-            <point key="canvasLocation" x="178" y="-11.5"/>
+            <point key="canvasLocation" x="2115" y="-332"/>
         </customView>
     </objects>
+    <resources>
+        <image name="buttonCell:0EP-Ak-MHF:image" width="1" height="1">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUKGh2iGxyA
+BYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxEIrE1NACoAAAAKAAAADgEAAAMA
+AAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEAAAERAAQA
+AAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAIAAAEWAAMAAAABAAEAAAEXAAQAAAABAAAAAgEcAAMA
+AAABAAEAAAFSAAMAAAABAAEAAAFTAAMAAAACAAEAAYdzAAcAAAf0AAAAuAAAAAAAAAf0YXBwbAIgAABt
+bnRyR1JBWVhZWiAH0AACAA4ADAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+AQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVk
+ZXNjAAAAwAAAAG9kc2NtAAABMAAABmZjcHJ0AAAHmAAAADh3dHB0AAAH0AAAABRrVFJDAAAH5AAAAA5k
+ZXNjAAAAAAAAABVHZW5lcmljIEdyYXkgUHJvZmlsZQAAAAAAAAAAAAAAFUdlbmVyaWMgR3JheSBQcm9m
+aWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAA
+AAAfAAAADHNrU0sAAAAqAAABhGVuVVMAAAAoAAABrmNhRVMAAAAsAAAB1nZpVk4AAAAsAAACAnB0QlIA
+AAAqAAACLnVrVUEAAAAsAAACWGZyRlUAAAAqAAAChGh1SFUAAAAuAAACrnpoVFcAAAAQAAAC3G5iTk8A
+AAAsAAAC7GtvS1IAAAAYAAADGGNzQ1oAAAAkAAADMGhlSUwAAAAgAAADVHJvUk8AAAAkAAADdGRlREUA
+AAA6AAADmGl0SVQAAAAuAAAD0nN2U0UAAAAuAAAEAHpoQ04AAAAQAAAELmphSlAAAAAWAAAEPmVsR1IA
+AAAkAAAEVHB0UE8AAAA4AAAEeG5sTkwAAAAqAAAEsGVzRVMAAAAoAAAE2nRoVEgAAAAkAAAFAnRyVFIA
+AAAiAAAFJmZpRkkAAAAsAAAFSGhySFIAAAA6AAAFdHBsUEwAAAA2AAAFrnJ1UlUAAAAmAAAF5GFyRUcA
+AAAoAAAGCmRhREsAAAA0AAAGMgBWAWEAZQBvAGIAZQBjAG4A/QAgAHMAaQB2AP0AIABwAHIAbwBmAGkA
+bABHAGUAbgBlAHIAaQBjACAARwByAGEAeQAgAFAAcgBvAGYAaQBsAGUAUABlAHIAZgBpAGwAIABkAGUA
+IABnAHIAaQBzACAAZwBlAG4A6AByAGkAYwBDHqUAdQAgAGgA7ABuAGgAIABNAOAAdQAgAHgA4QBtACAA
+QwBoAHUAbgBnAFAAZQByAGYAaQBsACAAQwBpAG4AegBhACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAE
+OwRMBD0EOAQ5ACAEPwRABD4ERAQwBDkEOwAgAEcAcgBhAHkAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIA
+aQBxAHUAZQAgAGcAcgBpAHMAwQBsAHQAYQBsAOEAbgBvAHMAIABzAHoA/AByAGsAZQAgAHAAcgBvAGYA
+aQBskBp1KHBwlo6Ccl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QB0AG8AbgBlAHAAcgBvAGYA
+aQBsx3y8GAAgAEcAcgBhAHkAINUEuFzTDMd8AE8AYgBlAGMAbgD9ACABYQBlAGQA/QAgAHAAcgBvAGYA
+aQBsBeQF6AXVBeQF2QXcACAARwByAGEAeQAgBdsF3AXcBdkAUAByAG8AZgBpAGwAIABnAHIAaQAgAGcA
+ZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAARwByAGEAdQBzAHQAdQBmAGUAbgAtAFAA
+cgBvAGYAaQBsAFAAcgBvAGYAaQBsAG8AIABnAHIAaQBnAGkAbwAgAGcAZQBuAGUAcgBpAGMAbwBHAGUA
+bgBlAHIAaQBzAGsAIABnAHIA5QBzAGsAYQBsAGUAcAByAG8AZgBpAGxmbpAacHBepmPPj/Blh072TgCC
+LDCwMOwwpDDXMO0w1TChMKQw6wOTA7UDvQO5A7oDzAAgA8ADwQO/A8YDrwO7ACADswO6A8EDuQBQAGUA
+cgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQAZQAgAGMAaQBuAHoAZQBuAHQAbwBzAEEAbABnAGUA
+bQBlAGUAbgAgAGcAcgBpAGoAcwBwAHIAbwBmAGkAZQBsAFAAZQByAGYAaQBsACAAZwByAGkAcwAgAGcA
+ZQBuAOkAcgBpAGMAbw5CDhsOIw5EDh8OJQ5MDioONQ5ADhcOMg4XDjEOSA4nDkQOGwBHAGUAbgBlAGwA
+IABHAHIAaQAgAFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAGgAYQByAG0AYQBhAHAAcgBvAGYA
+aQBpAGwAaQBHAGUAbgBlAHIAaQENAGsAaQAgAHAAcgBvAGYAaQBsACAAcwBpAHYAaQBoACAAdABvAG4A
+bwB2AGEAVQBuAGkAdwBlAHIAcwBhAGwAbgB5ACAAcAByAG8AZgBpAGwAIABzAHoAYQByAG8BWwBjAGkE
+HgQxBEkEOAQ5ACAEQQQ1BEAESwQ5ACAEPwRABD4ERAQ4BDsETAZFBkQGQQAgBioGOQYxBkoGQQAgAEcA
+cgBhAHkAIAYnBkQGOQYnBkUARwBlAG4AZQByAGUAbAAgAGcAcgDlAHQAbwBuAGUAYgBlAHMAawByAGkA
+dgBlAGwAcwBlAAB0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVz
+ZXJ2ZWQuAFhZWiAAAAAAAADzUQABAAAAARbMY3VydgAAAAAAAAABAc0AANIlJicoWiRjbGFzc25hbWVY
+JGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycpKlpOU0ltYWdlUmVwWE5TT2JqZWN00iUmLC1XTlNB
+cnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8sKtMyMwo0NTZXTlNXaGl0ZVxOU0NvbG9yU3BhY2VE
+MCAwABADgAzSJSY4OVdOU0NvbG9yojgq0iUmOzxXTlNJbWFnZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/
+QFRyb290gAEACAARABoAIwAtADIANwBGAEwAVwBeAGUAcgB5AIEAgwCFAIoAjACOAJUAmgClAKcAqQCr
+ALAAswC1ALcAuQC7AMAA1wDZANsJiwmQCZsJpAm3CbsJxgnPCdQJ3AnfCeQJ8wn3Cf4KBgoTChgKGgoc
+CiEKKQosCjEKOQo8Ck4KUQpWAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAClg
+</mutableData>
+        </image>
+        <image name="buttonCell:6Hf-bD-liF:image" width="1" height="1">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwwAAgAOAC1Z7MSwgMX3SFQoWGFpOUy5vYmplY3RzoReABIAK0hUKGh2iGxyA
+BYAGgAkQANIgCiEiXxAUTlNUSUZGUmVwcmVzZW50YXRpb26AB4AITxEIrE1NACoAAAAKAAAADgEAAAMA
+AAABAAEAAAEBAAMAAAABAAEAAAECAAMAAAACAAgACAEDAAMAAAABAAEAAAEGAAMAAAABAAEAAAERAAQA
+AAABAAAACAESAAMAAAABAAEAAAEVAAMAAAABAAIAAAEWAAMAAAABAAEAAAEXAAQAAAABAAAAAgEcAAMA
+AAABAAEAAAFSAAMAAAABAAEAAAFTAAMAAAACAAEAAYdzAAcAAAf0AAAAuAAAAAAAAAf0YXBwbAIgAABt
+bnRyR1JBWVhZWiAH0AACAA4ADAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+AQAAAADTLWFwcGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVk
+ZXNjAAAAwAAAAG9kc2NtAAABMAAABmZjcHJ0AAAHmAAAADh3dHB0AAAH0AAAABRrVFJDAAAH5AAAAA5k
+ZXNjAAAAAAAAABVHZW5lcmljIEdyYXkgUHJvZmlsZQAAAAAAAAAAAAAAFUdlbmVyaWMgR3JheSBQcm9m
+aWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbWx1YwAAAAAA
+AAAfAAAADHNrU0sAAAAqAAABhGVuVVMAAAAoAAABrmNhRVMAAAAsAAAB1nZpVk4AAAAsAAACAnB0QlIA
+AAAqAAACLnVrVUEAAAAsAAACWGZyRlUAAAAqAAAChGh1SFUAAAAuAAACrnpoVFcAAAAQAAAC3G5iTk8A
+AAAsAAAC7GtvS1IAAAAYAAADGGNzQ1oAAAAkAAADMGhlSUwAAAAgAAADVHJvUk8AAAAkAAADdGRlREUA
+AAA6AAADmGl0SVQAAAAuAAAD0nN2U0UAAAAuAAAEAHpoQ04AAAAQAAAELmphSlAAAAAWAAAEPmVsR1IA
+AAAkAAAEVHB0UE8AAAA4AAAEeG5sTkwAAAAqAAAEsGVzRVMAAAAoAAAE2nRoVEgAAAAkAAAFAnRyVFIA
+AAAiAAAFJmZpRkkAAAAsAAAFSGhySFIAAAA6AAAFdHBsUEwAAAA2AAAFrnJ1UlUAAAAmAAAF5GFyRUcA
+AAAoAAAGCmRhREsAAAA0AAAGMgBWAWEAZQBvAGIAZQBjAG4A/QAgAHMAaQB2AP0AIABwAHIAbwBmAGkA
+bABHAGUAbgBlAHIAaQBjACAARwByAGEAeQAgAFAAcgBvAGYAaQBsAGUAUABlAHIAZgBpAGwAIABkAGUA
+IABnAHIAaQBzACAAZwBlAG4A6AByAGkAYwBDHqUAdQAgAGgA7ABuAGgAIABNAOAAdQAgAHgA4QBtACAA
+QwBoAHUAbgBnAFAAZQByAGYAaQBsACAAQwBpAG4AegBhACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAE
+OwRMBD0EOAQ5ACAEPwRABD4ERAQwBDkEOwAgAEcAcgBhAHkAUAByAG8AZgBpAGwAIABnAOkAbgDpAHIA
+aQBxAHUAZQAgAGcAcgBpAHMAwQBsAHQAYQBsAOEAbgBvAHMAIABzAHoA/AByAGsAZQAgAHAAcgBvAGYA
+aQBskBp1KHBwlo6Ccl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QB0AG8AbgBlAHAAcgBvAGYA
+aQBsx3y8GAAgAEcAcgBhAHkAINUEuFzTDMd8AE8AYgBlAGMAbgD9ACABYQBlAGQA/QAgAHAAcgBvAGYA
+aQBsBeQF6AXVBeQF2QXcACAARwByAGEAeQAgBdsF3AXcBdkAUAByAG8AZgBpAGwAIABnAHIAaQAgAGcA
+ZQBuAGUAcgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAARwByAGEAdQBzAHQAdQBmAGUAbgAtAFAA
+cgBvAGYAaQBsAFAAcgBvAGYAaQBsAG8AIABnAHIAaQBnAGkAbwAgAGcAZQBuAGUAcgBpAGMAbwBHAGUA
+bgBlAHIAaQBzAGsAIABnAHIA5QBzAGsAYQBsAGUAcAByAG8AZgBpAGxmbpAacHBepmPPj/Blh072TgCC
+LDCwMOwwpDDXMO0w1TChMKQw6wOTA7UDvQO5A7oDzAAgA8ADwQO/A8YDrwO7ACADswO6A8EDuQBQAGUA
+cgBmAGkAbAAgAGcAZQBuAOkAcgBpAGMAbwAgAGQAZQAgAGMAaQBuAHoAZQBuAHQAbwBzAEEAbABnAGUA
+bQBlAGUAbgAgAGcAcgBpAGoAcwBwAHIAbwBmAGkAZQBsAFAAZQByAGYAaQBsACAAZwByAGkAcwAgAGcA
+ZQBuAOkAcgBpAGMAbw5CDhsOIw5EDh8OJQ5MDioONQ5ADhcOMg4XDjEOSA4nDkQOGwBHAGUAbgBlAGwA
+IABHAHIAaQAgAFAAcgBvAGYAaQBsAGkAWQBsAGUAaQBuAGUAbgAgAGgAYQByAG0AYQBhAHAAcgBvAGYA
+aQBpAGwAaQBHAGUAbgBlAHIAaQENAGsAaQAgAHAAcgBvAGYAaQBsACAAcwBpAHYAaQBoACAAdABvAG4A
+bwB2AGEAVQBuAGkAdwBlAHIAcwBhAGwAbgB5ACAAcAByAG8AZgBpAGwAIABzAHoAYQByAG8BWwBjAGkE
+HgQxBEkEOAQ5ACAEQQQ1BEAESwQ5ACAEPwRABD4ERAQ4BDsETAZFBkQGQQAgBioGOQYxBkoGQQAgAEcA
+cgBhAHkAIAYnBkQGOQYnBkUARwBlAG4AZQByAGUAbAAgAGcAcgDlAHQAbwBuAGUAYgBlAHMAawByAGkA
+dgBlAGwAcwBlAAB0ZXh0AAAAAENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVz
+ZXJ2ZWQuAFhZWiAAAAAAAADzUQABAAAAARbMY3VydgAAAAAAAAABAc0AANIlJicoWiRjbGFzc25hbWVY
+JGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycpKlpOU0ltYWdlUmVwWE5TT2JqZWN00iUmLC1XTlNB
+cnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8sKtMyMwo0NTZXTlNXaGl0ZVxOU0NvbG9yU3BhY2VE
+MCAwABADgAzSJSY4OVdOU0NvbG9yojgq0iUmOzxXTlNJbWFnZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/
+QFRyb290gAEACAARABoAIwAtADIANwBGAEwAVwBeAGUAcgB5AIEAgwCFAIoAjACOAJUAmgClAKcAqQCr
+ALAAswC1ALcAuQC7AMAA1wDZANsJiwmQCZsJpAm3CbsJxgnPCdQJ3AnfCeQJ8wn3Cf4KBgoTChgKGgoc
+CiEKKQosCjEKOQo8Ck4KUQpWAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAAClg
+</mutableData>
+        </image>
+    </resources>
 </document>

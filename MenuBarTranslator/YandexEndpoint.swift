@@ -8,10 +8,12 @@
 
 import Foundation
 
-enum YandexEndpoint {
+enum Yandex {
     case translate(text: String, lang: String)
     
     case languages
+    
+    case detectLanguage(text: String)
     
     var request: URLRequest {
         var components = URLComponents(string: baseUrl)!
@@ -36,6 +38,8 @@ enum YandexEndpoint {
                 return "/translate"
             case .languages:
                 return "/getLangs"
+            case .detectLanguage:
+                return "/detect"
         }
     }
     
@@ -61,16 +65,21 @@ enum YandexEndpoint {
                     ParameterKeys.key: keyAPI
                 ]
                 return parameters
+            case .detectLanguage(let text):
+                let parameters: [String : Any] = [
+                    ParameterKeys.key: keyAPI,
+                    ParameterKeys.text: text
+                ]
+                return parameters
         }
     }
     
     private var queryComponents: [URLQueryItem] {
         var components = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.append(queryItem)
-        }
+		parameters.forEach({
+			let queryItem = URLQueryItem(name: $0, value: "\($1)")
+			components.append(queryItem)
+		})
         return components
     }
 }
