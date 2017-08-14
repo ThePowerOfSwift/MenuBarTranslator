@@ -12,8 +12,8 @@ class LanguageCollectionViewItem: NSCollectionViewItem {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+	
 
 	override var isSelected: Bool {
 		didSet {

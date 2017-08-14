@@ -17,6 +17,7 @@
 		A1E687371F40CB8F00D65C9B /* AllLanguagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E687351F40CB8F00D65C9B /* AllLanguagesViewController.xib */; };
 		A1E6873A1F40CC2400D65C9B /* LanguageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E687381F40CC2400D65C9B /* LanguageCollectionViewItem.swift */; };
 		A1E6873B1F40CC2400D65C9B /* LanguageCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E687391F40CC2400D65C9B /* LanguageCollectionViewItem.xib */; };
+		A1E6873E1F40DF4200D65C9B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E6873D1F40DF4200D65C9B /* Queue.swift */; };
 		A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BC51F352C6800235995 /* RequestProcessor.swift */; };
 		A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */; };
 		A1EF2BE61F391B5800235995 /* TranslateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EF2BE51F391B5800235995 /* TranslateClient.swift */; };
@@ -38,6 +39,7 @@
 		A1E687351F40CB8F00D65C9B /* AllLanguagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllLanguagesViewController.xib; sourceTree = "<group>"; };
 		A1E687381F40CC2400D65C9B /* LanguageCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewItem.swift; sourceTree = "<group>"; };
 		A1E687391F40CC2400D65C9B /* LanguageCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageCollectionViewItem.xib; sourceTree = "<group>"; };
+		A1E6873D1F40DF4200D65C9B /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		A1EF2BC51F352C6800235995 /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
 		A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
 		A1EF2BE51F391B5800235995 /* TranslateClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslateClient.swift; path = ../../../../../Desktop/TranslateClient.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */,
 				A1EF2BE51F391B5800235995 /* TranslateClient.swift */,
 				A13EAB481F3E3E2E00FE54E4 /* Language.swift */,
+				A1E6873D1F40DF4200D65C9B /* Queue.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */,
 				A1F06BBC1F3BC5D50012B7BD /* ToStandartLangsSegmentControl.swift in Sources */,
 				A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */,
+				A1E6873E1F40DF4200D65C9B /* Queue.swift in Sources */,
 				A1E6873A1F40CC2400D65C9B /* LanguageCollectionViewItem.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,

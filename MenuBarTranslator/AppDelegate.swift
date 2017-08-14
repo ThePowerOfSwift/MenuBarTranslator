@@ -8,6 +8,7 @@
 
 import Cocoa
 
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -27,11 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-//        TranslateClient.shared.languageDirections(completion: { directions in
-//            Languages.shared.setLanguageDirections(directionsArray: directions)
-//        })
     }
-    
     func applicationWillTerminate(_ aNotification: Notification) {
     }
     

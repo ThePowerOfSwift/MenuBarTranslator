@@ -21,7 +21,6 @@ class ResizableTextField: NSTextField {
     
     override func textDidBeginEditing(_ notification: Notification) {
         super.textDidBeginEditing(notification)
-        
         isEditing = true
     }
     
@@ -36,6 +35,7 @@ class ResizableTextField: NSTextField {
     }
     
     override var intrinsicContentSize: NSSize {
+
         var minSize: NSSize {
             var size = super.intrinsicContentSize
             size.height = minHeight ?? 0

@@ -15,13 +15,20 @@ class ToStandartLangsSegmentControl: NSSegmentedControl {
         case russian = "русский"
         case english = "английский"
         case german = "немецкий"
-    }
-    
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
+		static let values = [russian, english, german]
+	}
 
-	subscript (index: Int) -> String? {
+
+	override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+		for (idx, lang) in StandartLanguages.values.enumerated() {
+			self[idx] = lang.rawValue
+		}
+    }
+	var queue : QueueInt!
+
+
+	subscript(index: Int) -> String? {
 		get {
 			return self.label(forSegment: index)
 		}

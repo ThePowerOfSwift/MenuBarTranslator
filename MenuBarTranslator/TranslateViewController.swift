@@ -21,23 +21,22 @@ class TranslateViewController: NSViewController {
     
     let langsPopover = NSPopover()
     static var isOutputTextFieldAlreadyHidden: Bool = true
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.delegate = self
         outputTextField.isHidden = true
-        
+		inputTextField.isHighlighted = false
+		outputTextField.isHighlighted = false
+
+		fromLangSegControl.queue = QueueInt(withInterval: 0..<fromLangSegControl.segmentCount)
+		toLangSegControl.queue = QueueInt(withInterval: 0..<fromLangSegControl.segmentCount)
+
         langsPopover.behavior = NSPopoverBehavior.transient
         langsPopover.animates = true
         langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
-        
+		langsPopover.contentViewController?.view.acceptsTouchEvents = true
     }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-		NSApplication.shared().activate(ignoringOtherApps: true)
-    }
-
     
     @IBAction func swapButtonClicked(_ sender: NSButton) {
         let fromSelected = fromLangSegControl.selectedSegment
