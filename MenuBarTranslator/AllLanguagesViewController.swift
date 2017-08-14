@@ -49,10 +49,6 @@ class AllLanguagesViewController: NSViewController {
 		}
 		items.forEach({$0.isHighlighted = point ~= $0.view.frame})
 	}
-
-	func doubleClickView(item: LanguageCollectionViewItem) {
-		print(item.language?.fullName ?? "")
-	}
 }
 
 extension AllLanguagesViewController: NSCollectionViewDataSource {
@@ -86,6 +82,7 @@ extension AllLanguagesViewController: NSCollectionViewDelegate {
 		languageSegmentControl.values[idx] = language
 
 		items.forEach({ $0.isChoosen = languageSegmentControl.values.contains($0.language!) })
+		languageSegmentControl.selectedSegment = idx
 		let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
 		if let parentController = appDelegate.popover.contentViewController as? TranslateViewController {
 			parentController.langsPopover.close()

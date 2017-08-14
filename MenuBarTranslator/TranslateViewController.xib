@@ -46,9 +46,9 @@
                                                 <action selector="fromSegmentControlButton:" target="-2" id="kEP-2p-CDZ"/>
                                             </connections>
                                         </segmentedControl>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Z4-Sh3">
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Z4-Sh3" customClass="AllLanguagesButton" customModule="MenuBarTranslator" customModuleProvider="target">
                                             <rect key="frame" x="370" y="-3" width="29" height="26"/>
-                                            <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:0EP-Ak-MHF:image" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="0EP-Ak-MHF">
+                                            <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:0EP-Ak-MHF:image" imagePosition="overlaps" alignment="center" borderStyle="border" inset="2" id="0EP-Ak-MHF">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -83,7 +83,7 @@
                                                 <action selector="toSegmentControlButton:" target="-2" id="Z4r-uK-3tO"/>
                                             </connections>
                                         </segmentedControl>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5JL-y2-vLn">
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5JL-y2-vLn" customClass="AllLanguagesButton" customModule="MenuBarTranslator" customModuleProvider="target">
                                             <rect key="frame" x="249" y="-3" width="29" height="26"/>
                                             <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="buttonCell:6Hf-bD-liF:image" imagePosition="only" borderStyle="border" inset="2" id="6Hf-bD-liF">
                                                 <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
