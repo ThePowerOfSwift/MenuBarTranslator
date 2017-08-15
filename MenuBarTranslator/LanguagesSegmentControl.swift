@@ -11,6 +11,14 @@ import Cocoa
 @IBDesignable
 class LanguagesSegmentControl: NSSegmentedControl {
 
+
+	enum SegmentConstrols: Int {
+		case first = 0
+		case second = 1
+		case third = 2
+		case detect = 3
+	}
+
 	override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
@@ -35,12 +43,20 @@ class LanguagesSegmentControl: NSSegmentedControl {
 		}
 	}
 
-	subscript (index: Int) -> Language {
+	subscript (index: Int) -> Language? {
 		get {
-			return self.values[index]
+			if index == SegmentConstrols.detect.rawValue {
+				return detectedLanguage
+			}
+			return self.values[index] as Language?
 		}
 		set (newValue) {
-			self.values[index] = newValue
+			if index == SegmentConstrols.detect.rawValue {
+				self.detectedLanguage = newValue
+			}
+			if let value = newValue {
+				self.values[index] = value
+			}
 		}
 	}
 }

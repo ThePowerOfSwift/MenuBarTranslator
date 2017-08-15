@@ -65,11 +65,9 @@ class TranslateViewController: NSViewController {
 		controller.languageSegmentControl = fromLangSegControl
 		langsPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
 	}
+
 	@IBAction func fromSegmentControlButton(_ sender: LanguagesSegmentControl) {
-		if fromLangSegControl.selectedSegment != fromLangSegControl.segmentCount - 1 && fromLangSegControl[fromLangSegControl.selectedSegment] ==  toLangSegControl[toLangSegControl.selectedSegment] {
-			toLangSegControl.selectedSegment = (toLangSegControl.selectedSegment + 1) % toLangSegControl.segmentCount
-		}
-		guard fromLangSegControl.selectedSegment == fromLangSegControl.segmentCount - 1 && !inputTextField.isEmpty else {
+		guard !inputTextField.isEmpty else {
 			return
 		}
 		TranslateClient.shared.detectLanguage(byText: inputTextField.stringValue, completion: { lang in
@@ -80,13 +78,12 @@ class TranslateViewController: NSViewController {
 			}
 			self.fromLangSegControl.detectedLanguage = newLanguage
 		})
-
 	}
 
+
+
 	@IBAction func toSegmentControlButton(_ sender: LanguagesSegmentControl) {
-		while fromLangSegControl.selectedSegment != fromLangSegControl.segmentCount - 1 && fromLangSegControl[fromLangSegControl.selectedSegment] ==  toLangSegControl[toLangSegControl.selectedSegment] {
-			fromLangSegControl.selectedSegment = (fromLangSegControl.selectedSegment + 1) % fromLangSegControl.segmentCount
-		}
+		
 	}
 }
 
@@ -95,6 +92,7 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		if(inputTextField.isEmpty && !TranslateViewController.isOutputTextFieldAlreadyHidden) {
 			TranslateViewController.isOutputTextFieldAlreadyHidden = true
 			outputTextField.isHidden = true
+			outputTextField.stringValue = ""
 		}
 		else if TranslateViewController.isOutputTextFieldAlreadyHidden {
 			TranslateViewController.isOutputTextFieldAlreadyHidden = false
@@ -106,13 +104,8 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		guard !inputTextField.isEmpty else {
 			return
 		}
-		var from: Language
-		let to: Language = toLangSegControl[toLangSegControl.selectedSegment]
-		if fromLangSegControl.selectedSegment != fromLangSegControl.segmentCount - 1 {
-			from = fromLangSegControl[fromLangSegControl.selectedSegment]
-		} else {
-			from = fromLangSegControl.detectedLanguage!
-		}
+		let from = fromLangSegControl[fromLangSegControl.selectedSegment]
+		let to = toLangSegControl[toLangSegControl.selectedSegment]!
 		TranslateClient.shared.translate(inputTextField.stringValue, from: from, to: to, completionHandler: { text in
 			guard let text = text else {
 				return
