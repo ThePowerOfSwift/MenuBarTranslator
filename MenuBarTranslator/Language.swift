@@ -18,8 +18,9 @@ struct Language: Equatable {
 		self.shortName = shortName
 		self.fullName = fullName
 	}
+	
 
-	static func ==(lang1: Language, lang2: Language) -> Bool {
+	public static func ==(lang1: Language, lang2: Language) -> Bool {
 		return lang1.fullName == lang2.fullName && lang2.shortName == lang1.shortName
 	}
 }
@@ -51,7 +52,7 @@ class Languages {
 	                             Language(shortName: "cy", fullName: "валлийский"),
 	                             Language(shortName: "hu", fullName: "венгерский"),
 	                             Language(shortName: "vi", fullName: "вьетнамский"),
-	                             Language(shortName: "ht", fullName: "гаитянский (креольский)"),
+	                             Language(shortName: "ht", fullName: "гаитянский"),
 	                             Language(shortName: "gl", fullName: "галисийский"),
 	                             Language(shortName: "nl", fullName: "голландский"),
 	                             Language(shortName: "mrj", fullName: "горномарийский"),

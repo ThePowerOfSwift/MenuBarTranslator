@@ -30,7 +30,6 @@ class TranslateViewController: NSViewController {
 
 		fromLangSegControl.values = Languages.StandartLanguages
 		toLangSegControl.values = Languages.StandartLanguages
-
 		langsPopover.behavior = NSPopoverBehavior.transient
 		langsPopover.animates = true
 		langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
@@ -40,14 +39,32 @@ class TranslateViewController: NSViewController {
 	override func viewDidAppear() {
 		super.viewDidAppear()
 		NSApplication.shared().activate(ignoringOtherApps: true)
+		inputTextField.accessibilityMenuBar()
 	}
 
 	@IBAction func swapButtonClicked(_ sender: NSButton) {
-		let fromSelected = fromLangSegControl.selectedSegment
-		let toSelected = toLangSegControl.selectedSegment
-		fromLangSegControl.selectSegment(withTag: toSelected)
-		toLangSegControl.selectSegment(withTag: fromSelected)
-		(inputTextField.stringValue, outputTextField.stringValue) = (outputTextField.stringValue, inputTextField.stringValue)
+		guard let fromLanguage = fromLangSegControl[fromLangSegControl.selectedSegment],
+			let toLanguage = toLangSegControl[toLangSegControl.selectedSegment] else {
+			return
+		}
+		if let fromLanguageIndex = fromLangSegControl.values.index(of: toLanguage),
+			let toLanguageIndex = toLangSegControl.values.index(of: fromLanguage){
+			(fromLangSegControl.selectedSegment, toLangSegControl.selectedSegment) = (fromLanguageIndex, toLanguageIndex)
+			(inputTextField.stringValue, outputTextField.stringValue) = (outputTextField.stringValue, inputTextField.stringValue)
+
+		} else if toLangSegControl.values.index(of: fromLanguage) == nil,
+			let fromLanguageIndex = fromLangSegControl.values.index(of: toLanguage),
+			let newSelectedSegment = toLangSegControl.queue.frontToTheEnd() {
+				toLangSegControl.selectedSegment = newSelectedSegment
+				toLangSegControl[newSelectedSegment] = fromLangSegControl[fromLangSegControl.selectedSegment]
+				fromLangSegControl.selectedSegment = fromLanguageIndex
+		} else if fromLangSegControl.values.index(of: toLanguage) == nil,
+			let toLanguageIndex = toLangSegControl.values.index(of: fromLanguage),
+			let newSelectedSegment = fromLangSegControl.queue.frontToTheEnd() {
+			fromLangSegControl.selectedSegment = toLanguageIndex
+			fromLangSegControl[newSelectedSegment] = toLangSegControl[toLangSegControl.selectedSegment]
+			toLangSegControl.selectedSegment = toLanguageIndex
+		}
 	}
 
 	@IBAction func allToLanguagesButtonClicked(_ sender: NSButton) {
@@ -79,12 +96,6 @@ class TranslateViewController: NSViewController {
 			self.fromLangSegControl.detectedLanguage = newLanguage
 		})
 	}
-
-
-
-	@IBAction func toSegmentControlButton(_ sender: LanguagesSegmentControl) {
-
-	}
 }
 
 extension TranslateViewController:  NSTextFieldDelegate {
@@ -92,7 +103,7 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		if(inputTextField.isEmpty && !TranslateViewController.isOutputTextFieldAlreadyHidden) {
 			TranslateViewController.isOutputTextFieldAlreadyHidden = true
 			outputTextField.isHidden = true
-			outputTextField.stringValue = ""
+			outputTextField.isEmpty = true
 		}
 		else if TranslateViewController.isOutputTextFieldAlreadyHidden {
 			TranslateViewController.isOutputTextFieldAlreadyHidden = false
@@ -116,5 +127,6 @@ extension TranslateViewController:  NSTextFieldDelegate {
 
 	override func controlTextDidChange(_ obj: Notification) {
 		switchHiddennessOutputTextField()
+		fromLangSegControl.detectedLanguage = nil
 	}
 }
