@@ -83,7 +83,7 @@ class TranslateViewController: NSViewController {
 
 
 	@IBAction func toSegmentControlButton(_ sender: LanguagesSegmentControl) {
-		
+
 	}
 }
 
