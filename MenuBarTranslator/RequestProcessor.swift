@@ -10,9 +10,12 @@ import Foundation
 
 class RequestProcessor {
     
-    typealias JSON = [String : Any]
-    typealias JSONHandler = (JSON?, HTTPURLResponse?, Error?) -> Void
-    
+    typealias JSONObject = [String : Any]
+    typealias JSONHandler = (JSONObject?, HTTPURLResponse?, Error?) -> Void
+
+	struct KeyWord {
+		static let google = "google"
+	}
     
     var request : URLRequest!
     lazy var configuration: URLSessionConfiguration = URLSessionConfiguration.default
@@ -32,8 +35,13 @@ class RequestProcessor {
             if let data = data {
                 if 200...299 ~= httpResponse.statusCode{
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                        completion(json, httpResponse, nil)
+						let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [Any]
+						let json =  try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+						if json != nil {
+							completion(json, httpResponse, nil)
+						} else if jsonArray != nil {
+							completion([KeyWord.google: jsonArray!], httpResponse, nil)
+						}
                     } catch let error as NSError {
                         completion(nil, httpResponse, error)
                     }

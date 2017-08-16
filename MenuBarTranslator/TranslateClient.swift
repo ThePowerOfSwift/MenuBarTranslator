@@ -70,4 +70,21 @@ class TranslateClient {
         })
     }
 
+
+	func suggested(toWord word: String, completion: @escaping ([String]?) -> Void) {
+		let requestor = RequestProcessor(request: Google.suggested(word: word).request)
+		requestor.makeCall(completion: { json, response, error in
+			DispatchQueue.main.async {
+//				print(json)
+				guard let json = json,
+					let jsonArray = json[RequestProcessor.KeyWord.google] as? [Any],
+					let suggestedWords = jsonArray[1] as? [String] else {
+						completion(nil)
+						return
+				}
+				completion(suggestedWords)
+			}
+		})
+	}
+
 }
