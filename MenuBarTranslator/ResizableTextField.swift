@@ -20,12 +20,21 @@ class ResizableTextField: NSTextField {
     var isEditing = false
 
 	var isEmpty: Bool {
-		return self.stringValue.characters.count == 0
+		get {
+			return self.stringValue.characters.count == 0
+		}
+		set (value) {
+			if value {
+				self.stringValue = ""
+			}
+		}
 	}
 
 	override func draw(_ dirtyRect: NSRect) {
-		super.draw(dirtyRect)
+		self.layer?.cornerRadius = 10
 		self.focusRingType = NSFocusRingType.none
+		self.isBezeled = false
+		super.draw(dirtyRect)
 	}
 
     override func textDidBeginEditing(_ notification: Notification) {
