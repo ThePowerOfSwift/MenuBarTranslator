@@ -11,11 +11,15 @@ import Cocoa
 
 class TranslateViewController: NSViewController {
 
+// MARK: variables
 	@IBOutlet weak var inputTextField: ResizableTextField!
 	@IBOutlet weak var outputTextField: ResizableTextField!
 
 	@IBOutlet weak var fromLangSegControl: LanguagesSegmentControl!
 	@IBOutlet weak var toLangSegControl: LanguagesSegmentControl!
+
+	@IBOutlet weak var scrollView: NSScrollView!
+	@IBOutlet weak var clipView: NSClipView!
 
 	let langsPopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
@@ -98,6 +102,7 @@ class TranslateViewController: NSViewController {
 	}
 }
 
+// MARK: TextField delegate
 extension TranslateViewController:  NSTextFieldDelegate {
 	func switchHiddennessOutputTextField () {
 		if(inputTextField.isEmpty && !TranslateViewController.isOutputTextFieldAlreadyHidden) {
@@ -119,6 +124,7 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		let to = toLangSegControl[toLangSegControl.selectedSegment]!
 		TranslateClient.shared.translate(inputTextField.stringValue, from: from, to: to, completionHandler: { text in
 			guard let text = text else {
+				self.outputTextField.stringValue = self.inputTextField.stringValue
 				return
 			}
 			self.outputTextField.stringValue = text
@@ -128,5 +134,8 @@ extension TranslateViewController:  NSTextFieldDelegate {
 	override func controlTextDidChange(_ obj: Notification) {
 		switchHiddennessOutputTextField()
 		fromLangSegControl.detectedLanguage = nil
+		if inputTextField.isEmpty {
+			scrollView.scroll(clipView, to: NSZeroPoint)
+		}
 	}
 }

@@ -9,9 +9,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
+                <outlet property="clipView" destination="Qgs-mo-yVP" id="pnj-k3-g4j"/>
                 <outlet property="fromLangSegControl" destination="9Py-F7-msu" id="anX-qQ-M3y"/>
                 <outlet property="inputTextField" destination="eBd-Rd-Qix" id="Esb-ge-8bd"/>
                 <outlet property="outputTextField" destination="oyL-iI-LeR" id="dzQ-qV-Lvk"/>
+                <outlet property="scrollView" destination="vyA-nN-XqN" id="KoC-Uk-Jw8"/>
                 <outlet property="toLangSegControl" destination="xqr-oj-V08" id="Dfu-qe-fCB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -199,7 +201,7 @@
                 <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>
                 <constraint firstAttribute="bottom" secondItem="0Vx-zv-lSZ" secondAttribute="bottom" id="mJ9-HQ-47T"/>
             </constraints>
-            <point key="canvasLocation" x="2115" y="-332"/>
+            <point key="canvasLocation" x="2212" y="-471"/>
         </customView>
     </objects>
     <resources>

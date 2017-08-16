@@ -39,7 +39,8 @@ class RequestProcessor {
                     }
                 }
                 else {
-                    print("Received HTTP response code: \(httpResponse.statusCode)")
+					completion(nil, httpResponse, error)
+//                    print("Received HTTP response code: \(httpResponse.statusCode)")
                 }
             } else {
                 if let error = error {

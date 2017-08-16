@@ -28,12 +28,12 @@ class ResizableTextField: NSTextField {
 				self.stringValue = ""
 			}
 		}
-		
 	}
 
 	override func draw(_ dirtyRect: NSRect) {
-		self.layer?.cornerRadius = 15
+		self.layer?.cornerRadius = 10
 		self.focusRingType = NSFocusRingType.none
+		self.isBezeled = false
 		super.draw(dirtyRect)
 	}
 
