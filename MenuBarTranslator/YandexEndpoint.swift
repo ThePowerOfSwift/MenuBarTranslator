@@ -49,7 +49,6 @@ enum Yandex {
         static let lang = "lang"
     }
     
-    
     private var parameters: [String : Any] {
         switch self {
             case .translate(let text, let lang):

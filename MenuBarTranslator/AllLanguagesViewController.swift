@@ -50,7 +50,7 @@ class AllLanguagesViewController: NSViewController {
 		items.forEach({$0.isHighlighted = point ~= $0.view.frame})
 	}
 }
-
+// MARK: CollectionView dataSource
 extension AllLanguagesViewController: NSCollectionViewDataSource {
 	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
 		return Languages.shared.languages.count
@@ -66,7 +66,7 @@ extension AllLanguagesViewController: NSCollectionViewDataSource {
 	}
 }
 
-
+// MARK: CollectionView delegate
 extension AllLanguagesViewController: NSCollectionViewDelegate {
 	func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
 		guard indexPaths.count == 1,
