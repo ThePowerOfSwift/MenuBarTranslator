@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13515FB1F44DF430090DB9C /* WordnikEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */; };
 		A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EAB481F3E3E2E00FE54E4 /* Language.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17767691F437B7C00C0DB2B /* TranslateClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767681F437B7C00C0DB2B /* TranslateClient.swift */; };
-		A177678C1F43CDEE00C0DB2B /* GoogleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177678B1F43CDEE00C0DB2B /* GoogleEndpoint.swift */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
@@ -28,10 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordnikEndPoint.swift; sourceTree = "<group>"; };
 		A13EAB481F3E3E2E00FE54E4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17767681F437B7C00C0DB2B /* TranslateClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateClient.swift; sourceTree = "<group>"; };
-		A177678B1F43CDEE00C0DB2B /* GoogleEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleEndpoint.swift; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				A17767681F437B7C00C0DB2B /* TranslateClient.swift */,
 				A1EF2BC51F352C6800235995 /* RequestProcessor.swift */,
 				A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */,
+				A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */,
 				A13EAB481F3E3E2E00FE54E4 /* Language.swift */,
-				A177678B1F43CDEE00C0DB2B /* GoogleEndpoint.swift */,
 				A1E6873D1F40DF4200D65C9B /* Queue.swift */,
 			);
 			name = Model;
@@ -222,7 +222,6 @@
 				A17767691F437B7C00C0DB2B /* TranslateClient.swift in Sources */,
 				A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */,
 				A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */,
-				A177678C1F43CDEE00C0DB2B /* GoogleEndpoint.swift in Sources */,
 				A1EF2BC61F352C6800235995 /* RequestProcessor.swift in Sources */,
 				A1EF2BE41F3910B900235995 /* YandexEndpoint.swift in Sources */,
 				A1E6873E1F40DF4200D65C9B /* Queue.swift in Sources */,
@@ -230,6 +229,7 @@
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 				A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */,
+				A13515FB1F44DF430090DB9C /* WordnikEndPoint.swift in Sources */,
 				A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

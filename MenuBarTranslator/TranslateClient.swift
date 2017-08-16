@@ -21,6 +21,7 @@ class TranslateClient {
 		} else {
 			languageDirection = to.shortName
 		}
+		let Dictionary = 5
 
 		let requestor = RequestProcessor(request: Yandex.translate(text: text,
 		                                                           lang: languageDirection).request)
@@ -72,17 +73,17 @@ class TranslateClient {
 
 
 	func suggested(toWord word: String, completion: @escaping ([String]?) -> Void) {
-		let requestor = RequestProcessor(request: Google.suggested(word: word).request)
+		let requestor = RequestProcessor(request: Wordnik.suggested(word: word).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
-//				print(json)
-				guard let json = json,
-					let jsonArray = json[RequestProcessor.KeyWord.google] as? [Any],
-					let suggestedWords = jsonArray[1] as? [String] else {
-						completion(nil)
-						return
-				}
-				completion(suggestedWords)
+				print(json)
+//				guard let json = json,
+//					let jsonArray = json[RequestProcessor.KeyWord.google] as? [Any],
+//					let suggestedWords = jsonArray[1] as? [String] else {
+//						completion(nil)
+//						return
+//				}
+//				completion(suggestedWords)
 			}
 		})
 	}
