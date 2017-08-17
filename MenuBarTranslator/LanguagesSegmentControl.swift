@@ -21,6 +21,10 @@ class LanguagesSegmentControl: NSSegmentedControl {
 
 	override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+		if #available(OSX 10.12.2, *) {
+			self.selectedSegmentBezelColor = NSColor.darkGray
+		}
+		self.segmentStyle = .capsule
     }
 
 	var queue : QueueInt!	
@@ -33,6 +37,10 @@ class LanguagesSegmentControl: NSSegmentedControl {
 				self.setLabel("Detect language", forSegment: self.segmentCount - 1)
 			}
 		}
+	}
+
+	var currectLanguage: Language? {
+		return self[self.selectedSegment]
 	}
 
 	var values: [Language]! {

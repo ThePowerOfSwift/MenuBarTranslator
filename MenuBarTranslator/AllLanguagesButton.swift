@@ -13,5 +13,7 @@ class AllLanguagesButton: NSButton {
 
 	override func draw(_ dirtyRect: NSRect) {
 		super.draw(dirtyRect)
+		self.bezelStyle = .texturedSquare
+		self.title = "  "
 	}
 }

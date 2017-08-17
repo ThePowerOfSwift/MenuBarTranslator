@@ -31,6 +31,7 @@ enum Wordnik {
 		static let minLength = 4
 		static let skip = 1
 		static let apiKey = "034ba2f1cb3f05e1a400e0cb55a0065c484341a398f9b3bb4"
+		static let limit = 5
 	}
 
 	private var path : String {
@@ -48,16 +49,18 @@ enum Wordnik {
 		static let minLength = "minLength"
 		static let skip = "skip"
 		static let apiKey = "api_key"
+		static let limit = "limit"
 	}
 
 	private var parameters: [String : Any] {
 		switch self {
-		case .suggested(let word):
+		case .suggested:
 			let parameters: [String : Any] = [
 				ParameterKeys.caseSensitive: DefaultValues.caseSensitive,
 				ParameterKeys.maxDictionaryCount: DefaultValues.maxDictionaryCount,
 				ParameterKeys.minLength: DefaultValues.minLength,
 				ParameterKeys.skip: DefaultValues.skip,
+				ParameterKeys.limit: DefaultValues.limit,
 				ParameterKeys.apiKey: DefaultValues.apiKey
 				]
 			return parameters

@@ -28,12 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
-		TranslateClient.shared.suggested(toWord: "ca", completion: { suggestedWords in
-			guard let words = suggestedWords else {
-				return
-			}
-			print("words",words)
-		})
     }
     func applicationWillTerminate(_ aNotification: Notification) {
     }
