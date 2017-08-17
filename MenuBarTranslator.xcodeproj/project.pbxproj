@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A13515FB1F44DF430090DB9C /* WordnikEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */; };
-		A13515FE1F4507090090DB9C /* AutocompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13515FC1F4507090090DB9C /* AutocompleteViewController.swift */; };
-		A13515FF1F4507090090DB9C /* AutocompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A13515FD1F4507090090DB9C /* AutocompleteViewController.xib */; };
 		A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EAB481F3E3E2E00FE54E4 /* Language.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17767691F437B7C00C0DB2B /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767681F437B7C00C0DB2B /* DictionaryClient.swift */; };
@@ -31,8 +29,6 @@
 
 /* Begin PBXFileReference section */
 		A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordnikEndPoint.swift; sourceTree = "<group>"; };
-		A13515FC1F4507090090DB9C /* AutocompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteViewController.swift; sourceTree = "<group>"; };
-		A13515FD1F4507090090DB9C /* AutocompleteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteViewController.xib; sourceTree = "<group>"; };
 		A13EAB481F3E3E2E00FE54E4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17767681F437B7C00C0DB2B /* DictionaryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
@@ -65,14 +61,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A13516001F45071A0090DB9C /* AutocompletePopover */ = {
-			isa = PBXGroup;
-			children = (
-				A13515FD1F4507090090DB9C /* AutocompleteViewController.xib */,
-			);
-			name = AutocompletePopover;
-			sourceTree = "<group>";
-		};
 		A1BE3C471F2B97C100C9F9CE = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +117,6 @@
 			children = (
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 				A1E687341F40CB8F00D65C9B /* AllLanguagesViewController.swift */,
-				A13515FC1F4507090090DB9C /* AutocompleteViewController.swift */,
 			);
 			name = Constroller;
 			sourceTree = "<group>";
@@ -139,7 +126,6 @@
 			children = (
 				A1E6873C1F40CCA300D65C9B /* AllLanguagesPopover */,
 				A1E687331F40CB5B00D65C9B /* MainPopover */,
-				A13516001F45071A0090DB9C /* AutocompletePopover */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -221,7 +207,6 @@
 				A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */,
 				A1E687371F40CB8F00D65C9B /* AllLanguagesViewController.xib in Resources */,
 				A1E6873B1F40CC2400D65C9B /* LanguageCollectionViewItem.xib in Resources */,
-				A13515FF1F4507090090DB9C /* AutocompleteViewController.xib in Resources */,
 				A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +218,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A13515FE1F4507090090DB9C /* AutocompleteViewController.swift in Sources */,
 				A1E687361F40CB8F00D65C9B /* AllLanguagesViewController.swift in Sources */,
 				A17767691F437B7C00C0DB2B /* DictionaryClient.swift in Sources */,
 				A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */,

@@ -9,6 +9,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
+                <outlet property="autocompleteTableView" destination="eI0-dU-1WS" id="eUr-yK-TE8"/>
+                <outlet property="autocompleteView" destination="gNf-ze-ihf" id="f4m-Fh-Ldn"/>
                 <outlet property="clipView" destination="Qgs-mo-yVP" id="pnj-k3-g4j"/>
                 <outlet property="fromLangSegControl" destination="9Py-F7-msu" id="anX-qQ-M3y"/>
                 <outlet property="inputTextField" destination="eBd-Rd-Qix" id="Esb-ge-8bd"/>
@@ -151,8 +153,51 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
+                                                <rect key="frame" x="10" y="38" width="240" height="138"/>
+                                                <clipView key="contentView" id="0v8-nC-hl2">
+                                                    <rect key="frame" x="1" y="1" width="238" height="136"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="eI0-dU-1WS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="238" height="136"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <size key="intercellSpacing" width="3" height="2"/>
+                                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                            <tableColumns>
+                                                                <tableColumn width="235" minWidth="40" maxWidth="1000" id="Ecy-qB-ZnJ">
+                                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                        <font key="font" metaFont="smallSystem"/>
+                                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                    </tableHeaderCell>
+                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="GaZ-yE-qHj">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                </tableColumn>
+                                                            </tableColumns>
+                                                        </tableView>
+                                                    </subviews>
+                                                </clipView>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="zZo-nP-1gR"/>
+                                                </constraints>
+                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XqC-zV-x4E">
+                                                    <rect key="frame" x="1" y="105" width="207" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="5sD-sJ-bVf">
+                                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                            </scrollView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="gNf-ze-ihf" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="33" id="2D4-7g-bz6"/>
                                             <constraint firstAttribute="trailing" secondItem="eBd-Rd-Qix" secondAttribute="trailing" constant="10" id="2im-jt-L8P"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="Drb-qi-lTT" secondAttribute="leading" constant="10" id="4KQ-Vf-CmM"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="8" id="9Hq-9I-gwC"/>
@@ -160,12 +205,17 @@
                                             <constraint firstItem="oyL-iI-LeR" firstAttribute="height" secondItem="eBd-Rd-Qix" secondAttribute="height" id="JOH-FW-org"/>
                                             <constraint firstAttribute="bottom" secondItem="oyL-iI-LeR" secondAttribute="bottom" constant="11" id="Jah-e7-iX7"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="trailing" secondItem="oyL-iI-LeR" secondAttribute="trailing" id="MFh-Tn-tnW"/>
+                                            <constraint firstAttribute="trailing" secondItem="gNf-ze-ihf" secondAttribute="trailing" constant="642" id="Nuh-Gc-H7y"/>
                                             <constraint firstItem="eBd-Rd-Qix" firstAttribute="leading" secondItem="oyL-iI-LeR" secondAttribute="leading" id="Zdk-Rx-2A6"/>
+                                            <constraint firstItem="gNf-ze-ihf" firstAttribute="leading" secondItem="eBd-Rd-Qix" secondAttribute="leading" id="fC9-br-Tk0"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Drb-qi-lTT" firstAttribute="leading" secondItem="Qgs-mo-yVP" secondAttribute="leading" id="146-ji-ttC"/>
+                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" id="41V-Fh-iUj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Drb-qi-lTT" secondAttribute="trailing" id="Id2-ic-75Z"/>
+                                    <constraint firstItem="Drb-qi-lTT" firstAttribute="leading" secondItem="Qgs-mo-yVP" secondAttribute="leading" id="bwy-9O-fAc"/>
                                     <constraint firstItem="Drb-qi-lTT" firstAttribute="top" secondItem="Qgs-mo-yVP" secondAttribute="top" id="eUD-h0-Umf"/>
                                     <constraint firstAttribute="trailing" secondItem="Drb-qi-lTT" secondAttribute="trailing" id="rtA-l4-IsC"/>
                                 </constraints>
@@ -183,7 +233,9 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="vyA-nN-XqN" firstAttribute="leading" secondItem="yp2-N5-UpG" secondAttribute="leading" id="1i5-9D-N0v"/>
+                        <constraint firstItem="vyA-nN-XqN" firstAttribute="leading" secondItem="0Vx-zv-lSZ" secondAttribute="leading" id="4mM-hU-VbK"/>
                         <constraint firstItem="vyA-nN-XqN" firstAttribute="trailing" secondItem="yp2-N5-UpG" secondAttribute="trailing" id="pI9-al-YgW"/>
+                        <constraint firstAttribute="trailing" secondItem="vyA-nN-XqN" secondAttribute="trailing" id="tRR-Zb-nuO"/>
                         <constraint firstAttribute="trailing" secondItem="vyA-nN-XqN" secondAttribute="trailing" id="xUh-Dn-AWe"/>
                     </constraints>
                     <visibilityPriorities>
@@ -197,6 +249,7 @@
                 </stackView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="gNf-ze-ihf" secondAttribute="bottom" constant="39" id="1Ds-oZ-fQZ"/>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="1Kh-bS-Pbm"/>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZBE-7U-flI"/>
                 <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>

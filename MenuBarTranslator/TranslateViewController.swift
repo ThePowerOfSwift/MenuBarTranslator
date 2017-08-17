@@ -22,12 +22,16 @@ class TranslateViewController: NSViewController {
 	@IBOutlet weak var scrollView: NSScrollView!
 	@IBOutlet weak var clipView: NSClipView!
 
+	@IBOutlet weak var autocompleteView: NSScrollView!
+	@IBOutlet weak var autocompleteTableView: NSTableView!
 	let langsPopover = NSPopover()
-	let autoCompletePopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+//		autocompleteTableView.isHidden = true
+		autocompleteView.isHidden = true
+
 		self.swapButton.bezelStyle = .texturedRounded
 		inputTextField.delegate = self
 		outputTextField.isHidden = true
@@ -42,12 +46,6 @@ class TranslateViewController: NSViewController {
 		langsPopover.animates = true
 		langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
 		langsPopover.contentViewController?.view.acceptsTouchEvents = true
-
-		autoCompletePopover.behavior  = .transient
-		autoCompletePopover.animates = true
-		autoCompletePopover.contentViewController = AutocompleteViewController(nibName: "AutocompleteViewController", bundle: nil)
-		let appearance = NSAppearance()
-		autoCompletePopover.appearance = appearance
 
 	}
 
@@ -112,6 +110,14 @@ class TranslateViewController: NSViewController {
 	}
 }
 
+extension TranslateViewController: NSTableViewDataSource {
+
+}
+
+extension TranslateViewController: NSTableViewDelegate {
+
+}
+
 // MARK: TextField delegate
 extension TranslateViewController:  NSTextFieldDelegate {
 	func switchHiddennessOutputTextField () {
@@ -142,7 +148,6 @@ extension TranslateViewController:  NSTextFieldDelegate {
 	}
 
 	override func controlTextDidChange(_ obj: Notification) {
-		print(inputTextField.attributedStringValue)
 		switchHiddennessOutputTextField()
 		fromLangSegControl.detectedLanguage = nil
 		if inputTextField.isEmpty {
@@ -151,7 +156,6 @@ extension TranslateViewController:  NSTextFieldDelegate {
 
 		guard fromLangSegControl.currectLanguage == Languages.english &&
 			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
-			autoCompletePopover.close()
 			return
 		}
 
