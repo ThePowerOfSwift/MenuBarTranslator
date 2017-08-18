@@ -140,7 +140,7 @@ class TranslateViewController: NSViewController {
 		})
 	}
 }
-
+// MARK: autocompleteTableView data source set up
 extension TranslateViewController: NSTableViewDataSource {
 
 	func numberOfRows(in tableView: NSTableView) -> Int {
@@ -155,7 +155,7 @@ extension TranslateViewController: NSTableViewDataSource {
 		return suggestedWords[row]
 	}
 }
-
+// MARK: autocompleteTableView delegate set up
 extension TranslateViewController: NSTableViewDelegate {
 	func tableView(_ tableView: NSTableView,
 	               shouldEdit tableColumn: NSTableColumn?,
@@ -170,9 +170,13 @@ extension TranslateViewController: NSTableViewDelegate {
 
 // MARK: AutoComplete keyDown delegate
 extension TranslateViewController: AutoCompleteKeyDownDelegate {
-	func upArrowDidPressed() {}
+	func upArrowDidPressed() {
+		self.updateAutoCompleteTableView()
+	}
 
-	func downArrowDidPressed() {}
+	func downArrowDidPressed() {
+		self.updateAutoCompleteTableView()
+	}
 
 	func rightArrowDidPressed() {
 		autocompleteView.isHidden = true
@@ -216,6 +220,26 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 			break
 		}
 	}
+
+	func updateAutoCompleteTableView() {
+		// MARK: Autocomplete set up
+		guard fromLangSegControl.currectLanguage == Languages.english &&
+			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
+				return
+		}
+
+		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
+			guard let words = suggestedWords else {
+				return
+			}
+			self.autocompleteView.isHidden = false
+			self.suggestedWords = words
+			self.autocompleteTableView.reloadData()
+			if self.autocompleteTableView.acceptsFirstResponder {
+				self.view.window?.makeFirstResponder(self.autocompleteTableView)
+			}
+		})
+	}
 }
 
 // MARK: TextField delegate
@@ -237,38 +261,9 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		}
 	}
 
-	override func controlTextDidEndEditing(_ obj: Notification) {
-	}
-
 	override func controlTextDidChange(_ obj: Notification) {
 		switchHiddennessOutputTextField()
 // MARK: Setting translated text to output
 		self.setTranslatedText()
-// MARK: Autocomplete set up
-		if let fieldEditor = obj.userInfo?["NSFieldEditor"] as? NSTextView {
-//			fieldEditor.com
-		}
-
-//		guard fromLangSegControl.currectLanguage == Languages.english &&
-//			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
-//				return
-//		}
-//
-//		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
-//			guard let words = suggestedWords else {
-//				return
-//			}
-//			self.autocompleteView.isHidden = false
-//			self.suggestedWords = words
-//			self.autocompleteTableView.reloadData()
-//			if self.autocompleteTableView.acceptsFirstResponder {
-//				self.view.window?.makeFirstResponder(self.autocompleteTableView)
-//			}
-//		})
-
-		
-	}
-	func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
-		return suggestedWords
 	}
 }

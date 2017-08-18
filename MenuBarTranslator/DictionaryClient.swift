@@ -88,7 +88,7 @@ class Dictionary {
 						suggestedWords.append(word)
 					}
 				}
-				completion(suggestedWords.count == 0 ? nil : suggestedWords)
+				completion(suggestedWords)
 			}
 		})
 	}

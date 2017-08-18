@@ -31,10 +31,9 @@ class ResizableTextField: NSTextField {
 	}
 
 	override func draw(_ dirtyRect: NSRect) {
-		layer?.cornerRadius = 10
+//		layer?.cornerRadius = 10
 		self.focusRingType = .none
-//		self.isBordered = false
-
+//		self.isBordered = false  // autoresize works incorrent
 		super.draw(dirtyRect)
 	}
 

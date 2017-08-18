@@ -43,6 +43,7 @@ class AllLanguagesViewController: NSViewController {
 		items.forEach({$0.isHighlighted = point ~= $0.view.frame})
 	}
 }
+
 // MARK: CollectionView dataSource
 extension AllLanguagesViewController: NSCollectionViewDataSource {
 	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
