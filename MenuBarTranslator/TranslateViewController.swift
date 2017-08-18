@@ -27,7 +27,7 @@ class TranslateViewController: NSViewController {
 
 	let langsPopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
-	var suggestedWords = [String]()
+	var suggestedWords : [String] = ["1" , "2", "3"]
 	var autoCompleteKeyDelegate: AutoCompleteKeyDownDelegate?
 
 	override func viewDidLoad() {
@@ -60,6 +60,9 @@ class TranslateViewController: NSViewController {
 		langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
 		langsPopover.contentViewController?.view.acceptsTouchEvents = true
 
+	}
+	@IBAction func shutDownButtonClicked(_ sender: NSButton) {
+		NSApplication.shared().stop(self)
 	}
 
 	override func viewDidAppear() {
@@ -121,8 +124,6 @@ class TranslateViewController: NSViewController {
 			self.fromLangSegControl.detectedLanguage = newLanguage
 		})
 	}
-
-
 
 	func setTranslatedText() {
 		guard !inputTextField.isEmpty else {
@@ -244,24 +245,30 @@ extension TranslateViewController:  NSTextFieldDelegate {
 // MARK: Setting translated text to output
 		self.setTranslatedText()
 // MARK: Autocomplete set up
-		guard fromLangSegControl.currectLanguage == Languages.english &&
-			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
-				return
+		if let fieldEditor = obj.userInfo?["NSFieldEditor"] as? NSTextView {
+//			fieldEditor.com
 		}
 
-		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
-			guard let words = suggestedWords else {
-				return
-			}
-			self.autocompleteView.isHidden = false
-			self.suggestedWords = words
-			self.autocompleteTableView.reloadData()
-			if self.autocompleteTableView.acceptsFirstResponder {
-				self.view.window?.makeFirstResponder(self.autocompleteTableView)
-			}
-		})
-
+//		guard fromLangSegControl.currectLanguage == Languages.english &&
+//			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
+//				return
+//		}
+//
+//		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
+//			guard let words = suggestedWords else {
+//				return
+//			}
+//			self.autocompleteView.isHidden = false
+//			self.suggestedWords = words
+//			self.autocompleteTableView.reloadData()
+//			if self.autocompleteTableView.acceptsFirstResponder {
+//				self.view.window?.makeFirstResponder(self.autocompleteTableView)
+//			}
+//		})
 
 		
+	}
+	func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
+		return suggestedWords
 	}
 }

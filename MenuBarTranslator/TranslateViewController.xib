@@ -153,7 +153,7 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <scrollView wantsLayer="YES" misplaced="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
+                                            <scrollView hidden="YES" wantsLayer="YES" misplaced="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
                                                 <rect key="frame" x="10" y="35" width="240" height="141"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0v8-nC-hl2">
                                                     <rect key="frame" x="1" y="1" width="238" height="139"/>
@@ -197,6 +197,17 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gl-0t-Y1C">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="shutdown" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Tgt-MU-Qm7">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="shutDownButtonClicked:" target="-2" id="WqR-4a-7uY"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="gNf-ze-ihf" firstAttribute="top" secondItem="Drb-qi-lTT" secondAttribute="top" constant="33" id="2D4-7g-bz6"/>
@@ -260,4 +271,7 @@
             <point key="canvasLocation" x="1715" y="-488"/>
         </customView>
     </objects>
+    <resources>
+        <image name="shutdown" width="16" height="16"/>
+    </resources>
 </document>
