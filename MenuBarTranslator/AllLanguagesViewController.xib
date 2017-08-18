@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AllLanguagesViewController" customModule="MenuBarTranslator" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Zrt-Vf-r6C" id="Cz1-wg-fOj"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="682" height="410"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBd-Pi-HQn">
+                    <rect key="frame" x="0.0" y="0.0" width="696" height="410"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Owy-q0-5BL">
+                        <rect key="frame" x="1" y="1" width="694" height="408"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView selectable="YES" allowsEmptySelection="NO" id="Zrt-Vf-r6C">
+                                <rect key="frame" x="0.0" y="0.0" width="694" height="408"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" id="2zF-zY-srB">
+                                    <size key="itemSize" width="170" height="17"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="pKq-Qj-sq9">
+                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="D55-HN-88T">
+                        <rect key="frame" x="234" y="1" width="15" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ZBd-Pi-HQn" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="SQJ-QA-7bf"/>
+                <constraint firstItem="ZBd-Pi-HQn" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" constant="14" id="YHU-8A-lxb"/>
+                <constraint firstAttribute="bottom" secondItem="ZBd-Pi-HQn" secondAttribute="bottom" id="ZNs-CH-b45"/>
+                <constraint firstAttribute="trailing" secondItem="ZBd-Pi-HQn" secondAttribute="trailing" constant="-14" id="cg6-Nz-IEa"/>
+                <constraint firstItem="ZBd-Pi-HQn" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="hlT-2j-DVv"/>
+                <constraint firstItem="ZBd-Pi-HQn" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="sIg-UM-FpH"/>
+            </constraints>
+            <point key="canvasLocation" x="40" y="87"/>
+        </customView>
+    </objects>
+</document>
