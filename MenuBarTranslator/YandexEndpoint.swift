@@ -44,7 +44,7 @@ enum Yandex {
     }
     
     private struct ParameterKeys {
-        static var key = "key"
+        static let key = "key"
         static let text = "text"
         static let lang = "lang"
     }

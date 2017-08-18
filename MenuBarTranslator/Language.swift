@@ -18,7 +18,7 @@ struct Language: Equatable {
 		self.shortName = shortName
 		self.fullName = fullName
 	}
-	
+
 
 	public static func ==(lang1: Language, lang2: Language) -> Bool {
 		return lang1.fullName == lang2.fullName && lang2.shortName == lang1.shortName
@@ -27,13 +27,10 @@ struct Language: Equatable {
 
 class Languages {
 
-	static var StandartLanguages: [Language] {
-		let english = Language(shortName: "en", fullName: "английский")
-		let russian = Language(shortName: "ru", fullName: "русский")
-		let german = Language(shortName: "de", fullName: "немецкий")
-
-		return [english, russian, german]
-	}
+	static let english = Language(shortName: "en", fullName: "английский")
+	static let russian = Language(shortName: "ru", fullName: "русский")
+	static let german = Language(shortName: "de", fullName: "немецкий")
+	static let StandartLanguages = [english, russian, german]
 
 	var languages: [Language] = [Language(shortName: "az", fullName: "азербайджанский"),
 	                             Language(shortName: "sq", fullName: "албанский"),
@@ -129,10 +126,8 @@ class Languages {
 	                             Language(shortName: "jv", fullName: "яванский"),
 	                             Language(shortName: "ja", fullName: "японский")]
 
-	var languageDirections = ["no": ["en", "ru"], "ca": ["en", "ru"], "cs": ["be", "en", "ru", "uk"], "sr": ["be", "ru", "uk"], "de": ["be", "en", "es", "fr", "it", "ru", "tr", "uk"], "sq": ["en", "ru"], "pl": ["be", "ru", "uk"], "lt": ["en", "ru"], "ro": ["be", "ru", "uk"], "et": ["en", "ru"], "hu": ["en", "ru"], "be": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "ru": ["az", "be", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fi", "fr", "hr", "hu", "hy", "it", "lt", "lv", "mk", "nl", "no", "pl", "pt", "ro", "sk", "sl", "sq", "sr", "sv", "tr", "uk"], "sk": ["en", "ru"], "sv": ["en", "ru"], "hy": ["ru"], "da": ["en", "ru"], "fi": ["en", "ru"], "mk": ["en", "ru"], "uk": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "el": ["en", "ru"], "en": ["be", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hu", "it", "lt", "lv", "mk", "nl", "no", "pt", "ru", "sk", "sl", "sq", "sv", "tr", "uk"], "sl": ["en", "ru"], "es": ["be", "de", "en", "ru", "uk"], "pt": ["en", "ru"], "it": ["be", "de", "en", "ru", "uk"], "tr": ["be", "de", "en", "ru", "uk"], "nl": ["en", "ru"], "hr": ["ru"], "az": ["ru"], "bg": ["be", "ru", "uk"], "lv": ["en", "ru"], "fr": ["be", "de", "en", "ru", "uk"]]
+	var languageDirections: [String: [String]] = ["no": ["en", "ru"], "ca": ["en", "ru"], "cs": ["be", "en", "ru", "uk"], "sr": ["be", "ru", "uk"], "de": ["be", "en", "es", "fr", "it", "ru", "tr", "uk"], "sq": ["en", "ru"], "pl": ["be", "ru", "uk"], "lt": ["en", "ru"], "ro": ["be", "ru", "uk"], "et": ["en", "ru"], "hu": ["en", "ru"], "be": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "ru": ["az", "be", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fi", "fr", "hr", "hu", "hy", "it", "lt", "lv", "mk", "nl", "no", "pl", "pt", "ro", "sk", "sl", "sq", "sr", "sv", "tr", "uk"], "sk": ["en", "ru"], "sv": ["en", "ru"], "hy": ["ru"], "da": ["en", "ru"], "fi": ["en", "ru"], "mk": ["en", "ru"], "uk": ["bg", "cs", "de", "en", "es", "fr", "it", "pl", "ro", "ru", "sr", "tr"], "el": ["en", "ru"], "en": ["be", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hu", "it", "lt", "lv", "mk", "nl", "no", "pt", "ru", "sk", "sl", "sq", "sv", "tr", "uk"], "sl": ["en", "ru"], "es": ["be", "de", "en", "ru", "uk"], "pt": ["en", "ru"], "it": ["be", "de", "en", "ru", "uk"], "tr": ["be", "de", "en", "ru", "uk"], "nl": ["en", "ru"], "hr": ["ru"], "az": ["ru"], "bg": ["be", "ru", "uk"], "lv": ["en", "ru"], "fr": ["be", "de", "en", "ru", "uk"]] // to update this variable use setLanguageDirections method
 	static var shared = Languages()
-
-
 
 	func setLanguageDirections(directionsArray: [(String, String)]?) {
 		guard let directions = directionsArray else {
@@ -171,7 +166,7 @@ class Languages {
 
 
 	func searchLanguage(byShortName shortName: String) -> Language? {
-		
+
 		for language in languages {
 			if language.shortName == shortName {
 				return language

@@ -8,13 +8,6 @@
 
 import Cocoa
 
-extension CGPoint {
-	static func ~=(point: CGPoint, rect: CGRect) -> Bool {
-		let strangeConstant: CGFloat = 30.0
-		return strangeConstant + rect.origin.x...strangeConstant + rect.origin.x + rect.width ~= point.x && rect.origin.y...rect.origin.y + rect.height ~= point.y
-	}
-}
-
 class AllLanguagesViewController: NSViewController {
 
 	@IBOutlet weak var collectionView: NSCollectionView!
@@ -50,6 +43,7 @@ class AllLanguagesViewController: NSViewController {
 		items.forEach({$0.isHighlighted = point ~= $0.view.frame})
 	}
 }
+
 // MARK: CollectionView dataSource
 extension AllLanguagesViewController: NSCollectionViewDataSource {
 	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
