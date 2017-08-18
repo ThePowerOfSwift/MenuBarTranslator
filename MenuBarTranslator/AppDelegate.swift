@@ -28,6 +28,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
         popover.behavior = NSPopoverBehavior.transient
         popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
+//		Dictionary.shared.suggest(toWord: "h", completion: { words in
+//			print(words)
+//		})
     }
     func applicationWillTerminate(_ aNotification: Notification) {
     }

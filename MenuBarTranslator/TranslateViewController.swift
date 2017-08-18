@@ -43,6 +43,8 @@ class TranslateViewController: NSViewController {
 		autocompleteTableView.delegate = self
 		autocompleteTableView.focusRingType = .none
 		autocompleteView.focusRingType = .none
+
+
 		self.swapButton.bezelStyle = .texturedRounded
 		inputTextField.delegate = self
 		outputTextField.isHidden = true
@@ -119,6 +121,23 @@ class TranslateViewController: NSViewController {
 			self.fromLangSegControl.detectedLanguage = newLanguage
 		})
 	}
+
+
+
+	func setTranslatedText() {
+		guard !inputTextField.isEmpty else {
+			return
+		}
+		let from = fromLangSegControl[fromLangSegControl.selectedSegment]
+		let to = toLangSegControl[toLangSegControl.selectedSegment]!
+		Dictionary.shared.translate(inputTextField.stringValue, from: from, to: to, completionHandler: { text in
+			guard let text = text else {
+				self.outputTextField.stringValue = self.inputTextField.stringValue
+				return
+			}
+			self.outputTextField.stringValue = text
+		})
+	}
 }
 
 extension TranslateViewController: NSTableViewDataSource {
@@ -142,6 +161,8 @@ extension TranslateViewController: NSTableViewDelegate {
 	               row: Int) -> Bool{
 		self.inputTextField.stringValue = suggestedWords[autocompleteTableView.selectedRow]
 		autocompleteView.isHidden = true
+		self.switchHiddennessOutputTextField()
+		self.setTranslatedText()
 		return false
 	}
 }
@@ -154,10 +175,20 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 
 	func rightArrowDidPressed() {
 		autocompleteView.isHidden = true
+		self.switchHiddennessOutputTextField()
+		self.setTranslatedText()
 	}
 
 	func leftArrowDidPressed() {
 		autocompleteView.isHidden = true
+		self.switchHiddennessOutputTextField()
+		self.setTranslatedText()
+	}
+
+	func escDidPressed() {
+		autocompleteView.isHidden = true
+		self.switchHiddennessOutputTextField()
+		self.setTranslatedText()
 	}
 
 	override func keyDown(with event: NSEvent) {
@@ -170,6 +201,8 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 			autoCompleteKeyDelegate?.rightArrowDidPressed()
 		case Key.leftArrow.rawValue:
 			autoCompleteKeyDelegate?.leftArrowDidPressed()
+		case Key.esc.rawValue:
+			autoCompleteKeyDelegate?.escDidPressed()
 		default:
 			break
 		}
@@ -188,31 +221,21 @@ extension TranslateViewController:  NSTextFieldDelegate {
 			TranslateViewController.isOutputTextFieldAlreadyHidden = false
 			outputTextField.isHidden = false
 		}
-	}
 
-	override func controlTextDidEndEditing(_ obj: Notification) {
-		guard !inputTextField.isEmpty else {
-			return
-		}
-		let from = fromLangSegControl[fromLangSegControl.selectedSegment]
-		let to = toLangSegControl[toLangSegControl.selectedSegment]!
-		Dictionary.shared.translate(inputTextField.stringValue, from: from, to: to, completionHandler: { text in
-			guard let text = text else {
-				self.outputTextField.stringValue = self.inputTextField.stringValue
-				return
-			}
-			self.outputTextField.stringValue = text
-		})
-	}
-
-	override func controlTextDidChange(_ obj: Notification) {
-
-		switchHiddennessOutputTextField()
 		fromLangSegControl.detectedLanguage = nil
 		if inputTextField.isEmpty {
 			scrollView.scroll(clipView, to: NSZeroPoint)
 		}
+	}
 
+	override func controlTextDidEndEditing(_ obj: Notification) {
+	}
+
+	override func controlTextDidChange(_ obj: Notification) {
+		switchHiddennessOutputTextField()
+// MARK: Setting translated text to output
+		self.setTranslatedText()
+// MARK: Autocomplete set up
 		guard fromLangSegControl.currectLanguage == Languages.english &&
 			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
 				return

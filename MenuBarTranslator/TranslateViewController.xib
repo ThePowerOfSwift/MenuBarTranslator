@@ -154,13 +154,13 @@
                                                 </textFieldCell>
                                             </textField>
                                             <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
-                                                <rect key="frame" x="10" y="38" width="240" height="138"/>
+                                                <rect key="frame" x="10" y="35" width="240" height="141"/>
                                                 <clipView key="contentView" drawsBackground="NO" id="0v8-nC-hl2">
-                                                    <rect key="frame" x="1" y="1" width="238" height="136"/>
+                                                    <rect key="frame" x="1" y="1" width="238" height="139"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" id="eI0-dU-1WS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="238" height="136"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="238" height="139"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="3"/>
                                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -251,7 +251,7 @@
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="gNf-ze-ihf" secondAttribute="bottom" constant="39" id="1Ds-oZ-fQZ"/>
+                <constraint firstAttribute="bottom" secondItem="gNf-ze-ihf" secondAttribute="bottom" constant="36" id="1Ds-oZ-fQZ"/>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="1Kh-bS-Pbm"/>
                 <constraint firstItem="0Vx-zv-lSZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZBE-7U-flI"/>
                 <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>

@@ -20,9 +20,11 @@ protocol AutoCompleteKeyDownDelegate{
 	func upArrowDidPressed()
 	func leftArrowDidPressed()
 	func rightArrowDidPressed()
+	func escDidPressed()
 }
 
 enum Key: Int {
+	case esc = 53
 	case leftArrow = 123
 	case rightArrow = 124
 	case downArrow = 125

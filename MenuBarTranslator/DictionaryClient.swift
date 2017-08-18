@@ -26,9 +26,10 @@ class Dictionary {
 		                                                           lang: languageDirection).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
-				guard let json = json,
+				guard let json = json as? [String: Any],
 					let translatedArray = json["text"] as? [Any],
 					let translatedText = translatedArray[0] as? String else {
+						print("fail translate")
 						completionHandler(nil)
 						return
 				}
@@ -41,8 +42,9 @@ class Dictionary {
 		let requestor = RequestProcessor(request: Yandex.languages.request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
-				guard let json = json,
+				guard let json = json as? [String: Any],
 					let langsArray = json["dirs"] as? [String] else {
+						print("fail languageDirections")
 						completion(nil)
 						return
 				}
@@ -60,8 +62,9 @@ class Dictionary {
 		let requestor = RequestProcessor(request: Yandex.detectLanguage(text: text).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
-				guard let json = json,
+				guard let json = json as? [String: Any],
 					let lang = json["lang"] as? String else {
+						print("fail detectLanguage")
 						completion(nil)
 						return
 				}
@@ -72,18 +75,16 @@ class Dictionary {
 
 
 	func suggest(toWord word: String, completion: @escaping ([String]?) -> Void) {
-		let requestor = RequestProcessor(request: Wordnik.suggested(word: word).request)
+		let requestor = RequestProcessor(request: Datamuse.suggested(word: word).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
-				guard let json = json,
-				let jsonArray = json["searchResults"] as? [Any] else {
+				guard let json = json as? [[String: Any]] else {
 					completion(nil)
 					return
 				}
 				var suggestedWords = [String]()
-				for object in jsonArray {
-					if let wordObject = object as? [String: Any],
-						let word = wordObject["word"] as? String{
+				for object in json {
+					if let word = object["word"] as? String{
 						suggestedWords.append(word)
 					}
 				}

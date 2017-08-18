@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A13515FB1F44DF430090DB9C /* WordnikEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */; };
+		A13515FB1F44DF430090DB9C /* DatamuseEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13515FA1F44DF430090DB9C /* DatamuseEndPoint.swift */; };
 		A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EAB481F3E3E2E00FE54E4 /* Language.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17767691F437B7C00C0DB2B /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767681F437B7C00C0DB2B /* DictionaryClient.swift */; };
@@ -30,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordnikEndPoint.swift; sourceTree = "<group>"; };
+		A13515FA1F44DF430090DB9C /* DatamuseEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatamuseEndPoint.swift; sourceTree = "<group>"; };
 		A13EAB481F3E3E2E00FE54E4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17767681F437B7C00C0DB2B /* DictionaryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				A17767681F437B7C00C0DB2B /* DictionaryClient.swift */,
 				A1EF2BC51F352C6800235995 /* RequestProcessor.swift */,
 				A1EF2BE31F3910B900235995 /* YandexEndpoint.swift */,
-				A13515FA1F44DF430090DB9C /* WordnikEndPoint.swift */,
+				A13515FA1F44DF430090DB9C /* DatamuseEndPoint.swift */,
 				A13EAB481F3E3E2E00FE54E4 /* Language.swift */,
 				A1E6873D1F40DF4200D65C9B /* Queue.swift */,
 			);
@@ -236,7 +236,7 @@
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 				A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */,
-				A13515FB1F44DF430090DB9C /* WordnikEndPoint.swift in Sources */,
+				A13515FB1F44DF430090DB9C /* DatamuseEndPoint.swift in Sources */,
 				A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */,
 				A17F7EF11F46390E00CF8057 /* AutocompleteTableCellView.swift in Sources */,
 			);
