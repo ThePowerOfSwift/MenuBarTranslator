@@ -46,13 +46,14 @@ class TranslateViewController: NSViewController {
 
 
 		self.swapButton.bezelStyle = .texturedRounded
+
 		inputTextField.delegate = self
 		outputTextField.isHidden = true
-		inputTextField.allowsEditingTextAttributes = true
+		inputTextField.allowsEditingTextAttributes = false
+		outputTextField.allowsEditingTextAttributes = false
 
 		fromLangSegControl.queue = QueueInt(withInterval: 0..<fromLangSegControl.segmentCount - 1)
 		toLangSegControl.queue = QueueInt(withInterval: 0..<toLangSegControl.segmentCount)
-
 		fromLangSegControl.values = Languages.StandartLanguages
 		toLangSegControl.values = Languages.StandartLanguages
 		langsPopover.behavior = NSPopoverBehavior.transient
