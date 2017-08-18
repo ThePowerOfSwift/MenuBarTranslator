@@ -24,14 +24,25 @@ class TranslateViewController: NSViewController {
 
 	@IBOutlet weak var autocompleteView: NSScrollView!
 	@IBOutlet weak var autocompleteTableView: NSTableView!
+
 	let langsPopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
+	var suggestedWords = [String]()
+	var autoCompleteKeyDelegate: AutoCompleteKeyDownDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		autocompleteTableView.isHidden = true
-		autocompleteView.isHidden = true
 
+		NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+			self.keyDown(with: $0)
+			return $0
+		}
+
+		autoCompleteKeyDelegate = self
+		autocompleteTableView.dataSource = self
+		autocompleteTableView.delegate = self
+		autocompleteTableView.focusRingType = .none
+		autocompleteView.focusRingType = .none
 		self.swapButton.bezelStyle = .texturedRounded
 		inputTextField.delegate = self
 		outputTextField.isHidden = true
@@ -112,10 +123,57 @@ class TranslateViewController: NSViewController {
 
 extension TranslateViewController: NSTableViewDataSource {
 
+	func numberOfRows(in tableView: NSTableView) -> Int {
+		if suggestedWords.count == 0 {
+			self.autocompleteView.isHidden = true
+		}
+		return suggestedWords.count
+	}
+
+
+	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+		return suggestedWords[row]
+	}
 }
 
 extension TranslateViewController: NSTableViewDelegate {
+	func tableView(_ tableView: NSTableView,
+	               shouldEdit tableColumn: NSTableColumn?,
+	               row: Int) -> Bool{
+		self.inputTextField.stringValue = suggestedWords[autocompleteTableView.selectedRow]
+		autocompleteView.isHidden = true
+		return false
+	}
+}
 
+// MARK: AutoComplete keyDown delegate
+extension TranslateViewController: AutoCompleteKeyDownDelegate {
+	func upArrowDidPressed() {}
+
+	func downArrowDidPressed() {}
+
+	func rightArrowDidPressed() {
+		autocompleteView.isHidden = true
+	}
+
+	func leftArrowDidPressed() {
+		autocompleteView.isHidden = true
+	}
+
+	override func keyDown(with event: NSEvent) {
+		switch Int(event.keyCode) {
+		case Key.upArrow.rawValue:
+			autoCompleteKeyDelegate?.upArrowDidPressed()
+		case Key.downArrow.rawValue:
+			autoCompleteKeyDelegate?.downArrowDidPressed()
+		case Key.rightArrow.rawValue:
+			autoCompleteKeyDelegate?.rightArrowDidPressed()
+		case Key.leftArrow.rawValue:
+			autoCompleteKeyDelegate?.leftArrowDidPressed()
+		default:
+			break
+		}
+	}
 }
 
 // MARK: TextField delegate
@@ -148,6 +206,7 @@ extension TranslateViewController:  NSTextFieldDelegate {
 	}
 
 	override func controlTextDidChange(_ obj: Notification) {
+
 		switchHiddennessOutputTextField()
 		fromLangSegControl.detectedLanguage = nil
 		if inputTextField.isEmpty {
@@ -156,16 +215,21 @@ extension TranslateViewController:  NSTextFieldDelegate {
 
 		guard fromLangSegControl.currectLanguage == Languages.english &&
 			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
-			return
+				return
 		}
 
+		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
+			guard let words = suggestedWords else {
+				return
+			}
+			self.autocompleteView.isHidden = false
+			self.suggestedWords = words
+			self.autocompleteTableView.reloadData()
+			if self.autocompleteTableView.acceptsFirstResponder {
+				self.view.window?.makeFirstResponder(self.autocompleteTableView)
+			}
+		})
 
-//		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
-//			guard let words = suggestedWords else {
-//				return
-//			}
-//			print("words",words)
-//		})
 
 		
 	}

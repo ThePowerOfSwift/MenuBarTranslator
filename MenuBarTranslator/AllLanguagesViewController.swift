@@ -8,13 +8,6 @@
 
 import Cocoa
 
-extension CGPoint {
-	static func ~=(point: CGPoint, rect: CGRect) -> Bool {
-		let magic: CGFloat = 30.0
-		return magic + rect.origin.x...magic + rect.origin.x + rect.width ~= point.x && rect.origin.y...rect.origin.y + rect.height ~= point.y
-	}
-}
-
 class AllLanguagesViewController: NSViewController {
 
 	@IBOutlet weak var collectionView: NSCollectionView!
