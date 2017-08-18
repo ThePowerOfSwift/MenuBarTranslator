@@ -220,9 +220,8 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 			break
 		}
 	}
-
+// MARK: Autocomplete set up
 	func updateAutoCompleteTableView() {
-		// MARK: Autocomplete set up
 		guard fromLangSegControl.currectLanguage == Languages.english &&
 			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
 				return
