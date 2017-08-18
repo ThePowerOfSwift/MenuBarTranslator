@@ -76,6 +76,11 @@ class TranslateViewController: NSViewController {
 			let toLanguage = toLangSegControl[toLangSegControl.selectedSegment] else {
 				return
 		}
+
+		if inputTextField.stringValue.characters.count == 0 {
+			outputTextField.stringValue = inputTextField.stringValue
+		}
+
 		if let fromLanguageIndex = fromLangSegControl.values.index(of: toLanguage),
 			let toLanguageIndex = toLangSegControl.values.index(of: fromLanguage){
 			(fromLangSegControl.selectedSegment, toLangSegControl.selectedSegment) = (fromLanguageIndex, toLanguageIndex)
@@ -259,6 +264,12 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		if inputTextField.isEmpty {
 			scrollView.scroll(clipView, to: NSZeroPoint)
 		}
+	}
+
+	override func controlTextDidEndEditing(_ obj: Notification) {
+		switchHiddennessOutputTextField()
+// MARK: Setting translated text to output
+		self.setTranslatedText()
 	}
 
 	override func controlTextDidChange(_ obj: Notification) {
