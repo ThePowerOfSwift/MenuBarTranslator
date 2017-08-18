@@ -27,7 +27,7 @@ class LanguagesSegmentControl: NSSegmentedControl {
 		self.segmentStyle = .capsule
     }
 
-	var queue : QueueInt!	
+	var queue : QueueInt!
 
 	var detectedLanguage: Language? {
 		didSet {

@@ -128,7 +128,7 @@
                                 <constraint firstItem="2XB-s2-Sk7" firstAttribute="centerY" secondItem="yp2-N5-UpG" secondAttribute="centerY" id="meG-Ep-kxm"/>
                             </constraints>
                         </customView>
-                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-nN-XqN">
+                        <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-nN-XqN">
                             <rect key="frame" x="0.0" y="0.0" width="894" height="213"/>
                             <clipView key="contentView" copiesOnScroll="NO" id="Qgs-mo-yVP">
                                 <rect key="frame" x="1" y="1" width="892" height="211"/>
@@ -153,9 +153,9 @@
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <scrollView wantsLayer="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
+                                            <scrollView wantsLayer="YES" misplaced="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNf-ze-ihf">
                                                 <rect key="frame" x="10" y="35" width="240" height="141"/>
-                                                <clipView key="contentView" drawsBackground="NO" id="0v8-nC-hl2">
+                                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0v8-nC-hl2">
                                                     <rect key="frame" x="1" y="1" width="238" height="139"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -189,11 +189,11 @@
                                                     <constraint firstAttribute="width" constant="240" id="zZo-nP-1gR"/>
                                                 </constraints>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="XqC-zV-x4E">
-                                                    <rect key="frame" x="1" y="105" width="207" height="15"/>
+                                                    <rect key="frame" x="-100" y="-100" width="207" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="5sD-sJ-bVf">
-                                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                    <rect key="frame" x="-100" y="-100" width="15" height="102"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -228,7 +228,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                             <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1k4-co-h39">
-                                <rect key="frame" x="878" y="1" width="15" height="211"/>
+                                <rect key="frame" x="-100" y="-100" width="15" height="211"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
@@ -257,7 +257,7 @@
                 <constraint firstAttribute="trailing" secondItem="0Vx-zv-lSZ" secondAttribute="trailing" id="jm8-rI-tKT"/>
                 <constraint firstAttribute="bottom" secondItem="0Vx-zv-lSZ" secondAttribute="bottom" id="mJ9-HQ-47T"/>
             </constraints>
-            <point key="canvasLocation" x="2212" y="-471"/>
+            <point key="canvasLocation" x="1715" y="-488"/>
         </customView>
     </objects>
 </document>

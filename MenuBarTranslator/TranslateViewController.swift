@@ -191,6 +191,12 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 		self.setTranslatedText()
 	}
 
+	func deleteDidPressed() {
+		autocompleteView.isHidden = true
+		self.switchHiddennessOutputTextField()
+		self.setTranslatedText()
+	}
+
 	override func keyDown(with event: NSEvent) {
 		switch Int(event.keyCode) {
 		case Key.upArrow.rawValue:
@@ -203,6 +209,8 @@ extension TranslateViewController: AutoCompleteKeyDownDelegate {
 			autoCompleteKeyDelegate?.leftArrowDidPressed()
 		case Key.esc.rawValue:
 			autoCompleteKeyDelegate?.escDidPressed()
+		case Key.delete.rawValue:
+			autoCompleteKeyDelegate?.deleteDidPressed()
 		default:
 			break
 		}
