@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.performClose(sender)
     }
     
-    func togglePopover(_ sender: AnyObject) {
+	@objc func togglePopover(_ sender: AnyObject) {
         if popover.isShown {
             closePopover(sender)
         } else {

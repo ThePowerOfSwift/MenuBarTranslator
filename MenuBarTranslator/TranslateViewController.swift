@@ -19,16 +19,14 @@ class TranslateViewController: NSViewController {
 	@IBOutlet weak var fromLangSegControl: LanguagesSegmentControl!
 	@IBOutlet weak var toLangSegControl: LanguagesSegmentControl!
 
-	@IBOutlet weak var scrollView: NSScrollView!
-	@IBOutlet weak var clipView: NSClipView!
-
+	@IBOutlet weak var yandexAdLabel: NSTextField!
 	let langsPopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
 	var suggestedWords : [String] = ["1" , "2", "3"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		yandexReferenceSetup()
 		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
 			self.keyDown(with: $0)
 			return $0
@@ -54,6 +52,7 @@ class TranslateViewController: NSViewController {
 	@IBAction func shutDownButtonClicked(_ sender: NSButton) {
 		NSApplication.shared.stop(self)
 	}
+
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
@@ -134,6 +133,16 @@ class TranslateViewController: NSViewController {
 			self.outputTextField.stringValue = text
 		})
 	}
+
+	func yandexReferenceSetup() {
+		yandexAdLabel.allowsEditingTextAttributes = true
+
+		let attributedString = NSMutableAttributedString(string: "Traslated by \"Yandex Translate\"")
+
+		attributedString.addAttribute(NSAttributedStringKey.link, value: "https://translate.yandex.ru", range: NSRange(location: 13, length: 18))
+		yandexAdLabel.attributedStringValue = attributedString
+		attributedString.endEditing()
+	}
 }
 // MARK: TextField delegate
 extension TranslateViewController:  NSTextFieldDelegate {
@@ -149,9 +158,6 @@ extension TranslateViewController:  NSTextFieldDelegate {
 		}
 
 		fromLangSegControl.detectedLanguage = nil
-		if inputTextField.isEmpty {
-			scrollView.scroll(clipView, to: NSZeroPoint)
-		}
 	}
 
 	override func controlTextDidEndEditing(_ obj: Notification) {

@@ -31,10 +31,12 @@ class ResizableTextField: NSTextField {
 	}
 
 	override func draw(_ dirtyRect: NSRect) {
-//		layer?.cornerRadius = 10
-		self.focusRingType = .none
-//		self.isBordered = false  // autoresize works incorrent
 		super.draw(dirtyRect)
+		layer?.cornerRadius = 20
+		self.focusRingType = .none
+		self.isBordered = false  // autoresize works incorrent
+
+		self.isAutomaticTextCompletionEnabled = true
 	}
 
 	override func textDidBeginEditing(_ notification: Notification) {
@@ -61,7 +63,7 @@ class ResizableTextField: NSTextField {
 			}
 			return size
 		}
-		
+
 		if isEditing || lastSize == nil {
 			guard let
 				textView = self.window?.fieldEditor(false, for: self) as? NSTextView,
