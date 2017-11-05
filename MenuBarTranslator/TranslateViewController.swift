@@ -22,28 +22,17 @@ class TranslateViewController: NSViewController {
 	@IBOutlet weak var scrollView: NSScrollView!
 	@IBOutlet weak var clipView: NSClipView!
 
-	@IBOutlet weak var autocompleteView: NSScrollView!
-	@IBOutlet weak var autocompleteTableView: NSTableView!
-
 	let langsPopover = NSPopover()
 	static var isOutputTextFieldAlreadyHidden: Bool = true
 	var suggestedWords : [String] = ["1" , "2", "3"]
-	var autoCompleteKeyDelegate: AutoCompleteKeyDownDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
 			self.keyDown(with: $0)
 			return $0
 		}
-
-		autoCompleteKeyDelegate = self
-		autocompleteTableView.dataSource = self
-		autocompleteTableView.delegate = self
-		autocompleteTableView.focusRingType = .none
-		autocompleteView.focusRingType = .none
-
 
 		self.swapButton.bezelStyle = .texturedRounded
 
@@ -56,19 +45,19 @@ class TranslateViewController: NSViewController {
 		toLangSegControl.queue = QueueInt(withInterval: 0..<toLangSegControl.segmentCount)
 		fromLangSegControl.values = Languages.StandartLanguages
 		toLangSegControl.values = Languages.StandartLanguages
-		langsPopover.behavior = NSPopoverBehavior.transient
+		langsPopover.behavior = NSPopover.Behavior.transient
 		langsPopover.animates = true
-		langsPopover.contentViewController = AllLanguagesViewController(nibName: "AllLanguagesViewController", bundle: nil)
+		langsPopover.contentViewController = AllLanguagesViewController(nibName: NSNib.Name(rawValue: "AllLanguagesViewController"), bundle: nil)
 		langsPopover.contentViewController?.view.acceptsTouchEvents = true
 
 	}
 	@IBAction func shutDownButtonClicked(_ sender: NSButton) {
-		NSApplication.shared().stop(self)
+		NSApplication.shared.stop(self)
 	}
 
 	override func viewDidAppear() {
 		super.viewDidAppear()
-		NSApplication.shared().activate(ignoringOtherApps: true)
+		NSApplication.shared.activate(ignoringOtherApps: true)
 	}
 
 	@IBAction func swapButtonClicked(_ sender: NSButton) {
@@ -77,7 +66,7 @@ class TranslateViewController: NSViewController {
 				return
 		}
 
-		if inputTextField.stringValue.characters.count == 0 {
+		if inputTextField.stringValue.count == 0 {
 			outputTextField.stringValue = inputTextField.stringValue
 		}
 
@@ -146,107 +135,6 @@ class TranslateViewController: NSViewController {
 		})
 	}
 }
-// MARK: autocompleteTableView data source set up
-extension TranslateViewController: NSTableViewDataSource {
-
-	func numberOfRows(in tableView: NSTableView) -> Int {
-		if suggestedWords.count == 0 {
-			self.autocompleteView.isHidden = true
-		}
-		return suggestedWords.count
-	}
-
-
-	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-		return suggestedWords[row]
-	}
-}
-// MARK: autocompleteTableView delegate set up
-extension TranslateViewController: NSTableViewDelegate {
-	func tableView(_ tableView: NSTableView,
-	               shouldEdit tableColumn: NSTableColumn?,
-	               row: Int) -> Bool{
-		self.inputTextField.stringValue = suggestedWords[autocompleteTableView.selectedRow]
-		autocompleteView.isHidden = true
-		self.switchHiddennessOutputTextField()
-		self.setTranslatedText()
-		return false
-	}
-}
-
-// MARK: AutoComplete keyDown delegate
-extension TranslateViewController: AutoCompleteKeyDownDelegate {
-	func upArrowDidPressed() {
-		self.updateAutoCompleteTableView()
-	}
-
-	func downArrowDidPressed() {
-		self.updateAutoCompleteTableView()
-	}
-
-	func rightArrowDidPressed() {
-		autocompleteView.isHidden = true
-		self.switchHiddennessOutputTextField()
-		self.setTranslatedText()
-	}
-
-	func leftArrowDidPressed() {
-		autocompleteView.isHidden = true
-		self.switchHiddennessOutputTextField()
-		self.setTranslatedText()
-	}
-
-	func escDidPressed() {
-		autocompleteView.isHidden = true
-		self.switchHiddennessOutputTextField()
-		self.setTranslatedText()
-	}
-
-	func deleteDidPressed() {
-		autocompleteView.isHidden = true
-		self.switchHiddennessOutputTextField()
-		self.setTranslatedText()
-	}
-
-	override func keyDown(with event: NSEvent) {
-		switch Int(event.keyCode) {
-		case Key.upArrow.rawValue:
-			autoCompleteKeyDelegate?.upArrowDidPressed()
-		case Key.downArrow.rawValue:
-			autoCompleteKeyDelegate?.downArrowDidPressed()
-		case Key.rightArrow.rawValue:
-			autoCompleteKeyDelegate?.rightArrowDidPressed()
-		case Key.leftArrow.rawValue:
-			autoCompleteKeyDelegate?.leftArrowDidPressed()
-		case Key.esc.rawValue:
-			autoCompleteKeyDelegate?.escDidPressed()
-		case Key.delete.rawValue:
-			autoCompleteKeyDelegate?.deleteDidPressed()
-		default:
-			break
-		}
-	}
-// MARK: Autocomplete set up
-	func updateAutoCompleteTableView() {
-		guard fromLangSegControl.currectLanguage == Languages.english &&
-			1...10 ~= inputTextField.stringValue.characters.count  && !inputTextField.stringValue.contains(" ")else {
-				return
-		}
-
-		Dictionary.shared.suggest(toWord: inputTextField.stringValue, completion: { suggestedWords in
-			guard let words = suggestedWords else {
-				return
-			}
-			self.autocompleteView.isHidden = false
-			self.suggestedWords = words
-			self.autocompleteTableView.reloadData()
-			if self.autocompleteTableView.acceptsFirstResponder {
-				self.view.window?.makeFirstResponder(self.autocompleteTableView)
-			}
-		})
-	}
-}
-
 // MARK: TextField delegate
 extension TranslateViewController:  NSTextFieldDelegate {
 	func switchHiddennessOutputTextField () {

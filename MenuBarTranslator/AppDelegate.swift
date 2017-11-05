@@ -12,22 +12,22 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let popover = NSPopover()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         statusItem.highlightMode = true
-        statusItem.alternateImage = NSImage(named: "translate-inversed")
+        statusItem.alternateImage = NSImage(named: NSImage.Name(rawValue: "translate-inversed"))
         
         if let button = statusItem.button {
-            button.image = NSImage(named: "translate")
+            button.image = NSImage(named: NSImage.Name(rawValue: "translate"))
             button.action = #selector(togglePopover(_:))
         }
         
         popover.animates = true
-        popover.contentViewController = TranslateViewController(nibName: "TranslateViewController", bundle: nil)
-        popover.behavior = NSPopoverBehavior.transient
-        popover.appearance = NSAppearance(named: NSAppearanceNameVibrantLight)
+        popover.contentViewController = TranslateViewController(nibName: NSNib.Name(rawValue: "TranslateViewController"), bundle: nil)
+        popover.behavior = NSPopover.Behavior.transient
+        popover.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
 //		Dictionary.shared.suggest(toWord: "h", completion: { words in
 //			print(words)
 //		})

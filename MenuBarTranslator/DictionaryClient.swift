@@ -50,8 +50,8 @@ class Dictionary {
 				}
 				var langArrayCouple  = [(String, String)]()
 				langsArray.forEach({
-					let langs =  $0.characters.split(separator: "-").map(String.init)
-					langArrayCouple.append(langs[0], langs[1])
+					let langs =  $0.split(separator: "-").map(String.init)
+					langArrayCouple.append((langs[0], langs[1]))
 				})
 				completion(langArrayCouple)
 			}
@@ -75,22 +75,7 @@ class Dictionary {
 
 
 	func suggest(toWord word: String, completion: @escaping ([String]?) -> Void) {
-		let requestor = RequestProcessor(request: Datamuse.suggested(word: word).request)
-		requestor.makeCall(completion: { json, response, error in
-			DispatchQueue.main.async {
-				guard let json = json as? [[String: Any]] else {
-					completion(nil)
-					return
-				}
-				var suggestedWords = [String]()
-				for object in json {
-					if let word = object["word"] as? String{
-						suggestedWords.append(word)
-					}
-				}
-				completion(suggestedWords)
-			}
-		})
+
 	}
 
 }

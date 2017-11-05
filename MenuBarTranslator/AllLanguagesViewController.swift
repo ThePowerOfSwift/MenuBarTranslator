@@ -51,7 +51,7 @@ extension AllLanguagesViewController: NSCollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-		let viewItem = collectionView.makeItem(withIdentifier: "LanguageCollectionViewItem", for: indexPath)
+		let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LanguageCollectionViewItem"), for: indexPath)
 		guard let item = viewItem as? LanguageCollectionViewItem else {
 			return viewItem
 		}
@@ -77,7 +77,7 @@ extension AllLanguagesViewController: NSCollectionViewDelegate {
 
 		items.forEach({ $0.isChoosen = languageSegmentControl.values.contains($0.language!) })
 		languageSegmentControl.selectedSegment = idx
-		let appDelegate : AppDelegate = NSApplication.shared().delegate as! AppDelegate
+		let appDelegate : AppDelegate = NSApplication.shared.delegate as! AppDelegate
 		if let parentController = appDelegate.popover.contentViewController as? TranslateViewController {
 			parentController.langsPopover.close()
 		}

@@ -21,7 +21,7 @@ class ResizableTextField: NSTextField {
 
 	var isEmpty: Bool {
 		get {
-			return self.stringValue.characters.count == 0
+			return self.stringValue.count == 0
 		}
 		set (value) {
 			if value {
