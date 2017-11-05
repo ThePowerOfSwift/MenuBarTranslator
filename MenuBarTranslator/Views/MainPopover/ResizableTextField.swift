@@ -36,7 +36,9 @@ class ResizableTextField: NSTextField {
 		self.focusRingType = .none
 		self.isBordered = false  // autoresize works incorrent
 
-		self.isAutomaticTextCompletionEnabled = true
+		if #available(OSX 10.12.2, *) {
+			self.isAutomaticTextCompletionEnabled = true
+		}
 	}
 
 	override func textDidBeginEditing(_ notification: Notification) {

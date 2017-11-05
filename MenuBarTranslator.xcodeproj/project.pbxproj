@@ -10,7 +10,7 @@
 		A13EAB491F3E3E2E00FE54E4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EAB481F3E3E2E00FE54E4 /* Language.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17767691F437B7C00C0DB2B /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767681F437B7C00C0DB2B /* DictionaryClient.swift */; };
-		A17F7EF31F4656CF00CF8057 /* ExtraThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F7EF21F4656CF00CF8057 /* ExtraThings.swift */; };
+		A17F7EF31F4656CF00CF8057 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F7EF21F4656CF00CF8057 /* Extentions.swift */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
@@ -31,7 +31,7 @@
 		A13EAB481F3E3E2E00FE54E4 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17767681F437B7C00C0DB2B /* DictionaryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
-		A17F7EF21F4656CF00CF8057 /* ExtraThings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraThings.swift; sourceTree = "<group>"; };
+		A17F7EF21F4656CF00CF8057 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,9 +80,10 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
-				A1EF2BCC1F353EA600235995 /* Views */,
-				A1EF2BCB1F353E9000235995 /* Constroller */,
-				A1EF2BCD1F353EED00235995 /* Model */,
+				A1EC74F21FAFBE7300957BA2 /* Services */,
+				A1EC74ED1FAFBD5D00957BA2 /* Model */,
+				A1EC74EE1FAFBD6B00957BA2 /* Controller */,
+				A1EC74F11FAFBD9F00957BA2 /* Views */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
 				A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */,
 				A1BE3C5C1F2B97C100C9F9CE /* Info.plist */,
@@ -90,48 +91,7 @@
 			path = MenuBarTranslator;
 			sourceTree = "<group>";
 		};
-		A1E687331F40CB5B00D65C9B /* MainPopover */ = {
-			isa = PBXGroup;
-			children = (
-				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
-				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
-				A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */,
-				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
-				A17767661F42598900C0DB2B /* AllLanguagesButton.swift */,
-			);
-			name = MainPopover;
-			sourceTree = "<group>";
-		};
-		A1E6873C1F40CCA300D65C9B /* AllLanguagesPopover */ = {
-			isa = PBXGroup;
-			children = (
-				A1E687351F40CB8F00D65C9B /* AllLanguagesViewController.xib */,
-				A1E687381F40CC2400D65C9B /* LanguageCollectionViewItem.swift */,
-				A1E687391F40CC2400D65C9B /* LanguageCollectionViewItem.xib */,
-			);
-			name = AllLanguagesPopover;
-			sourceTree = "<group>";
-		};
-		A1EF2BCB1F353E9000235995 /* Constroller */ = {
-			isa = PBXGroup;
-			children = (
-				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
-				A1E687341F40CB8F00D65C9B /* AllLanguagesViewController.swift */,
-				A17F7EF21F4656CF00CF8057 /* ExtraThings.swift */,
-			);
-			name = Constroller;
-			sourceTree = "<group>";
-		};
-		A1EF2BCC1F353EA600235995 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A1E6873C1F40CCA300D65C9B /* AllLanguagesPopover */,
-				A1E687331F40CB5B00D65C9B /* MainPopover */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		A1EF2BCD1F353EED00235995 /* Model */ = {
+		A1EC74ED1FAFBD5D00957BA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A17767681F437B7C00C0DB2B /* DictionaryClient.swift */,
@@ -141,6 +101,55 @@
 				A1E6873D1F40DF4200D65C9B /* Queue.swift */,
 			);
 			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		A1EC74EE1FAFBD6B00957BA2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
+				A1E687341F40CB8F00D65C9B /* AllLanguagesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A1EC74EF1FAFBD7A00957BA2 /* AllLanguagesPopover */ = {
+			isa = PBXGroup;
+			children = (
+				A1E687351F40CB8F00D65C9B /* AllLanguagesViewController.xib */,
+				A1E687381F40CC2400D65C9B /* LanguageCollectionViewItem.swift */,
+				A1E687391F40CC2400D65C9B /* LanguageCollectionViewItem.xib */,
+			);
+			path = AllLanguagesPopover;
+			sourceTree = "<group>";
+		};
+		A1EC74F01FAFBD8E00957BA2 /* MainPopover */ = {
+			isa = PBXGroup;
+			children = (
+				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
+				A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */,
+				A1F7C6071F33DD8C00CF4AD0 /* ResizableTextField.swift */,
+				A17767661F42598900C0DB2B /* AllLanguagesButton.swift */,
+			);
+			path = MainPopover;
+			sourceTree = "<group>";
+		};
+		A1EC74F11FAFBD9F00957BA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1EC74F01FAFBD8E00957BA2 /* MainPopover */,
+				A1EC74EF1FAFBD7A00957BA2 /* AllLanguagesPopover */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1EC74F21FAFBE7300957BA2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A17F7EF21F4656CF00CF8057 /* Extentions.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A17F7EF31F4656CF00CF8057 /* ExtraThings.swift in Sources */,
+				A17F7EF31F4656CF00CF8057 /* Extentions.swift in Sources */,
 				A1E687361F40CB8F00D65C9B /* AllLanguagesViewController.swift in Sources */,
 				A17767691F437B7C00C0DB2B /* DictionaryClient.swift in Sources */,
 				A1F7C6081F33DD8C00CF4AD0 /* ResizableTextField.swift in Sources */,

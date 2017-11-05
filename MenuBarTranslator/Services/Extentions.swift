@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Cocoa
 extension CGPoint {
 	static func ~=(point: CGPoint, rect: CGRect) -> Bool {
 		let magic: CGFloat = 30.0
@@ -15,20 +15,15 @@ extension CGPoint {
 	}
 }
 
-protocol AutoCompleteKeyDownDelegate{
-	func downArrowDidPressed()
-	func upArrowDidPressed()
-	func leftArrowDidPressed()
-	func rightArrowDidPressed()
-	func escDidPressed()
-	func deleteDidPressed()
-}
-
-enum Key: Int {
-	case delete = 51
-	case esc = 53
-	case leftArrow = 123
-	case rightArrow = 124
-	case downArrow = 125
-	case upArrow = 126
+extension NSTextView {
+	var isEmpty: Bool {
+		get {
+			return self.string.count == 0
+		}
+		set {
+			if(newValue) {
+				self.string = ""
+			}
+		}
+	}
 }
