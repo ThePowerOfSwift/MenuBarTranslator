@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+
 extension CGPoint {
 	static func ~=(point: CGPoint, rect: CGRect) -> Bool {
 		let magic: CGFloat = 30.0
