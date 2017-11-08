@@ -21,13 +21,14 @@ extension TranslateViewController {
 	}
 
 	func textViewsSetup() {
+		
 		inputTextView.delegate = self
-		inputTextView.allowsImageEditing = false
-		inputTextView.allowsDocumentBackgroundColorChange = false
-		inputTextView.allowsUndo = true
 
 		inputTextView.font = Options.font
 		outputTextView.font = Options.font
+
+		pronounceInputButton.isEnabled = inputTextView.isPronouncable
+		pronounceOutputButton.isEnabled = outputTextView.isPronouncable
 
 		let offset = NSSize(width: 0, height: 5)
 		inputTextView.textContainerInset = offset

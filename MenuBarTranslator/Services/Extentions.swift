@@ -27,4 +27,8 @@ extension NSTextView {
 			}
 		}
 	}
+
+	var isPronouncable: Bool {
+		return 1...1000 ~= self.string.count
+	}
 }

@@ -12,6 +12,8 @@
                 <outlet property="fromLangSegControl" destination="9Py-F7-msu" id="anX-qQ-M3y"/>
                 <outlet property="inputTextView" destination="eWv-Rk-Dyc" id="HEV-NF-FAx"/>
                 <outlet property="outputTextView" destination="QBi-jr-pK6" id="ZbS-9t-WN1"/>
+                <outlet property="pronounceInputButton" destination="Ipq-WG-YQj" id="t6z-xW-e9n"/>
+                <outlet property="pronounceOutputButton" destination="4a0-57-vEG" id="FpX-TL-Xgc"/>
                 <outlet property="swapButton" destination="bcD-9U-zya" id="QUf-2c-X3W"/>
                 <outlet property="toLangSegControl" destination="xqr-oj-V08" id="Dfu-qe-fCB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -155,6 +157,17 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipq-WG-YQj">
+                            <rect key="frame" x="269" y="359" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yJo-XZ-AUk">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="pronounceText:" target="-2" id="mjC-dg-frQ"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </customView>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEX-08-fn5" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
@@ -188,10 +201,24 @@
                                 <autoresizingMask key="autoresizingMask"/>
                             </scroller>
                         </scrollView>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4a0-57-vEG">
+                            <rect key="frame" x="269" y="359" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Y58-Q4-tTU">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="pronounceText:" target="-2" id="276-mQ-ziE"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </customView>
             </subviews>
             <point key="canvasLocation" x="1515" y="-446"/>
         </customView>
     </objects>
+    <resources>
+        <image name="speaker" width="40" height="40"/>
+    </resources>
 </document>

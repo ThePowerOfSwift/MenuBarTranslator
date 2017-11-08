@@ -7,22 +7,23 @@
 //
 
 import Cocoa
+import AVFoundation
 
-
-class TranslateViewController: NSViewController {
+class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	// MARK: variables
 	@IBOutlet var inputTextView: NSTextView!
 	@IBOutlet var outputTextView: NSTextView!
 
+	@IBOutlet weak var pronounceInputButton: NSButton!
+	@IBOutlet weak var pronounceOutputButton: NSButton!
 	@IBOutlet weak var swapButton: NSButton!
 	@IBOutlet weak var fromLangSegControl: LanguagesSegmentControl!
 	@IBOutlet weak var toLangSegControl: LanguagesSegmentControl!
 
 	@IBOutlet weak var yandexAdLabel: NSTextField!
+
 	let langsPopover = NSPopover()
-	static var isoutputTextViewAlreadyHidden: Bool = true
-	var suggestedWords : [String] = ["1" , "2", "3"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -130,7 +131,28 @@ class TranslateViewController: NSViewController {
 		})
 	}
 
-	
+	@IBAction func pronounceText(_ sender: NSButton) {
+		guard let superview = sender.superview as? TranslateView,
+			let textView = superview.textView else {
+			sender.isEnabled = false
+			return
+		}
+		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, lang: "en").request)
+		requestor.getData { (url, _, _) in
+			guard let url = url else {
+				return
+			}
+
+			DispatchQueue.main.sync {
+				guard let action = try? AVAudioPlayer(contentsOf: url) else {return}
+				print(url)
+				print(action.data)
+
+				action.play()
+			}
+		}
+	}
+
 }
 
 

@@ -15,11 +15,21 @@ class TranslateView: NSView {
 		self.layer?.backgroundColor = CGColor.white
     }
 
+
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
+		commonInit()
 	}
 
+	var textView: NSTextView? = nil
+	
 	required init?(coder decoder: NSCoder) {
 		super.init(coder: decoder)
+		commonInit()
 	}
+	
+	private func commonInit() {
+		textView = (self.subviews.filter({$0 is NSScrollView}).first as? NSScrollView)?.documentView as? NSTextView
+	}
+
 }

@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A114F87B1FB3BCDE0001B884 /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8761FB3BCDD0001B884 /* DictionaryClient.swift */; };
+		A114F87C1FB3BCDE0001B884 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8771FB3BCDD0001B884 /* Queue.swift */; };
+		A114F87D1FB3BCDE0001B884 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8781FB3BCDE0001B884 /* Language.swift */; };
+		A114F87E1FB3BCDE0001B884 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8791FB3BCDE0001B884 /* RequestProcessor.swift */; };
+		A114F87F1FB3BCDE0001B884 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F87A1FB3BCDE0001B884 /* YandexEndpoint.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17F7EF31F4656CF00CF8057 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F7EF21F4656CF00CF8057 /* Extentions.swift */; };
 		A1B078461FB242F200CD515B /* TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078451FB242F200CD515B /* TextViewDelegate.swift */; };
 		A1B078481FB24FB800CD515B /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078471FB24FB800CD515B /* Options.swift */; };
-		A1B0784A1FB2517700CD515B /* TranslationTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078491FB2517700CD515B /* TranslationTextView.swift */; };
 		A1B0784C1FB254B800CD515B /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0784B1FB254B800CD515B /* TranslateView.swift */; };
 		A1B0784E1FB259A300CD515B /* MainPopoverSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0784D1FB259A300CD515B /* MainPopoverSetup.swift */; };
-		A1B078541FB25AB100CD515B /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B0784F1FB25AB100CD515B /* DictionaryClient.swift */; };
-		A1B078551FB25AB100CD515B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078501FB25AB100CD515B /* Queue.swift */; };
-		A1B078561FB25AB100CD515B /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078511FB25AB100CD515B /* Language.swift */; };
-		A1B078571FB25AB100CD515B /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078521FB25AB100CD515B /* RequestProcessor.swift */; };
-		A1B078581FB25AB100CD515B /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078531FB25AB100CD515B /* YandexEndpoint.swift */; };
 		A1B0785A1FB25F1800CD515B /* TopLanguageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078591FB25F1800CD515B /* TopLanguageMenu.swift */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
@@ -33,18 +32,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A114F8761FB3BCDD0001B884 /* DictionaryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
+		A114F8771FB3BCDD0001B884 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		A114F8781FB3BCDE0001B884 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		A114F8791FB3BCDE0001B884 /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
+		A114F87A1FB3BCDE0001B884 /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17F7EF21F4656CF00CF8057 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		A1B078451FB242F200CD515B /* TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewDelegate.swift; sourceTree = "<group>"; };
 		A1B078471FB24FB800CD515B /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		A1B078491FB2517700CD515B /* TranslationTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationTextView.swift; sourceTree = "<group>"; };
 		A1B0784B1FB254B800CD515B /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		A1B0784D1FB259A300CD515B /* MainPopoverSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPopoverSetup.swift; sourceTree = "<group>"; };
-		A1B0784F1FB25AB100CD515B /* DictionaryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryClient.swift; path = MenuBarTranslator/Model/DictionaryClient.swift; sourceTree = SOURCE_ROOT; };
-		A1B078501FB25AB100CD515B /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = MenuBarTranslator/Model/Queue.swift; sourceTree = SOURCE_ROOT; };
-		A1B078511FB25AB100CD515B /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Language.swift; path = MenuBarTranslator/Model/Language.swift; sourceTree = SOURCE_ROOT; };
-		A1B078521FB25AB100CD515B /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestProcessor.swift; path = MenuBarTranslator/Model/RequestProcessor.swift; sourceTree = SOURCE_ROOT; };
-		A1B078531FB25AB100CD515B /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YandexEndpoint.swift; path = MenuBarTranslator/Model/YandexEndpoint.swift; sourceTree = SOURCE_ROOT; };
 		A1B078591FB25F1800CD515B /* TopLanguageMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLanguageMenu.swift; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A114F8751FB3BCC50001B884 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A114F8761FB3BCDD0001B884 /* DictionaryClient.swift */,
+				A114F8781FB3BCDE0001B884 /* Language.swift */,
+				A114F8771FB3BCDD0001B884 /* Queue.swift */,
+				A114F8791FB3BCDE0001B884 /* RequestProcessor.swift */,
+				A114F87A1FB3BCDE0001B884 /* YandexEndpoint.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A1BE3C471F2B97C100C9F9CE = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +100,8 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
+				A114F8751FB3BCC50001B884 /* Model */,
 				A1EC74F21FAFBE7300957BA2 /* Services */,
-				A1EC74ED1FAFBD5D00957BA2 /* Model */,
 				A1EC74EE1FAFBD6B00957BA2 /* Controller */,
 				A1EC74F11FAFBD9F00957BA2 /* Views */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
@@ -99,19 +109,6 @@
 				A1BE3C5C1F2B97C100C9F9CE /* Info.plist */,
 			);
 			path = MenuBarTranslator;
-			sourceTree = "<group>";
-		};
-		A1EC74ED1FAFBD5D00957BA2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A1B0784F1FB25AB100CD515B /* DictionaryClient.swift */,
-				A1B078511FB25AB100CD515B /* Language.swift */,
-				A1B078501FB25AB100CD515B /* Queue.swift */,
-				A1B078521FB25AB100CD515B /* RequestProcessor.swift */,
-				A1B078531FB25AB100CD515B /* YandexEndpoint.swift */,
-			);
-			name = Model;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A1EC74EE1FAFBD6B00957BA2 /* Controller */ = {
@@ -143,7 +140,6 @@
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
 				A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */,
 				A17767661F42598900C0DB2B /* AllLanguagesButton.swift */,
-				A1B078491FB2517700CD515B /* TranslationTextView.swift */,
 				A1B0784B1FB254B800CD515B /* TranslateView.swift */,
 			);
 			path = MainPopover;
@@ -244,21 +240,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17F7EF31F4656CF00CF8057 /* Extentions.swift in Sources */,
-				A1B078551FB25AB100CD515B /* Queue.swift in Sources */,
+				A114F87C1FB3BCDE0001B884 /* Queue.swift in Sources */,
 				A1E687361F40CB8F00D65C9B /* AllLanguagesViewController.swift in Sources */,
-				A1B0784A1FB2517700CD515B /* TranslationTextView.swift in Sources */,
 				A1B0784C1FB254B800CD515B /* TranslateView.swift in Sources */,
-				A1B078581FB25AB100CD515B /* YandexEndpoint.swift in Sources */,
 				A1B078461FB242F200CD515B /* TextViewDelegate.swift in Sources */,
-				A1B078561FB25AB100CD515B /* Language.swift in Sources */,
+				A114F87F1FB3BCDE0001B884 /* YandexEndpoint.swift in Sources */,
 				A1E6873A1F40CC2400D65C9B /* LanguageCollectionViewItem.swift in Sources */,
+				A114F87D1FB3BCDE0001B884 /* Language.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1B0785A1FB25F1800CD515B /* TopLanguageMenu.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
-				A1B078571FB25AB100CD515B /* RequestProcessor.swift in Sources */,
+				A114F87E1FB3BCDE0001B884 /* RequestProcessor.swift in Sources */,
 				A1B0784E1FB259A300CD515B /* MainPopoverSetup.swift in Sources */,
 				A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */,
-				A1B078541FB25AB100CD515B /* DictionaryClient.swift in Sources */,
+				A114F87B1FB3BCDE0001B884 /* DictionaryClient.swift in Sources */,
 				A1B078481FB24FB800CD515B /* Options.swift in Sources */,
 				A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */,
 			);

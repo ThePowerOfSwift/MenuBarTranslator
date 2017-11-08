@@ -29,6 +29,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = NSPopover.Behavior.transient
 		
         popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
+
+		
+//		requestor.makeCall { (data, response, err) in
+//			print(data)
+//			print(response)
+//			print(err)
+//		}
     }
     func applicationWillTerminate(_ aNotification: Notification) {
     }
