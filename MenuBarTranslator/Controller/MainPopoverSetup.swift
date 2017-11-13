@@ -27,8 +27,8 @@ extension TranslateViewController {
 		inputTextView.font = Options.font
 		outputTextView.font = Options.font
 
-		pronounceInputButton.isEnabled = inputTextView.isPronouncable
-		pronounceOutputButton.isEnabled = outputTextView.isPronouncable
+		pronounceInputButton.isEnabled = inputTranslateView.isPronouncable
+		pronounceOutputButton.isEnabled = outputTranslateView.isPronouncable
 
 		let offset = NSSize(width: 0, height: 5)
 		inputTextView.textContainerInset = offset

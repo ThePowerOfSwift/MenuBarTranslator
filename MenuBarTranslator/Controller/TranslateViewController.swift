@@ -15,27 +15,39 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet var inputTextView: NSTextView!
 	@IBOutlet var outputTextView: NSTextView!
 
+	@IBOutlet weak var outputTranslateView: TranslateView!
+	@IBOutlet weak var inputTranslateView: TranslateView!
+	
 	@IBOutlet weak var pronounceInputButton: NSButton!
 	@IBOutlet weak var pronounceOutputButton: NSButton!
 	@IBOutlet weak var swapButton: NSButton!
 	@IBOutlet weak var fromLangSegControl: LanguagesSegmentControl!
 	@IBOutlet weak var toLangSegControl: LanguagesSegmentControl!
+	@IBOutlet weak var preferencesButton: NSButton!
 
+	@IBOutlet weak var inputBoardedScrollView: NSScrollView!
+	@IBOutlet weak var outputBoardedScrollView: NSScrollView!
 	@IBOutlet weak var yandexAdLabel: NSTextField!
 
 	let langsPopover = NSPopover()
-
+	var player : AVAudioPlayer?
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		yandexReferenceSetup()
+		let menu = NSMenu()
+		menu.addItem(NSMenuItem(title: "Quit MenuBarTranslator", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+		preferencesButton.menu = menu
+
+		outputBoardedScrollView.borderType = .noBorder
+		inputBoardedScrollView.borderType = .noBorder
+
 		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
 			self.keyDown(with: $0)
 			return $0
 		}
-
 		self.swapButton.bezelStyle = .texturedRounded
 
 		textViewsSetup()
+		yandexReferenceSetup()
 
 		fromLangSegControl.queue = QueueInt(withInterval: 0..<fromLangSegControl.segmentCount - 1)
 		toLangSegControl.queue = QueueInt(withInterval: 0..<toLangSegControl.segmentCount)
@@ -46,6 +58,8 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		langsPopover.contentViewController = AllLanguagesViewController(nibName: NSNib.Name(rawValue: "AllLanguagesViewController"), bundle: nil)
 		langsPopover.contentViewController?.view.acceptsTouchEvents = true
 
+		inputTranslateView.language = Languages.shared.searchLanguage(byShortName: "en")
+		outputTranslateView.language = Languages.shared.searchLanguage(byShortName: "ru")
 	}
 	@IBAction func shutDownButtonClicked(_ sender: NSButton) {
 		NSApplication.shared.stop(self)
@@ -112,6 +126,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 					self.fromLangSegControl.detectedLanguage = nil
 					return
 			}
+			self.inputTranslateView.language = newLanguage
 			self.fromLangSegControl.detectedLanguage = newLanguage
 		})
 	}
@@ -130,26 +145,32 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			self.outputTextView.string = text
 		})
 	}
+	@IBAction func preferencesButtonClicked(_ sender: NSButton) {
+		if let menu = sender.menu,
+			let event = NSApp.currentEvent{
+			NSMenu.popUpContextMenu(menu, with: event, for: sender)
+		}
+	}
 
-	@IBAction func pronounceText(_ sender: NSButton) {
+	@IBAction func pronounceTextButtonClicked(_ sender: NSButton) {
 		guard let superview = sender.superview as? TranslateView,
-			let textView = superview.textView else {
+			let textView = superview.textView,
+			let language = superview.language,
+			language.isPronunciationAvailable else {
 			sender.isEnabled = false
 			return
 		}
-		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, lang: "en").request)
+		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, language: language).request)
 		requestor.getData { (url, _, _) in
 			guard let url = url else {
 				return
 			}
+			guard let data = try? Data(contentsOf: url),
+				let action = try? AVAudioPlayer(data: data) else {return}
+			self.player = action
+			self.player?.play()
 
-			DispatchQueue.main.sync {
-				guard let action = try? AVAudioPlayer(contentsOf: url) else {return}
-				print(url)
-				print(action.data)
 
-				action.play()
-			}
 		}
 	}
 

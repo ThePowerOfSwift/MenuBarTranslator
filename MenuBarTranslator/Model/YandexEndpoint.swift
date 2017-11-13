@@ -9,13 +9,13 @@
 import Foundation
 
 enum Yandex {
-    case translate(text: String, lang: String)
+    case translate(text: String, language: String)
     
     case languages
     
     case detectLanguage(text: String)
 
-	case pronounce(text: String, lang: String)
+	case pronounce(text: String, language: Language)
 
     var request: URLRequest {
         var components = URLComponents(string: baseUrl)!
@@ -60,18 +60,18 @@ enum Yandex {
     private struct ParameterKeys {
         static let key = "key"
         static let text = "text"
-        static let lang = "lang"
+        static let language = "lang"
 		static let speaker = "speaker"
 		static let format = "format"
     }
     
     private var parameters: [String : Any] {
         switch self {
-            case .translate(let text, let lang):
+            case .translate(let text, let language):
                 let parameters: [String : Any] = [
                     ParameterKeys.key: translateKeyAPI,
                     ParameterKeys.text: text,
-                    ParameterKeys.lang: lang
+                    ParameterKeys.language: language
                 ]
             
                 return parameters
@@ -86,13 +86,13 @@ enum Yandex {
                     ParameterKeys.text: text
                 ]
                 return parameters
-			case .pronounce(let text, let lang):
+			case .pronounce(let text, let language):
 				let parameters: [String : Any] = [
 					ParameterKeys.key: speechKeyAPI,
 					ParameterKeys.text: text,
 					ParameterKeys.format: "mp3",
-					ParameterKeys.lang: "\(lang)-\(lang.uppercased())",
-					ParameterKeys.speaker: "jane"
+					ParameterKeys.language: "\(language.shortName)-\(language.shortName.uppercased())",
+					ParameterKeys.speaker: "oksana"
 				]
 				return parameters
         }

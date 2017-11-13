@@ -23,7 +23,7 @@ class Dictionary {
 		}
 
 		let requestor = RequestProcessor(request: Yandex.translate(text: text,
-		                                                           lang: languageDirection).request)
+		                                                           language: languageDirection).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
 				guard let json = json as? [String: Any],

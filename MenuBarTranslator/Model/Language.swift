@@ -13,10 +13,12 @@ struct Language: Equatable {
 
 	let shortName: String
 	let fullName: String
+	var isPronunciationAvailable: Bool
 
-	init(shortName: String, fullName: String) {
+	init(shortName: String, fullName: String, isPronunciationAvailable: Bool = false) {
 		self.shortName = shortName
 		self.fullName = fullName
+		self.isPronunciationAvailable = isPronunciationAvailable;
 	}
 
 
@@ -35,7 +37,7 @@ class Languages {
 	var languages: [Language] = [Language(shortName: "az", fullName: "азербайджанский"),
 	                             Language(shortName: "sq", fullName: "албанский"),
 	                             Language(shortName: "am", fullName: "амхарский"),
-	                             Language(shortName: "en", fullName: "английский"),
+								 Language(shortName: "en", fullName: "английский", isPronunciationAvailable: true),
 	                             Language(shortName: "ar", fullName: "арабский"),
 	                             Language(shortName: "hy", fullName: "армянский"),
 	                             Language(shortName: "af", fullName: "африкаанс"),
@@ -95,7 +97,7 @@ class Languages {
 	                             Language(shortName: "pl", fullName: "польский"),
 	                             Language(shortName: "pt", fullName: "португальский"),
 	                             Language(shortName: "ro", fullName: "румынский"),
-	                             Language(shortName: "ru", fullName: "русский"),
+	                             Language(shortName: "ru", fullName: "русский", isPronunciationAvailable: true),
 	                             Language(shortName: "ceb", fullName: "себуанский"),
 	                             Language(shortName: "sr", fullName: "сербский"),
 	                             Language(shortName: "si", fullName: "сингальский"),
@@ -109,10 +111,10 @@ class Languages {
 	                             Language(shortName: "ta", fullName: "тамильский"),
 	                             Language(shortName: "tt", fullName: "татарский"),
 	                             Language(shortName: "te", fullName: "телугу"),
-	                             Language(shortName: "tr", fullName: "турецкий"),
+	                             Language(shortName: "tr", fullName: "турецкий", isPronunciationAvailable: true),
 	                             Language(shortName: "udm", fullName: "удмуртский"),
 	                             Language(shortName: "uz", fullName: "узбекский"),
-	                             Language(shortName: "uk", fullName: "украинский"),
+	                             Language(shortName: "uk", fullName: "украинский", isPronunciationAvailable: true),
 	                             Language(shortName: "ur", fullName: "урду"),
 	                             Language(shortName: "fi", fullName: "финский"),
 	                             Language(shortName: "fr", fullName: "французский"),

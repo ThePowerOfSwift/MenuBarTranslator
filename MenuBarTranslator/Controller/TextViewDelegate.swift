@@ -20,11 +20,19 @@ extension TranslateViewController:  NSTextViewDelegate {
 	func textDidChange(_ notification: Notification) {
 		if let textView = notification.object as? NSTextView {
 			textView.textStorage?.setAttributes( [NSAttributedStringKey.font: Options.font as Any], range: NSRange(location: 0, length: textView.string.count))
+//			textView.complete(self)
 		}
+
 // MARK: Setting translated text to output
 		self.translateText()
 
-		pronounceInputButton.isEnabled = inputTextView.isPronouncable
-		pronounceOutputButton.isEnabled = outputTextView.isPronouncable
+		pronounceInputButton.isEnabled = inputTranslateView.isPronouncable
+		pronounceOutputButton.isEnabled = outputTranslateView.isPronouncable
 	}
+
+	func textView(_ textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>?) -> [String] {
+		
+		return ["hello", "Hello", "Asas"]
+	}
+
 }

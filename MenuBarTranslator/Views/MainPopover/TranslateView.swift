@@ -15,6 +15,10 @@ class TranslateView: NSView {
 		self.layer?.backgroundColor = CGColor.white
     }
 
+	var isPronouncable: Bool {
+		return textView != nil && language != nil && 1...1000 ~=  textView!.string.count  && language!.isPronunciationAvailable
+	}
+
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
@@ -22,6 +26,8 @@ class TranslateView: NSView {
 	}
 
 	var textView: NSTextView? = nil
+
+	var language: Language?
 	
 	required init?(coder decoder: NSCoder) {
 		super.init(coder: decoder)

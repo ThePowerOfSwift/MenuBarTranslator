@@ -12,6 +12,7 @@
 		A114F87D1FB3BCDE0001B884 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8781FB3BCDE0001B884 /* Language.swift */; };
 		A114F87E1FB3BCDE0001B884 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F8791FB3BCDE0001B884 /* RequestProcessor.swift */; };
 		A114F87F1FB3BCDE0001B884 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A114F87A1FB3BCDE0001B884 /* YandexEndpoint.swift */; };
+		A1556D531FBA274600E73BE8 /* TranslateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1556D521FBA274600E73BE8 /* TranslateTextView.swift */; };
 		A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17767661F42598900C0DB2B /* AllLanguagesButton.swift */; };
 		A17F7EF31F4656CF00CF8057 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F7EF21F4656CF00CF8057 /* Extentions.swift */; };
 		A1B078461FB242F200CD515B /* TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B078451FB242F200CD515B /* TextViewDelegate.swift */; };
@@ -37,6 +38,7 @@
 		A114F8781FB3BCDE0001B884 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A114F8791FB3BCDE0001B884 /* RequestProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
 		A114F87A1FB3BCDE0001B884 /* YandexEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
+		A1556D521FBA274600E73BE8 /* TranslateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTextView.swift; sourceTree = "<group>"; };
 		A17767661F42598900C0DB2B /* AllLanguagesButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLanguagesButton.swift; sourceTree = "<group>"; };
 		A17F7EF21F4656CF00CF8057 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		A1B078451FB242F200CD515B /* TextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				A1F06BB91F3BBBCE0012B7BD /* LanguagesSegmentControl.swift */,
 				A17767661F42598900C0DB2B /* AllLanguagesButton.swift */,
 				A1B0784B1FB254B800CD515B /* TranslateView.swift */,
+				A1556D521FBA274600E73BE8 /* TranslateTextView.swift */,
 			);
 			path = MainPopover;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				A114F87E1FB3BCDE0001B884 /* RequestProcessor.swift in Sources */,
 				A1B0784E1FB259A300CD515B /* MainPopoverSetup.swift in Sources */,
 				A1F06BBA1F3BBBCE0012B7BD /* LanguagesSegmentControl.swift in Sources */,
+				A1556D531FBA274600E73BE8 /* TranslateTextView.swift in Sources */,
 				A114F87B1FB3BCDE0001B884 /* DictionaryClient.swift in Sources */,
 				A1B078481FB24FB800CD515B /* Options.swift in Sources */,
 				A17767671F42598900C0DB2B /* AllLanguagesButton.swift in Sources */,
