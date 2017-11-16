@@ -4,237 +4,85 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
-                <outlet property="fromLangSegControl" destination="9Py-F7-msu" id="anX-qQ-M3y"/>
-                <outlet property="inputBoardedScrollView" destination="t1W-FV-F0y" id="8mz-Zw-c62"/>
-                <outlet property="inputTextView" destination="eWv-Rk-Dyc" id="HEV-NF-FAx"/>
-                <outlet property="inputTranslateView" destination="IBM-3N-BiE" id="qmV-ZO-fP8"/>
-                <outlet property="outputBoardedScrollView" destination="iA6-PR-ZKP" id="rxN-mr-Cmg"/>
-                <outlet property="outputTextView" destination="QBi-jr-pK6" id="ZbS-9t-WN1"/>
-                <outlet property="outputTranslateView" destination="DEX-08-fn5" id="sdE-Qu-K0u"/>
-                <outlet property="preferencesButton" destination="hlR-JY-DfV" id="xLX-ra-AhE"/>
-                <outlet property="pronounceInputButton" destination="Ipq-WG-YQj" id="t6z-xW-e9n"/>
-                <outlet property="pronounceOutputButton" destination="4a0-57-vEG" id="FpX-TL-Xgc"/>
-                <outlet property="swapButton" destination="bcD-9U-zya" id="QUf-2c-X3W"/>
-                <outlet property="toLangSegControl" destination="xqr-oj-V08" id="Dfu-qe-fCB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
-                <outlet property="yandexAdLabel" destination="PoA-FU-yE0" id="QKE-se-iiF"/>
+                <outlet property="yandexReferenceLabel" destination="Ljz-6b-50r" id="zTV-oF-nex"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="640" height="514"/>
+            <rect key="frame" x="0.0" y="0.0" width="640" height="550"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yp2-N5-UpG" customClass="TopLanguageMenu" customModule="MenuBarTranslator" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="447" width="640" height="67"/>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-FO-7Nc" customClass="TranslateScrollView" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="10" y="40" width="307" height="434"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <clipView key="contentView" ambiguous="YES" id="8Yj-Xc-NSR" customClass="TranslateClipView" customModule="MenuBarTranslator" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="p7d-Zo-vh5" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="307" height="434"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="A1h-Az-MjF">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="86G-Q4-vmH">
+                        <rect key="frame" x="291" y="0.0" width="16" height="434"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1u-US-HsY" customClass="TranslateScrollView" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="323" y="40" width="307" height="434"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <clipView key="contentView" ambiguous="YES" id="7XF-iQ-7ML">
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="qEB-d9-XJe" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="minSize" width="307" height="434"/>
+                                <size key="maxSize" width="463" height="10000000"/>
+                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Ebr-f9-9fy">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="7Uy-nb-rOs">
+                        <rect key="frame" x="291" y="0.0" width="16" height="434"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljz-6b-50r">
+                    <rect key="frame" x="8" y="7" width="211" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgI-Xt-0yc">
-                            <rect key="frame" x="0.0" y="37" width="419" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Py-F7-msu" customClass="LanguagesSegmentControl" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="-2" y="-2" width="395" height="24"/>
-                                    <segmentedCell key="cell" scrollable="YES" lineBreakMode="clipping" truncatesLastVisibleLine="YES" refusesFirstResponder="YES" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="WY9-RA-3TR">
-                                        <font key="font" metaFont="system"/>
-                                        <segments>
-                                            <segment label="английский" imageScaling="proportionallyUpOrDown" selected="YES"/>
-                                            <segment label="русский" tag="1"/>
-                                            <segment label="немецкий"/>
-                                            <segment label="Detect language"/>
-                                        </segments>
-                                    </segmentedCell>
-                                    <connections>
-                                        <action selector="fromSegmentControlButton:" target="-2" id="kEP-2p-CDZ"/>
-                                    </connections>
-                                </segmentedControl>
-                                <button wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Z4-Sh3" customClass="AllLanguagesButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="385" y="-7" width="40" height="32"/>
-                                    <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="0EP-Ak-MHF">
-                                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="allFromLanguagesButtonClicked:" target="-2" id="Ohz-mC-Scy"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <visibilityPriorities>
-                                <integer value="1000"/>
-                                <integer value="1000"/>
-                            </visibilityPriorities>
-                            <customSpacing>
-                                <real value="3.4028234663852886e+38"/>
-                                <real value="3.4028234663852886e+38"/>
-                            </customSpacing>
-                        </stackView>
-                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XB-s2-Sk7">
-                            <rect key="frame" x="360" y="13" width="280" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-oj-V08" customClass="LanguagesSegmentControl" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="-2" y="-1" width="270" height="24"/>
-                                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="L2h-GK-WF4">
-                                        <font key="font" metaFont="system"/>
-                                        <segments>
-                                            <segment label="английский"/>
-                                            <segment label="русский" imageScaling="proportionallyUpOrDown" selected="YES" tag="1"/>
-                                            <segment label="немецкий"/>
-                                        </segments>
-                                    </segmentedCell>
-                                </segmentedControl>
-                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5JL-y2-vLn" customClass="AllLanguagesButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="266" y="-2" width="14" height="25"/>
-                                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" borderStyle="border" inset="2" id="6Hf-bD-liF">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="allToLanguagesButtonClicked:" target="-2" id="usp-Yn-xhJ"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <visibilityPriorities>
-                                <integer value="1000"/>
-                                <integer value="1000"/>
-                            </visibilityPriorities>
-                            <customSpacing>
-                                <real value="3.4028234663852886e+38"/>
-                                <real value="3.4028234663852886e+38"/>
-                            </customSpacing>
-                        </stackView>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcD-9U-zya">
-                            <rect key="frame" x="421" y="30" width="73" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="push" title="Swap" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="fbh-1j-tEl">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="swapButtonClicked:" target="-2" id="0LJ-cf-2No"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </customView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoA-FU-yE0">
-                    <rect key="frame" x="9" y="0.0" width="204" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Translated by &quot;Yandex Translate&quot;" usesSingleLineMode="YES" id="OTl-4D-DdN">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" alignment="left" title="Traslated by &quot;Yandex Translate&quot;" placeholderString="å" id="T7l-eG-eI7">
+                        <font key="font" size="13" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IBM-3N-BiE" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="31" width="319" height="414"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="t1W-FV-F0y">
-                            <rect key="frame" x="10" y="0.0" width="245" height="404"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="J4g-AE-MmZ">
-                                <rect key="frame" x="1" y="1" width="243" height="402"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="eWv-Rk-Dyc" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="243" height="402"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="minSize" width="243" height="402"/>
-                                        <size key="maxSize" width="463" height="10000000"/>
-                                        <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="u1h-9f-FH7">
-                                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="PTb-Bk-0ZC">
-                                <rect key="frame" x="-100" y="-100" width="15" height="382"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                        </scrollView>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ipq-WG-YQj">
-                            <rect key="frame" x="269" y="359" width="35" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="yJo-XZ-AUk">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="pronounceTextButtonClicked:" target="-2" id="e6N-Fv-SxL"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </customView>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEX-08-fn5" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
-                    <rect key="frame" x="321" y="31" width="319" height="414"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iA6-PR-ZKP">
-                            <rect key="frame" x="10" y="0.0" width="245" height="404"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="NIT-1F-FIJ">
-                                <rect key="frame" x="1" y="1" width="243" height="402"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <textView ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="QBi-jr-pK6" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="243" height="402"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="minSize" width="243" height="402"/>
-                                        <size key="maxSize" width="463" height="10000000"/>
-                                        <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </textView>
-                                </subviews>
-                            </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="OkB-63-42m">
-                                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Mta-JG-DVd">
-                                <rect key="frame" x="-100" y="-100" width="15" height="382"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                        </scrollView>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4a0-57-vEG">
-                            <rect key="frame" x="269" y="359" width="35" height="35"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Y58-Q4-tTU">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="pronounceTextButtonClicked:" target="-2" id="shH-3z-rzV"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </customView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hlR-JY-DfV">
-                    <rect key="frame" x="608" y="7" width="17" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="preferences" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="Uo6-fJ-3am">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="preferencesButtonClicked:" target="-2" id="6Rp-Tt-DBW"/>
-                    </connections>
-                </button>
             </subviews>
             <point key="canvasLocation" x="1696" y="-369"/>
         </customView>
     </objects>
-    <resources>
-        <image name="preferences" width="50" height="50"/>
-        <image name="speaker" width="40" height="40"/>
-    </resources>
 </document>
