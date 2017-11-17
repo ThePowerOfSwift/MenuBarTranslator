@@ -13,7 +13,7 @@ class TranslateView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-		self.layer?.cornerRadius = 7
+		self.layer?.cornerRadius = UIOptions.cornerRadius
 		self.layer?.backgroundColor = NSColor.white.cgColor
     }
 	
