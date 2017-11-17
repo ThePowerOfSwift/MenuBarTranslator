@@ -1,0 +1,20 @@
+//
+//  TranslateView.swift
+//  MenuBarTranslator
+//
+//  Created by Artem Bobrov on 16.11.2017.
+//  Copyright © 2017 Artem Bobrov. All rights reserved.
+//
+
+import Cocoa
+
+class TranslateView: NSView {
+
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+
+		self.layer?.cornerRadius = 7
+		self.layer?.backgroundColor = NSColor.white.cgColor
+    }
+	
+}

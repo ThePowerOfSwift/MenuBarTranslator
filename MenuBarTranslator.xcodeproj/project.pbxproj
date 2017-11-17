@@ -11,6 +11,14 @@
 		A10027E81FBDB57800E8BC2F /* TranslateScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10027E71FBDB57800E8BC2F /* TranslateScrollView.swift */; };
 		A10027EA1FBDB60000E8BC2F /* TranslateClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10027E91FBDB60000E8BC2F /* TranslateClipView.swift */; };
 		A1556D551FBAE47600E73BE8 /* TranslationViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1556D541FBAE47600E73BE8 /* TranslationViewSetup.swift */; };
+		A19F34ED1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift */; };
+		A19F34F51FBDC5AC00B26C70 /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F01FBDC5AC00B26C70 /* DictionaryClient.swift */; };
+		A19F34F61FBDC5AC00B26C70 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F11FBDC5AC00B26C70 /* Language.swift */; };
+		A19F34F71FBDC5AC00B26C70 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F21FBDC5AC00B26C70 /* RequestProcessor.swift */; };
+		A19F34F81FBDC5AC00B26C70 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F31FBDC5AC00B26C70 /* YandexEndpoint.swift */; };
+		A19F34FD1FBE298200B26C70 /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34FC1FBE298200B26C70 /* TranslateView.swift */; };
+		A19F35001FBE36FB00B26C70 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34FF1FBE36FB00B26C70 /* Extention.swift */; };
+		A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35011FBEF66B00B26C70 /* APIKeys.swift */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
@@ -23,6 +31,14 @@
 		A10027E71FBDB57800E8BC2F /* TranslateScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateScrollView.swift; sourceTree = "<group>"; };
 		A10027E91FBDB60000E8BC2F /* TranslateClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateClipView.swift; sourceTree = "<group>"; };
 		A1556D541FBAE47600E73BE8 /* TranslationViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewSetup.swift; sourceTree = "<group>"; };
+		A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTextViewDelegates.swift; sourceTree = "<group>"; };
+		A19F34F01FBDC5AC00B26C70 /* DictionaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
+		A19F34F11FBDC5AC00B26C70 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		A19F34F21FBDC5AC00B26C70 /* RequestProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
+		A19F34F31FBDC5AC00B26C70 /* YandexEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
+		A19F34FC1FBE298200B26C70 /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		A19F34FF1FBE36FB00B26C70 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		A19F35011FBEF66B00B26C70 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +59,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A19F34EB1FBDC0D800B26C70 /* TranslateView */ = {
+			isa = PBXGroup;
+			children = (
+				A10027E91FBDB60000E8BC2F /* TranslateClipView.swift */,
+				A10027E51FBDB33B00E8BC2F /* TranslateTextView.swift */,
+				A10027E71FBDB57800E8BC2F /* TranslateScrollView.swift */,
+				A19F34FC1FBE298200B26C70 /* TranslateView.swift */,
+			);
+			path = TranslateView;
+			sourceTree = "<group>";
+		};
+		A19F34FB1FBDC5D400B26C70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A19F34F01FBDC5AC00B26C70 /* DictionaryClient.swift */,
+				A19F34F11FBDC5AC00B26C70 /* Language.swift */,
+				A19F34F21FBDC5AC00B26C70 /* RequestProcessor.swift */,
+				A19F34F31FBDC5AC00B26C70 /* YandexEndpoint.swift */,
+				A19F35011FBEF66B00B26C70 /* APIKeys.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A19F34FE1FBE36EB00B26C70 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A19F34FF1FBE36FB00B26C70 /* Extention.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A1BE3C471F2B97C100C9F9CE = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +109,8 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
+				A19F34FE1FBE36EB00B26C70 /* Services */,
+				A19F34FB1FBDC5D400B26C70 /* Model */,
 				A1EC74EE1FAFBD6B00957BA2 /* Controller */,
 				A1EC74F11FAFBD9F00957BA2 /* Views */,
 				A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */,
@@ -76,6 +125,7 @@
 			children = (
 				A1556D541FBAE47600E73BE8 /* TranslationViewSetup.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
+				A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -85,9 +135,7 @@
 			children = (
 				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
-				A10027E91FBDB60000E8BC2F /* TranslateClipView.swift */,
-				A10027E51FBDB33B00E8BC2F /* TranslateTextView.swift */,
-				A10027E71FBDB57800E8BC2F /* TranslateScrollView.swift */,
+				A19F34EB1FBDC0D800B26C70 /* TranslateView */,
 			);
 			path = MainPopover;
 			sourceTree = "<group>";
@@ -175,10 +223,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A10027E61FBDB33B00E8BC2F /* TranslateTextView.swift in Sources */,
+				A19F34ED1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift in Sources */,
+				A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */,
 				A1556D551FBAE47600E73BE8 /* TranslationViewSetup.swift in Sources */,
+				A19F35001FBE36FB00B26C70 /* Extention.swift in Sources */,
+				A19F34F61FBDC5AC00B26C70 /* Language.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
+				A19F34F71FBDC5AC00B26C70 /* RequestProcessor.swift in Sources */,
+				A19F34FD1FBE298200B26C70 /* TranslateView.swift in Sources */,
+				A19F34F81FBDC5AC00B26C70 /* YandexEndpoint.swift in Sources */,
 				A10027E81FBDB57800E8BC2F /* TranslateScrollView.swift in Sources */,
+				A19F34F51FBDC5AC00B26C70 /* DictionaryClient.swift in Sources */,
 				A10027EA1FBDB60000E8BC2F /* TranslateClipView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
