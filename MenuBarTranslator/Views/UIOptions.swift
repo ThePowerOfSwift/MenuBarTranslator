@@ -7,8 +7,10 @@
 //
 
 import Foundation
-
+import Cocoa
 
 struct UIOptions {
 	static var cornerRadius: CGFloat = 7
+	static var backgroundColor = NSColor.white
+	static var textFont = NSFont(name: "Helvetica", size: 15)
 }

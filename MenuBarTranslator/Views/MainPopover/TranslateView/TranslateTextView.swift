@@ -32,7 +32,7 @@ class TranslateTextView: NSTextView {
 	func commonInit() {
 		self.textContainerInset = NSSize(width: 2, height: 7)
 		self.wantsLayer = true
-		self.font = NSFont(name: "Helvetica", size: 15)
+		self.font = UIOptions.textFont
 		self.isAutomaticSpellingCorrectionEnabled = false
 		self.isGrammarCheckingEnabled = false
 	}

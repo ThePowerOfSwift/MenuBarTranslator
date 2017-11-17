@@ -44,6 +44,9 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		delegate.popover.behavior = sender.state == .on ? .semitransient: .transient
 		(sender.image, sender.alternateImage) = (sender.alternateImage, sender.image)
 	}
+	@IBAction func languageButtonClicked(_ sender: NSButton) {
+		
+	}
 }
 
 

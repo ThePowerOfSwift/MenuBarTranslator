@@ -114,7 +114,7 @@
                     </subviews>
                 </customView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljz-6b-50r">
-                    <rect key="frame" x="8" y="7" width="211" height="20"/>
+                    <rect key="frame" x="34" y="5" width="211" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" alignment="left" title="Traslated by &quot;Yandex Translate&quot;" placeholderString="å" id="T7l-eG-eI7">
                         <font key="font" size="13" name="HelveticaNeue"/>
@@ -122,19 +122,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-5K-TDM">
-                    <rect key="frame" x="615" y="10" width="15" height="15"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="settings" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="txK-a0-YoZ">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="preferencesClicked:" target="-2" id="YhS-4B-xqt"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-oT-S8z">
-                    <rect key="frame" x="610" y="504" width="20" height="32"/>
+                    <rect key="frame" x="614" y="5" width="16" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="pin" imagePosition="overlaps" alignment="center" alternateImage="pin-alternate" imageScaling="proportionallyDown" inset="2" id="fVn-5j-V4b">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -142,6 +131,50 @@
                     </buttonCell>
                     <connections>
                         <action selector="pinButtonClicked:" target="-2" id="xJB-Mx-L80"/>
+                    </connections>
+                </button>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJi-Kx-bEJ" customClass="LanguagesView" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="10" y="480" width="620" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKu-ek-MeP">
+                            <rect key="frame" x="290" y="14" width="39" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="swap-arrows" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbc-zE-uLK">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-lQ-XGS">
+                            <rect key="frame" x="34" y="11" width="221" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="euR-4V-LMz">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="languageButtonClicked:" target="-2" id="0dn-Ap-Kim"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psS-yB-KiL">
+                            <rect key="frame" x="364" y="11" width="221" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oor-Wi-qSk">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                </customView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-5K-TDM">
+                    <rect key="frame" x="10" y="10" width="15" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="settings" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="txK-a0-YoZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="preferencesClicked:" target="-2" id="YhS-4B-xqt"/>
                     </connections>
                 </button>
             </subviews>
@@ -154,5 +187,6 @@
         <image name="pin-alternate" width="25.600000381469727" height="25.600000381469727"/>
         <image name="settings" width="25.600000381469727" height="25.600000381469727"/>
         <image name="speaker" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="swap-arrows" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

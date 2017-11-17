@@ -1,14 +1,14 @@
 //
-//  TranslateView.swift
+//  LanguagesView.swift
 //  MenuBarTranslator
 //
-//  Created by Artem Bobrov on 16.11.2017.
+//  Created by Artem Bobrov on 17.11.2017.
 //  Copyright © 2017 Artem Bobrov. All rights reserved.
 //
 
 import Cocoa
 
-class TranslateView: NSView {
+class LanguagesView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -16,5 +16,5 @@ class TranslateView: NSView {
 		self.layer?.cornerRadius = UIOptions.cornerRadius
 		self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
     }
-	
+    
 }
