@@ -21,6 +21,11 @@
 		A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35011FBEF66B00B26C70 /* APIKeys.swift */; };
 		A19F35041FBEF95B00B26C70 /* UIOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35031FBEF95B00B26C70 /* UIOptions.swift */; };
 		A19F35061FBEFC4700B26C70 /* LanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35051FBEFC4700B26C70 /* LanguagesView.swift */; };
+		A19F35121FBF995900B26C70 /* LanguagePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19F35101FBF995900B26C70 /* LanguagePickerView.xib */; };
+		A19F35131FBF995900B26C70 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35111FBF995900B26C70 /* LanguagePickerView.swift */; };
+		A19F351A1FC0D31B00B26C70 /* LanguagesCollectionViewSourceSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35191FC0D31B00B26C70 /* LanguagesCollectionViewSourceSetup.swift */; };
+		A19F351D1FC0D43300B26C70 /* LanguageCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F351B1FC0D43300B26C70 /* LanguageCollectionViewItem.swift */; };
+		A19F351E1FC0D43300B26C70 /* LanguageCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19F351C1FC0D43300B26C70 /* LanguageCollectionViewItem.xib */; };
 		A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */; };
 		A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */; };
 		A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1BE3C591F2B97C100C9F9CE /* Main.storyboard */; };
@@ -43,6 +48,11 @@
 		A19F35011FBEF66B00B26C70 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		A19F35031FBEF95B00B26C70 /* UIOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOptions.swift; sourceTree = "<group>"; };
 		A19F35051FBEFC4700B26C70 /* LanguagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesView.swift; sourceTree = "<group>"; };
+		A19F35101FBF995900B26C70 /* LanguagePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagePickerView.xib; sourceTree = "<group>"; };
+		A19F35111FBF995900B26C70 /* LanguagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
+		A19F35191FC0D31B00B26C70 /* LanguagesCollectionViewSourceSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesCollectionViewSourceSetup.swift; sourceTree = "<group>"; };
+		A19F351B1FC0D43300B26C70 /* LanguageCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCollectionViewItem.swift; sourceTree = "<group>"; };
+		A19F351C1FC0D43300B26C70 /* LanguageCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageCollectionViewItem.xib; sourceTree = "<group>"; };
 		A1BE3C501F2B97C100C9F9CE /* MenuBarTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuBarTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BE3C531F2B97C100C9F9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1BE3C571F2B97C100C9F9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +104,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A19F350B1FBF568000B26C70 /* LanguagesView */ = {
+			isa = PBXGroup;
+			children = (
+				A19F35111FBF995900B26C70 /* LanguagePickerView.swift */,
+				A19F35101FBF995900B26C70 /* LanguagePickerView.xib */,
+				A19F35051FBEFC4700B26C70 /* LanguagesView.swift */,
+				A19F351B1FC0D43300B26C70 /* LanguageCollectionViewItem.swift */,
+				A19F351C1FC0D43300B26C70 /* LanguageCollectionViewItem.xib */,
+			);
+			path = LanguagesView;
+			sourceTree = "<group>";
+		};
+		A19F35181FC0D2ED00B26C70 /* LanguagesCollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				A19F35191FC0D31B00B26C70 /* LanguagesCollectionViewSourceSetup.swift */,
+			);
+			path = LanguagesCollectionViews;
+			sourceTree = "<group>";
+		};
 		A1BE3C471F2B97C100C9F9CE = {
 			isa = PBXGroup;
 			children = (
@@ -130,26 +160,19 @@
 				A1556D541FBAE47600E73BE8 /* TranslationViewSetup.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 				A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift */,
+				A19F35181FC0D2ED00B26C70 /* LanguagesCollectionViews */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A1EC74F01FAFBD8E00957BA2 /* MainPopover */ = {
-			isa = PBXGroup;
-			children = (
-				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
-				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
-				A19F34EB1FBDC0D800B26C70 /* TranslateView */,
-				A19F35051FBEFC4700B26C70 /* LanguagesView.swift */,
-			);
-			path = MainPopover;
 			sourceTree = "<group>";
 		};
 		A1EC74F11FAFBD9F00957BA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A19F35031FBEF95B00B26C70 /* UIOptions.swift */,
-				A1EC74F01FAFBD8E00957BA2 /* MainPopover */,
+				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
+				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
+				A19F34EB1FBDC0D800B26C70 /* TranslateView */,
+				A19F350B1FBF568000B26C70 /* LanguagesView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,8 +238,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19F35121FBF995900B26C70 /* LanguagePickerView.xib in Resources */,
 				A1BE3C581F2B97C100C9F9CE /* Assets.xcassets in Resources */,
 				A1BE3C5B1F2B97C100C9F9CE /* Main.storyboard in Resources */,
+				A19F351E1FC0D43300B26C70 /* LanguageCollectionViewItem.xib in Resources */,
 				A1BE3C651F2BC4E200C9F9CE /* TranslateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +257,7 @@
 				A10027E61FBDB33B00E8BC2F /* TranslateTextView.swift in Sources */,
 				A19F34ED1FBDC1B100B26C70 /* TranslateTextViewDelegates.swift in Sources */,
 				A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */,
+				A19F35131FBF995900B26C70 /* LanguagePickerView.swift in Sources */,
 				A1556D551FBAE47600E73BE8 /* TranslationViewSetup.swift in Sources */,
 				A19F35041FBEF95B00B26C70 /* UIOptions.swift in Sources */,
 				A19F35001FBE36FB00B26C70 /* Extention.swift in Sources */,
@@ -239,10 +265,12 @@
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
 				A19F34F71FBDC5AC00B26C70 /* RequestProcessor.swift in Sources */,
+				A19F351A1FC0D31B00B26C70 /* LanguagesCollectionViewSourceSetup.swift in Sources */,
 				A19F34FD1FBE298200B26C70 /* TranslateView.swift in Sources */,
 				A19F34F81FBDC5AC00B26C70 /* YandexEndpoint.swift in Sources */,
 				A10027E81FBDB57800E8BC2F /* TranslateScrollView.swift in Sources */,
 				A19F34F51FBDC5AC00B26C70 /* DictionaryClient.swift in Sources */,
+				A19F351D1FC0D43300B26C70 /* LanguageCollectionViewItem.swift in Sources */,
 				A10027EA1FBDB60000E8BC2F /* TranslateClipView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

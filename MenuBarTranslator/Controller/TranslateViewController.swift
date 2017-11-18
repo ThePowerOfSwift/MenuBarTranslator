@@ -15,12 +15,27 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	@IBOutlet var inputTextView: TranslateTextView!
 
+	@IBOutlet weak var inputLanguageButton: NSButton!
+	@IBOutlet weak var outputLanguageButton: NSButton!
+
+	@IBOutlet weak var mainTranslateView: NSView!
+	
+	@IBOutlet weak var languagePicker: LanguagePickerView!
+
+	let languages = Languages.languages
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
 		inputTextView.delegate = self
+
+		
+//		languagePicker.allLanguages.delegate = self
+		languagePicker.allLanguages.dataSource = self
+
+		languagePicker.isHidden = true
 	}
 
 	override func viewDidAppear() {
@@ -44,9 +59,21 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		delegate.popover.behavior = sender.state == .on ? .semitransient: .transient
 		(sender.image, sender.alternateImage) = (sender.alternateImage, sender.image)
 	}
+
 	@IBAction func languageButtonClicked(_ sender: NSButton) {
+		if(inputLanguageButton.state == outputLanguageButton.state && sender.state == .on) {
+			if(sender == inputLanguageButton) {
+				outputLanguageButton.state = .off
+			} else {
+				inputLanguageButton.state = .off
+			}
+		}
 		
+		mainTranslateView.isHidden = sender.state == .on
+		languagePicker.isHidden = !mainTranslateView.isHidden
 	}
+
+	
 }
 
 
