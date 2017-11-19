@@ -28,14 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = TranslateViewController(nibName: NSNib.Name(rawValue: "TranslateViewController"), bundle: nil)
         popover.behavior = NSPopover.Behavior.transient
 		
-        popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
-
-		
-//		requestor.makeCall { (data, response, err) in
-//			print(data)
-//			print(response)
-//			print(err)
-//		}
+        popover.appearance = NSAppearance(named: NSAppearance.Name.vibrantLight)
     }
     func applicationWillTerminate(_ aNotification: Notification) {
     }

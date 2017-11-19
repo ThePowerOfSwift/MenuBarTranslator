@@ -10,59 +10,68 @@ import Cocoa
 import AVFoundation
 
 class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
-
-	// MARK: variables
-	@IBOutlet var inputTextView: NSTextView!
-	@IBOutlet var outputTextView: NSTextView!
-
-	@IBOutlet weak var outputTranslateView: TranslateView!
-	@IBOutlet weak var inputTranslateView: TranslateView!
-	
-	@IBOutlet weak var pronounceInputButton: NSButton!
-	@IBOutlet weak var pronounceOutputButton: NSButton!
-	@IBOutlet weak var swapButton: NSButton!
-	@IBOutlet weak var fromLangSegControl: LanguagesSegmentControl!
-	@IBOutlet weak var toLangSegControl: LanguagesSegmentControl!
+	@IBOutlet weak var yandexReferenceLabel: NSTextField!
 	@IBOutlet weak var preferencesButton: NSButton!
 
-	@IBOutlet weak var inputBoardedScrollView: NSScrollView!
-	@IBOutlet weak var outputBoardedScrollView: NSScrollView!
-	@IBOutlet weak var yandexAdLabel: NSTextField!
+	@IBOutlet var inputTextView: TranslateTextView!
+	@IBOutlet var outputTextView: TranslateTextView!
 
-	let langsPopover = NSPopover()
+	@IBOutlet weak var inputLanguageButton: LanguageButton!
+	@IBOutlet weak var outputLanguageButton: LanguageButton!
+
+	@IBOutlet weak var inputPronounceButton: PronounceButton!
+	@IBOutlet weak var outputPronounceButton: PronounceButton!
+
+	@IBOutlet weak var mainTranslateView: NSView!
+	
+	@IBOutlet weak var languagePicker: LanguagePickerView!
+
+
+	var isTranslated = false
+	var languages = Languages.languages
+	var recentLanguages = Languages.standart
+	var languageSender: LanguageButton? {
+		didSet {
+			guard let sender = languageSender,
+				let language = sender.language else {
+				return
+			}
+			if !self.inputTextView.isEmpty && language == Languages.auto {
+				print("detection")
+				Dictionary.shared.detectLanguage(by: self.inputTextView.string, completion: { (lang) in
+					guard let lang = lang else {
+						return
+					}
+					sender.language = Languages.searchLanguage(by: lang)
+				})
+			}
+			self.updatePronounceLanguages()
+		}
+	}
+
 	var player : AVAudioPlayer?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let menu = NSMenu()
-		menu.addItem(NSMenuItem(title: "Quit MenuBarTranslator", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-		preferencesButton.menu = menu
-
-		outputBoardedScrollView.borderType = .noBorder
-		inputBoardedScrollView.borderType = .noBorder
-
-		NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown) {
-			self.keyDown(with: $0)
-			return $0
-		}
-		self.swapButton.bezelStyle = .texturedRounded
-
-		textViewsSetup()
 		yandexReferenceSetup()
+		preferencesButtonSetup()
 
-		fromLangSegControl.queue = QueueInt(withInterval: 0..<fromLangSegControl.segmentCount - 1)
-		toLangSegControl.queue = QueueInt(withInterval: 0..<toLangSegControl.segmentCount)
-		fromLangSegControl.values = Languages.StandartLanguages
-		toLangSegControl.values = Languages.StandartLanguages
-		langsPopover.behavior = NSPopover.Behavior.transient
-		langsPopover.animates = true
-		langsPopover.contentViewController = AllLanguagesViewController(nibName: NSNib.Name(rawValue: "AllLanguagesViewController"), bundle: nil)
-		langsPopover.contentViewController?.view.acceptsTouchEvents = true
+		inputLanguageButton.language = Languages.english
+		outputLanguageButton.language = Languages.russian
 
-		inputTranslateView.language = Languages.shared.searchLanguage(byShortName: "en")
-		outputTranslateView.language = Languages.shared.searchLanguage(byShortName: "ru")
-	}
-	@IBAction func shutDownButtonClicked(_ sender: NSButton) {
-		NSApplication.shared.stop(self)
+		inputTextView.delegate = self
+
+		languagePicker.allLanguages.dataSource = self
+		languagePicker.allLanguages.delegate = self
+
+		languagePicker.searchTextField.delegate = self
+
+		languagePicker.recentLanguages.dataSource = self
+		languagePicker.recentLanguages.delegate = self
+
+		languagePicker.isHidden = true
+
+		updatePronounceLanguages()
 	}
 
 	override func viewDidAppear() {
@@ -70,97 +79,52 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		NSApplication.shared.activate(ignoringOtherApps: true)
 	}
 
-	@IBAction func swapButtonClicked(_ sender: NSButton) {
-		guard let fromLanguage = fromLangSegControl[fromLangSegControl.selectedSegment],
-			let toLanguage = toLangSegControl[toLangSegControl.selectedSegment] else {
-				return
-		}
-
-		if inputTextView.string.count == 0 {
-			outputTextView.string = inputTextView.string
-		}
-
-		if let fromLanguageIndex = fromLangSegControl.values.index(of: toLanguage),
-			let toLanguageIndex = toLangSegControl.values.index(of: fromLanguage){
-			(fromLangSegControl.selectedSegment, toLangSegControl.selectedSegment) = (fromLanguageIndex, toLanguageIndex)
-			(inputTextView.string, outputTextView.string) = (outputTextView.string, inputTextView.string)
-
-		} else if toLangSegControl.values.index(of: fromLanguage) == nil,
-			let fromLanguageIndex = fromLangSegControl.values.index(of: toLanguage),
-			let newSelectedSegment = toLangSegControl.queue.frontToTheEnd() {
-			toLangSegControl.selectedSegment = newSelectedSegment
-			toLangSegControl[newSelectedSegment] = fromLangSegControl[fromLangSegControl.selectedSegment]
-			fromLangSegControl.selectedSegment = fromLanguageIndex
-		} else if fromLangSegControl.values.index(of: toLanguage) == nil,
-			let toLanguageIndex = toLangSegControl.values.index(of: fromLanguage),
-			let newSelectedSegment = fromLangSegControl.queue.frontToTheEnd() {
-			fromLangSegControl.selectedSegment = toLanguageIndex
-			fromLangSegControl[newSelectedSegment] = toLangSegControl[toLangSegControl.selectedSegment]
-			toLangSegControl.selectedSegment = toLanguageIndex
-		}
-	}
-
-	@IBAction func allToLanguagesButtonClicked(_ sender: NSButton) {
-		guard let controller = langsPopover.contentViewController as? AllLanguagesViewController else {
-			return
-		}
-		controller.languageSegmentControl = toLangSegControl
-		langsPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
-	}
-
-	@IBAction func allFromLanguagesButtonClicked(_ sender: NSButton) {
-		guard let controller = langsPopover.contentViewController as? AllLanguagesViewController else {
-			return
-		}
-		controller.languageSegmentControl = fromLangSegControl
-		langsPopover.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
-	}
-
-	@IBAction func fromSegmentControlButton(_ sender: LanguagesSegmentControl) {
-		guard !inputTextView.isEmpty else {
-			return
-		}
-		Dictionary.shared.detectLanguage(byText: inputTextView.string, completion: { lang in
-			guard let lang = lang,
-				let newLanguage = Languages.shared.searchLanguage(byShortName: lang) else {
-					self.fromLangSegControl.detectedLanguage = nil
-					return
-			}
-			self.inputTranslateView.language = newLanguage
-			self.fromLangSegControl.detectedLanguage = newLanguage
-		})
-	}
-
-	func translateText() {
-		guard !inputTextView.isEmpty else {
-			return
-		}
-		let from = fromLangSegControl[fromLangSegControl.selectedSegment]
-		let to = toLangSegControl[toLangSegControl.selectedSegment]!
-		Dictionary.shared.translate(inputTextView.string, from: from, to: to, completionHandler: { text in
-			guard let text = text else {
-				self.outputTextView.string = self.inputTextView.string
-				return
-			}
-			self.outputTextView.string = text
-		})
-	}
-	@IBAction func preferencesButtonClicked(_ sender: NSButton) {
+	@IBAction func preferencesClicked(_ sender: NSButton) {
 		if let menu = sender.menu,
 			let event = NSApp.currentEvent{
 			NSMenu.popUpContextMenu(menu, with: event, for: sender)
 		}
 	}
+	
+	@IBAction func clearButtonClicked(_ sender: NSButton) {
+		inputTextView.isEmpty = true
+	}
 
-	@IBAction func pronounceTextButtonClicked(_ sender: NSButton) {
+	@IBAction func pinButtonClicked(_ sender: NSButton) {
+		let delegate = NSApplication.shared.delegate as! AppDelegate
+		delegate.popover.behavior = sender.state == .on ? .semitransient: .transient
+		(sender.image, sender.alternateImage) = (sender.alternateImage, sender.image)
+	}
+
+	@IBAction func languageButtonClicked(_ sender: NSButton) {
+		if(inputLanguageButton.state == outputLanguageButton.state && sender.state == .on) {
+			if(sender == inputLanguageButton) {
+				outputLanguageButton.state = .off
+			} else {
+				inputLanguageButton.state = .off
+			}
+		}
+		
+		mainTranslateView.isHidden = sender.state == .on
+		languagePicker.isHidden = !mainTranslateView.isHidden
+		
+		if let button = sender as? LanguageButton {
+			languageSender = button
+		}
+
+		updatePronounceLanguages()
+	}
+
+	@IBAction func pronounce(_ sender: PronounceButton) {
 		guard let superview = sender.superview as? TranslateView,
 			let textView = superview.textView,
-			let language = superview.language,
-			language.isPronunciationAvailable else {
-			sender.isEnabled = false
-			return
+			let language = sender.language,
+			language != Languages.auto && !textView.isEmpty else {
+				sender.isEnabled = false
+				return
 		}
 		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, language: language).request)
+
 		requestor.getData { (url, _, _) in
 			guard let url = url else {
 				return
@@ -169,11 +133,19 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 				let action = try? AVAudioPlayer(data: data) else {return}
 			self.player = action
 			self.player?.play()
-
-
 		}
 	}
+	
+	@IBAction func swap(_ sender: NSButton) {
+		if isTranslated {
+			(inputTextView.string, outputTextView.string) = (outputTextView.string, inputTextView.string)
+		}
 
+		if inputLanguageButton.language != Languages.auto {
+			(inputLanguageButton.language, outputLanguageButton.language) = (outputLanguageButton.language, inputLanguageButton.language)
+		}
+	}
+	
 }
 
 

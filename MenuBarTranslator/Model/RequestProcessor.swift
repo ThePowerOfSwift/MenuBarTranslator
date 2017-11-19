@@ -61,19 +61,7 @@ class RequestProcessor {
 			}
 			if let url = url {
 				if 200...299 ~= response.statusCode {
-					do {
-//						let time = NSNumber(value:(NSDate().timeIntervalSince1970 * 1000))
-//						let fileName = NSString(format:"%@_music.mp3", time)
-//
-//						let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL!
-//						let location = documentsUrl.appendingPathComponent(fileName as String)
-//						try FileManager.default.copyItem(at: url, to: location)
-//						completion(location, response, error)
-						completion(url, response, error)
-					} catch let error as NSError {
-						completion(nil, response, error)
-					}
-
+					completion(url, response, error)
 				} else {
 					completion(nil, response, error)
 				}

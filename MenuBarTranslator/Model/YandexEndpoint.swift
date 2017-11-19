@@ -9,7 +9,7 @@
 import Foundation
 
 enum Yandex {
-    case translate(text: String, language: String)
+    case translate(text: String, direction: TranslateDirection)
     
     case languages
     
@@ -37,11 +37,11 @@ enum Yandex {
     }
     
     private var translateKeyAPI : String {
-        return "trnsl.1.1.20170804T195228Z.43cbafd05327100f.0b80728653b33567b49b4c25d39b50a6f4b18127"
+        return Key.translate
     }
 
 	private var speechKeyAPI:  String {
-		return "f0b4e5d5-4199-42a3-acdb-72f40c60017e"
+		return Key.speech
 	}
     
     private var path : String {
@@ -67,11 +67,11 @@ enum Yandex {
     
     private var parameters: [String : Any] {
         switch self {
-            case .translate(let text, let language):
+            case .translate(let text, let direction):
                 let parameters: [String : Any] = [
                     ParameterKeys.key: translateKeyAPI,
                     ParameterKeys.text: text,
-                    ParameterKeys.language: language
+                    ParameterKeys.language: direction.string
                 ]
             
                 return parameters
