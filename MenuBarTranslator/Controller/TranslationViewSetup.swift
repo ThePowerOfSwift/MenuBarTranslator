@@ -29,7 +29,6 @@ extension TranslateViewController {
 	func preferencesButtonSetup() {
 		let menu = NSMenu()
 		menu.addItem(NSMenuItem(title: "Quit MenuBarTranslator", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-
 		preferencesButton.menu = menu
 	}
 

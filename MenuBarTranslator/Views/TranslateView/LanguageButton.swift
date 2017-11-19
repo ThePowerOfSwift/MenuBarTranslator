@@ -16,11 +16,15 @@ class LanguageButton: NSButton {
 
 	var language: Language? {
 		didSet {
-			guard let language = language else {
-				return
-			}
-			self.title = language.fullName
+			reloadData()
 		}
+	}
+
+	func reloadData() {
+		guard let language = language else {
+			return
+		}
+		self.title = language.fullName
 	}
     
 }

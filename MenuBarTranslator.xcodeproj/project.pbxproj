@@ -38,6 +38,7 @@
 		A1E9C1FE1FC1FE2C00B560ED /* ArrayExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9C1FD1FC1FE2C00B560ED /* ArrayExtention.swift */; };
 		A1E9C2001FC200F000B560ED /* LanguagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9C1FF1FC200F000B560ED /* LanguagesModel.swift */; };
 		A1E9C2021FC2069F00B560ED /* PronounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9C2011FC2069F00B560ED /* PronounceButton.swift */; };
+		A1E9C2041FC22AC800B560ED /* TranslateViewContollerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9C2031FC22AC800B560ED /* TranslateViewContollerActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		A1E9C1FD1FC1FE2C00B560ED /* ArrayExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtention.swift; sourceTree = "<group>"; };
 		A1E9C1FF1FC200F000B560ED /* LanguagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesModel.swift; sourceTree = "<group>"; };
 		A1E9C2011FC2069F00B560ED /* PronounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronounceButton.swift; sourceTree = "<group>"; };
+		A1E9C2031FC22AC800B560ED /* TranslateViewContollerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewContollerActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +113,6 @@
 				A1E9C1FD1FC1FE2C00B560ED /* ArrayExtention.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		A19F34FE1FBE36EB00B26C70 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		A19F350B1FBF568000B26C70 /* LanguagesView */ = {
@@ -163,7 +158,6 @@
 		A1BE3C521F2B97C100C9F9CE /* MenuBarTranslator */ = {
 			isa = PBXGroup;
 			children = (
-				A19F34FE1FBE36EB00B26C70 /* Services */,
 				A19F34FB1FBDC5D400B26C70 /* Model */,
 				A1EC74EE1FAFBD6B00957BA2 /* Controller */,
 				A1EC74F11FAFBD9F00957BA2 /* Views */,
@@ -180,6 +174,7 @@
 				A1556D541FBAE47600E73BE8 /* TranslationViewSetup.swift */,
 				A1BE3C621F2BC4E200C9F9CE /* TranslateViewController.swift */,
 				A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegate.swift */,
+				A1E9C2031FC22AC800B560ED /* TranslateViewContollerActions.swift */,
 				A19F35181FC0D2ED00B26C70 /* LanguagesCollectionViews */,
 			);
 			path = Controller;
@@ -297,6 +292,7 @@
 				A1E9C1FE1FC1FE2C00B560ED /* ArrayExtention.swift in Sources */,
 				A1E9C1FC1FC1F70600B560ED /* LanguageButton.swift in Sources */,
 				A10027E81FBDB57800E8BC2F /* TranslateScrollView.swift in Sources */,
+				A1E9C2041FC22AC800B560ED /* TranslateViewContollerActions.swift in Sources */,
 				A19F34F51FBDC5AC00B26C70 /* DictionaryClient.swift in Sources */,
 				A19F351D1FC0D43300B26C70 /* LanguageCollectionViewItem.swift in Sources */,
 				A10027EA1FBDB60000E8BC2F /* TranslateClipView.swift in Sources */,
@@ -434,7 +430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-work.MenuBarTranslator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -450,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "personal-work.MenuBarTranslator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

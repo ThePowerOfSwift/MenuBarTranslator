@@ -9,7 +9,6 @@
 import Foundation
 import Cocoa
 
-@IBDesignable
 class LanguagePickerView: NSView{
 	@IBOutlet weak var contentView: NSView!
 	@IBOutlet weak var searchTextField: NSTextField!
@@ -41,6 +40,5 @@ class LanguagePickerView: NSView{
 		Bundle.main.loadNibNamed(NSNib.Name(rawValue: "LanguagePickerView"), owner: self, topLevelObjects: nil)
 		contentView.frame = bounds
 		addSubview(contentView)
-		
 	}
 }

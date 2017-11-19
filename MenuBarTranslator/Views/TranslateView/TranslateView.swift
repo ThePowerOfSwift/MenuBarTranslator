@@ -19,6 +19,5 @@ class TranslateView: NSView {
 
 	var textView: NSTextView? {
 		return (self.subviews.filter({$0 is NSScrollView}).first as? NSScrollView)?.documentView as? NSTextView
-	}
-	
+	}	
 }

@@ -69,7 +69,7 @@
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-8Q-9aU" customClass="PronounceButton" customModule="MenuBarTranslator" customModuleProvider="target">
                                     <rect key="frame" x="275" y="345" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="Kc2-bg-kbE">
+                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Kc2-bg-kbE">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -167,6 +167,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <action selector="swap:" target="-2" id="vLY-9k-U8X"/>
+                            </connections>
                         </button>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-lQ-XGS" customClass="LanguageButton" customModule="MenuBarTranslator" customModuleProvider="target">
                             <rect key="frame" x="34" y="11" width="221" height="32"/>

@@ -24,14 +24,8 @@ extension TranslateViewController: NSCollectionViewDelegate {
 		languageSender?.language = language
 		languageSender?.state = .off
 
-		if !self.inputTextView.isEmpty && language == Languages.auto {
-			print("detection")
-			Dictionary.shared.detectLanguage(by: self.inputTextView.string, completion: { (lang) in
-				guard let lang = lang else {
-					return
-				}
-				self.languageSender?.language = Languages.searchLanguage(by: lang)
-			})
+		if language == Languages.auto {
+			detect()
 		}
 
 		recentLanguages.pushFront(language)
@@ -41,14 +35,8 @@ extension TranslateViewController: NSCollectionViewDelegate {
 		languagePicker.isHidden = true
 		mainTranslateView.isHidden = false
 		self.updatePronounceLanguages()
-
-		if language != Languages.auto {
-			inputTextView.isEmpty = true
-		}
+		
 		outputTextView.isEmpty = true
 	}
-
-
-
 }
 

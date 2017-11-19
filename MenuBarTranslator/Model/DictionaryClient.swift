@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Dictionary {
 	private init() { }
 
@@ -23,7 +22,6 @@ class Dictionary {
 				guard let json = json as? [String: Any],
 					let translatedArray = json["text"] as? [Any],
 					let translatedText = translatedArray[0] as? String else {
-						print("fail translate")
 						completionHandler(nil)
 						return
 				}

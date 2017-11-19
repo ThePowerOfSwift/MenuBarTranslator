@@ -16,13 +16,16 @@ class PronounceButton: NSButton {
 
 	var language: Language? {
 		didSet {
-			guard let language = self.language else {
-				self.isEnabled = false
-				return
-			}
-
-			self.isEnabled = language.isPronunciationAvailable
+			reloadData()
 		}
 	}
-    
+
+	func reloadData() {
+		guard let language = self.language else {
+			self.isEnabled = false
+			return
+		}
+
+		self.isEnabled = language.isPronunciationAvailable
+	}
 }

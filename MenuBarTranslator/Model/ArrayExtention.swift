@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-
-
 extension Array where Element: Equatable {
 	mutating func pushFront(_ element: Element) {
 		if !self.contains(element) {

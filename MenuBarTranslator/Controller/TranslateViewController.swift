@@ -26,8 +26,9 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	
 	@IBOutlet weak var languagePicker: LanguagePickerView!
 
-	var languages = Languages.languages
 
+	var isTranslated = false
+	var languages = Languages.languages
 	var recentLanguages = Languages.standart
 	var languageSender: LanguageButton? {
 		didSet {
@@ -55,7 +56,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
-		inputLanguageButton.language = Languages.auto
+		inputLanguageButton.language = Languages.english
 		outputLanguageButton.language = Languages.russian
 
 		inputTextView.delegate = self
@@ -134,7 +135,17 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			self.player?.play()
 		}
 	}
+	
+	@IBAction func swap(_ sender: NSButton) {
+		if isTranslated {
+			(inputTextView.string, outputTextView.string) = (outputTextView.string, inputTextView.string)
+		}
 
+		if inputLanguageButton.language != Languages.auto {
+			(inputLanguageButton.language, outputLanguageButton.language) = (outputLanguageButton.language, inputLanguageButton.language)
+		}
+	}
+	
 }
 
 
