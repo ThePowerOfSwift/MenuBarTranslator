@@ -9,7 +9,6 @@
 import Foundation
 import Cocoa
 
-
 extension TranslateViewController: NSTextFieldDelegate {
 	override func controlTextDidChange(_ obj: Notification) {
 		languages = Languages.languages.filter({ (lang) -> Bool in
