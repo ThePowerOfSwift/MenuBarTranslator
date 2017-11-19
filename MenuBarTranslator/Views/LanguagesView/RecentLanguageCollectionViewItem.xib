@@ -41,13 +41,16 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="closeButtonClicked:" target="-2" id="2yP-pf-TJ8"/>
+                    </connections>
                 </button>
             </subviews>
             <point key="canvasLocation" x="122" y="223"/>
         </customView>
         <collectionViewItem id="PHD-Sh-I8T" customClass="RecentLanguageCollectionViewItem" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
-                <outlet property="closeButton" destination="N04-bE-zuW" id="w3F-kT-d5A"/>
+                <outlet property="closeButton" destination="N04-bE-zuW" id="ZBu-ER-sDy"/>
                 <outlet property="languageImage" destination="gOx-CX-m6r" id="lsH-VG-2KZ"/>
                 <outlet property="languageLabel" destination="8P9-ZX-JX4" id="Jwq-lN-R35"/>
             </connections>

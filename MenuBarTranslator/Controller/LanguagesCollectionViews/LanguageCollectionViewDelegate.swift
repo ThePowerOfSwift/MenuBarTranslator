@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-extension TranslateViewController: NSCollectionViewDelegate {
+extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageCollectionViewItemDelegate {
 	func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
 		guard indexPaths.count == 1,
 			let indexPath = indexPaths.first,
@@ -37,6 +37,11 @@ extension TranslateViewController: NSCollectionViewDelegate {
 		self.updatePronounceLanguages()
 		
 		outputTextView.isEmpty = true
+	}
+
+	func delete(item: RecentLanguageCollectionViewItem) {
+		recentLanguages = recentLanguages.filter({$0 != item.language!})
+		languagePicker.recentLanguages.reloadData()
 	}
 }
 

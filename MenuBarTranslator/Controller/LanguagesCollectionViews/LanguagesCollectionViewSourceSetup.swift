@@ -29,6 +29,7 @@ extension TranslateViewController: NSCollectionViewDataSource {
 			return viewItem
 		}
 		item.language = recentLanguages[indexPath.item]
+		item.delegate = self
 		return item
 	}
 
