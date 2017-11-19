@@ -9,7 +9,7 @@
 import Foundation
 
 enum Yandex {
-    case translate(text: String, language: String)
+    case translate(text: String, direction: TranslateDirection)
     
     case languages
     
@@ -67,11 +67,11 @@ enum Yandex {
     
     private var parameters: [String : Any] {
         switch self {
-            case .translate(let text, let language):
+            case .translate(let text, let direction):
                 let parameters: [String : Any] = [
                     ParameterKeys.key: translateKeyAPI,
                     ParameterKeys.text: text,
-                    ParameterKeys.language: language
+                    ParameterKeys.language: direction.string
                 ]
             
                 return parameters

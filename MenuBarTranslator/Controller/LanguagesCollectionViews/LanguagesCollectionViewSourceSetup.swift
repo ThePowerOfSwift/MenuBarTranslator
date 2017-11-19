@@ -12,15 +12,24 @@ import Cocoa
 
 extension TranslateViewController: NSCollectionViewDataSource {
 	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-		return languages.count
+		return collectionView == languagePicker.allLanguages ? languages.count: recentLanguages.count
 	}
 
 	func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-		let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LanguageCollectionViewItem"), for: indexPath)
-		guard let item = viewItem as? LanguageCollectionViewItem else {
+		if collectionView == languagePicker.allLanguages {
+			let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LanguageCollectionViewItem"), for: indexPath)
+			guard let item = viewItem as? LanguageCollectionViewItem else {
+				return viewItem
+			}
+			item.language = languages[indexPath.item]
+			return item
+		}
+		let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RecentLanguageCollectionViewItem"), for: indexPath)
+		guard let item = viewItem as? RecentLanguageCollectionViewItem else {
 			return viewItem
 		}
-		item.language = languages[indexPath.item]
+		item.language = recentLanguages[indexPath.item]
 		return item
 	}
+
 }

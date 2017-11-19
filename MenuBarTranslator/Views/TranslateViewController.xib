@@ -9,10 +9,13 @@
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
                 <outlet property="inputLanguageButton" destination="oqk-lQ-XGS" id="AEk-kE-8Tl"/>
+                <outlet property="inputPronounceButton" destination="1dl-8Q-9aU" id="HMy-LB-mlp"/>
                 <outlet property="inputTextView" destination="777-kg-RIk" id="48u-HI-QuO"/>
                 <outlet property="languagePicker" destination="UTp-lI-qZw" id="F0g-RI-pq8"/>
                 <outlet property="mainTranslateView" destination="ez4-Zl-Mx8" id="Ibv-Qe-vAD"/>
                 <outlet property="outputLanguageButton" destination="psS-yB-KiL" id="cJd-9p-wko"/>
+                <outlet property="outputPronounceButton" destination="TEd-v2-Ql6" id="hsX-GP-Y8Q"/>
+                <outlet property="outputTextView" destination="2iI-fi-8d4" id="duu-Cs-QEC"/>
                 <outlet property="preferencesButton" destination="NSd-5K-TDM" id="vWw-HY-NEG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="yandexReferenceLabel" destination="Ljz-6b-50r" id="zTV-oF-nex"/>
@@ -63,13 +66,16 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-8Q-9aU">
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-8Q-9aU" customClass="PronounceButton" customModule="MenuBarTranslator" customModuleProvider="target">
                                     <rect key="frame" x="275" y="345" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Kc2-bg-kbE">
+                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="Kc2-bg-kbE">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="pronounce:" target="-2" id="Crn-Oq-uud"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URs-B2-ffP">
                                     <rect key="frame" x="275" y="373" width="20" height="20"/>
@@ -115,13 +121,16 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-v2-Ql6">
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-v2-Ql6" customClass="PronounceButton" customModule="MenuBarTranslator" customModuleProvider="target">
                                     <rect key="frame" x="275" y="345" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="5QF-BW-efS">
+                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="5QF-BW-efS">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="pronounce:" target="-2" id="XUG-je-mwY"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </customView>
@@ -159,23 +168,23 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-lQ-XGS">
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-lQ-XGS" customClass="LanguageButton" customModule="MenuBarTranslator" customModuleProvider="target">
                             <rect key="frame" x="34" y="11" width="221" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="euR-4V-LMz">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" size="15" name="Helvetica"/>
                             </buttonCell>
                             <connections>
                                 <action selector="languageButtonClicked:" target="-2" id="0dn-Ap-Kim"/>
                             </connections>
                         </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psS-yB-KiL">
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psS-yB-KiL" customClass="LanguageButton" customModule="MenuBarTranslator" customModuleProvider="target">
                             <rect key="frame" x="364" y="11" width="221" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oor-Wi-qSk">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                <font key="font" metaFont="system"/>
+                                <font key="font" size="15" name="Helvetica"/>
                             </buttonCell>
                             <connections>
                                 <action selector="languageButtonClicked:" target="-2" id="EPO-ib-Kna"/>

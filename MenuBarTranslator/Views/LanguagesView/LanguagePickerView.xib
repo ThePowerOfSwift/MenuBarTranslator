@@ -37,13 +37,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="580" height="241"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView ambiguous="YES" id="1Rw-uf-sQX">
+                            <collectionView ambiguous="YES" selectable="YES" allowsEmptySelection="NO" id="1Rw-uf-sQX">
                                 <rect key="frame" x="0.0" y="0.0" width="580" height="241"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="GtR-YT-wf3">
                                     <size key="itemSize" width="180" height="60"/>
                                 </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AS4-kt-ayH" id="mwZ-Fs-n7k"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -57,30 +60,30 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-ra-cct">
-                    <rect key="frame" x="20" y="293" width="580" height="59"/>
+                <scrollView wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="I7g-ra-cct">
+                    <rect key="frame" x="20" y="293" width="580" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="vvb-k3-9EB">
-                        <rect key="frame" x="0.0" y="0.0" width="580" height="59"/>
+                        <rect key="frame" x="0.0" y="0.0" width="580" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView ambiguous="YES" id="wnG-2U-Kud">
-                                <rect key="frame" x="0.0" y="0.0" width="580" height="59"/>
+                            <collectionView ambiguous="YES" selectable="YES" allowsEmptySelection="NO" id="wnG-2U-Kud">
+                                <rect key="frame" x="0.0" y="0.0" width="580" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="OP7-ag-EuQ">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="180" height="60"/>
                                 </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="i9O-pL-B0X">
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" arrowsPosition="none" horizontal="YES" id="i9O-pL-B0X">
                         <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yI3-AN-dme">
-                        <rect key="frame" x="-15" y="0.0" width="15" height="0.0"/>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" arrowsPosition="none" horizontal="NO" id="yI3-AN-dme">
+                        <rect key="frame" x="-100" y="-100" width="15" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -113,6 +116,7 @@
                 </textField>
             </subviews>
         </customView>
+        <viewController id="AS4-kt-ayH" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target"/>
     </objects>
     <resources>
         <image name="imageCell:M4z-3n-iOi:image" width="51.200000762939453" height="51.200000762939453">

@@ -14,28 +14,63 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var preferencesButton: NSButton!
 
 	@IBOutlet var inputTextView: TranslateTextView!
+	@IBOutlet var outputTextView: TranslateTextView!
 
-	@IBOutlet weak var inputLanguageButton: NSButton!
-	@IBOutlet weak var outputLanguageButton: NSButton!
+	@IBOutlet weak var inputLanguageButton: LanguageButton!
+	@IBOutlet weak var outputLanguageButton: LanguageButton!
+
+	@IBOutlet weak var inputPronounceButton: PronounceButton!
+	@IBOutlet weak var outputPronounceButton: PronounceButton!
 
 	@IBOutlet weak var mainTranslateView: NSView!
 	
 	@IBOutlet weak var languagePicker: LanguagePickerView!
 
-	let languages = Languages.languages
+	var languages = Languages.languages
+
+	var recentLanguages = Languages.standart
+	var languageSender: LanguageButton? {
+		didSet {
+			guard let sender = languageSender,
+				let language = sender.language else {
+				return
+			}
+			if !self.inputTextView.isEmpty && language == Languages.auto {
+				print("detection")
+				Dictionary.shared.detectLanguage(by: self.inputTextView.string, completion: { (lang) in
+					guard let lang = lang else {
+						return
+					}
+					sender.language = Languages.searchLanguage(by: lang)
+				})
+			}
+			self.updatePronounceLanguages()
+		}
+	}
+
+	var player : AVAudioPlayer?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
+		inputLanguageButton.language = Languages.auto
+		outputLanguageButton.language = Languages.russian
+
 		inputTextView.delegate = self
 
-		
-//		languagePicker.allLanguages.delegate = self
 		languagePicker.allLanguages.dataSource = self
+		languagePicker.allLanguages.delegate = self
+
+		languagePicker.searchTextField.delegate = self
+
+		languagePicker.recentLanguages.dataSource = self
+		languagePicker.recentLanguages.delegate = self
 
 		languagePicker.isHidden = true
+
+		updatePronounceLanguages()
 	}
 
 	override func viewDidAppear() {
@@ -71,9 +106,35 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		
 		mainTranslateView.isHidden = sender.state == .on
 		languagePicker.isHidden = !mainTranslateView.isHidden
+		
+		if let button = sender as? LanguageButton {
+			languageSender = button
+		}
+
+		updatePronounceLanguages()
 	}
 
-	
+	@IBAction func pronounce(_ sender: PronounceButton) {
+		guard let superview = sender.superview as? TranslateView,
+			let textView = superview.textView,
+			let language = sender.language,
+			language != Languages.auto && !textView.isEmpty else {
+				sender.isEnabled = false
+				return
+		}
+		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, language: language).request)
+
+		requestor.getData { (url, _, _) in
+			guard let url = url else {
+				return
+			}
+			guard let data = try? Data(contentsOf: url),
+				let action = try? AVAudioPlayer(data: data) else {return}
+			self.player = action
+			self.player?.play()
+		}
+	}
+
 }
 
 

@@ -16,5 +16,9 @@ class TranslateView: NSView {
 		self.layer?.cornerRadius = UIOptions.cornerRadius
 		self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
     }
+
+	var textView: NSTextView? {
+		return (self.subviews.filter({$0 is NSScrollView}).first as? NSScrollView)?.documentView as? NSTextView
+	}
 	
 }
