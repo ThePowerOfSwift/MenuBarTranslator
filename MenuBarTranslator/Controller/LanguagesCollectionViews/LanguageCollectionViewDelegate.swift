@@ -34,7 +34,6 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 
 		languagePicker.isHidden = true
 		mainTranslateView.isHidden = false
-		self.updatePronounceLanguages()
 		
 		outputTextView.isEmpty = true
 	}

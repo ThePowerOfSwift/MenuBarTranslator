@@ -14,11 +14,9 @@ extension TranslateViewController: NSTextViewDelegate {
 		isTranslated = false
 		guard !inputTextView.isEmpty else {
 			outputTextView.isEmpty = true
-			inputPronounceButton.isEnabled = false
+			updatePronounceLanguages()
 			return
 		}
-		outputPronounceButton.isEnabled = !outputTextView.isEmpty
-
 		translate()
 	}
 
@@ -26,10 +24,9 @@ extension TranslateViewController: NSTextViewDelegate {
 		isTranslated = false
 		guard !inputTextView.isEmpty else {
 			outputTextView.isEmpty = true
-			inputPronounceButton.isEnabled = false
+			updatePronounceLanguages()
 			return
 		}
-		outputPronounceButton.isEnabled = !outputTextView.isEmpty
 
 		translate()
 	}

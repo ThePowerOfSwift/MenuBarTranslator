@@ -33,10 +33,17 @@ extension TranslateViewController {
 	}
 
 	func updatePronounceLanguages() {
-		inputPronounceButton.language = inputLanguageButton.language
-		outputPronounceButton.language = outputLanguageButton.language
+		updateInputPronounceButton()
+		updateOutputPronounceButton()
+	}
 
-		inputPronounceButton.isEnabled = !inputTextView.isEmpty && inputPronounceButton.isEnabled
-		outputPronounceButton.isEnabled = !outputTextView.isEmpty && outputPronounceButton.isEnabled
+	fileprivate func updateOutputPronounceButton() {
+		outputPronounceButton.language = outputLanguageButton.language
+		outputPronounceButton.isEnabled = outputPronounceButton.isEnabled && !outputTextView.isEmpty
+	}
+
+	fileprivate func updateInputPronounceButton() {
+		inputPronounceButton.language = inputLanguageButton.language
+		inputPronounceButton.isEnabled = inputPronounceButton.isEnabled && !inputTextView.isEmpty
 	}
 }

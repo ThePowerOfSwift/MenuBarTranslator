@@ -21,11 +21,6 @@ class PronounceButton: NSButton {
 	}
 
 	func reloadData() {
-		guard let language = self.language else {
-			self.isEnabled = false
-			return
-		}
-
-		self.isEnabled = language.isPronunciationAvailable
+		self.isEnabled = language != nil && language!.isPronunciationAvailable
 	}
 }

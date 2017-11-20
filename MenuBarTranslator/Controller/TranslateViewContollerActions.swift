@@ -13,6 +13,7 @@ extension TranslateViewController {
 
 	func detect(completion: (() -> Void)? = nil) {
 		guard !self.inputTextView.isEmpty else {
+			updatePronounceLanguages()
 			return
 		}
 		detect(for: inputLanguageButton, with: inputTextView.string, completion: completion)
@@ -26,16 +27,19 @@ extension TranslateViewController {
 			sender?.language = Languages.searchLanguage(by: lang)
 
 			completion?()
+			self.updatePronounceLanguages()
 		})
 	}
 
 	fileprivate func translate(text: String, with direction: TranslateDirection) {
 		Dictionary.shared.translate(text, with: direction) { (text) in
 			guard let text = text else {
+				self.updatePronounceLanguages()
 				return
 			}
 			self.outputTextView.string = text
 			self.isTranslated = true
+			self.updatePronounceLanguages()
 		}
 	}
 
@@ -48,7 +52,6 @@ extension TranslateViewController {
 					self.updatePronounceLanguages()
 					return
 				}
-				self.updatePronounceLanguages()
 				
 				let direction = TranslateDirection(from: language, to: self.outputLanguageButton.language!)
 				self.translate(text: self.inputTextView.string, with: direction)
@@ -56,7 +59,6 @@ extension TranslateViewController {
 		} else {
 			let direction = TranslateDirection(from: inputLanguageButton.language!, to: outputLanguageButton.language!)
 			translate(text: inputTextView.string, with: direction)
-			self.updatePronounceLanguages()
 		}
 	}
 	

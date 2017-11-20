@@ -45,7 +45,6 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 					sender.language = Languages.searchLanguage(by: lang)
 				})
 			}
-			self.updatePronounceLanguages()
 		}
 	}
 
@@ -88,6 +87,9 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	
 	@IBAction func clearButtonClicked(_ sender: NSButton) {
 		inputTextView.isEmpty = true
+		outputTextView.isEmpty = true
+
+		updatePronounceLanguages()
 	}
 
 	@IBAction func pinButtonClicked(_ sender: NSButton) {
@@ -111,8 +113,6 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		if let button = sender as? LanguageButton {
 			languageSender = button
 		}
-
-		updatePronounceLanguages()
 	}
 
 	@IBAction func pronounce(_ sender: PronounceButton) {
@@ -120,7 +120,6 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			let textView = superview.textView,
 			let language = sender.language,
 			language != Languages.auto && !textView.isEmpty else {
-				sender.isEnabled = false
 				return
 		}
 		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, language: language).request)
@@ -144,6 +143,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		if inputLanguageButton.language != Languages.auto {
 			(inputLanguageButton.language, outputLanguageButton.language) = (outputLanguageButton.language, inputLanguageButton.language)
 		}
+		updatePronounceLanguages()
 	}
 	
 }
