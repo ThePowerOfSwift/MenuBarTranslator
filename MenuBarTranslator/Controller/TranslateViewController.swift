@@ -122,12 +122,8 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			language != Languages.auto && !textView.isEmpty else {
 				return
 		}
-		let requestor = RequestProcessor(request: Yandex.pronounce(text: textView.string, language: language).request)
 
-		requestor.getData { (url, _, _) in
-			guard let url = url else {
-				return
-			}
+		Dictionary.shared.pronounce(text: textView.string, for: language) { (url) in
 			guard let data = try? Data(contentsOf: url),
 				let action = try? AVAudioPlayer(data: data) else {return}
 			self.player = action

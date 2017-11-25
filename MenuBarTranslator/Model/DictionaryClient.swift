@@ -85,9 +85,16 @@ class Dictionary {
 		})
 	}
 
+	func pronounce(text: String, for language: Language, completion: @escaping ((URL) -> Void)) {
+		let requestor = RequestProcessor(request: Yandex.pronounce(text: text, language: language).request)
 
-	func suggest(to word: String, completion: @escaping ([String]?) -> Void) {
+		requestor.getData { (url, _, _) in
+			guard let url = url else {
+				return
+			}
 
+			completion(url)
+		}
 	}
 
 }
