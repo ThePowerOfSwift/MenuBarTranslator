@@ -14,13 +14,13 @@ class PronounceButton: NSButton {
         super.draw(dirtyRect)
     }
 
-	var language: Language? {
-		didSet {
-			reloadData()
-		}
-	}
+    var language: Language? {
+        didSet {
+            reloadData()
+        }
+    }
 
-	func reloadData() {
-		self.isEnabled = language != nil && language!.isPronunciationAvailable
-	}
+    func reloadData() {
+        self.isEnabled = language != nil && language!.isPronunciationAvailable
+    }
 }

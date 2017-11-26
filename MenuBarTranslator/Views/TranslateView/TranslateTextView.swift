@@ -14,30 +14,30 @@ class TranslateTextView: NSTextView {
         super.draw(dirtyRect)
     }
 
-	override init(frame frameRect: NSRect) {
-		super.init(frame: frameRect)
-		commonInit()
-	}
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        commonInit()
+    }
 
-	override init(frame frameRect: NSRect, textContainer container: NSTextContainer?) {
-		super.init(frame: frameRect, textContainer: container)
-		commonInit()
-	}
+    override init(frame frameRect: NSRect, textContainer container: NSTextContainer?) {
+        super.init(frame: frameRect, textContainer: container)
+        commonInit()
+    }
 
-	required init?(coder: NSCoder) {
-		super.init(coder: coder)
-		commonInit()
-	}
-	
-	func commonInit() {
-		self.textContainerInset = NSSize(width: 2, height: 7)
-		self.wantsLayer = true
-		self.font = UIOptions.textFont
-		self.isAutomaticSpellingCorrectionEnabled = false
-		self.isGrammarCheckingEnabled = false
-	}
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
 
-	override var readablePasteboardTypes: [NSPasteboard.PasteboardType] {
-		return [NSPasteboard.PasteboardType.string]
-	}
+    func commonInit() {
+        self.textContainerInset = NSSize(width: 2, height: 7)
+        self.wantsLayer = true
+        self.font = UIOptions.textFont
+        self.isAutomaticSpellingCorrectionEnabled = false
+        self.isGrammarCheckingEnabled = false
+    }
+
+    override var readablePasteboardTypes: [NSPasteboard.PasteboardType] {
+        return [NSPasteboard.PasteboardType.string]
+    }
 }

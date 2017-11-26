@@ -14,17 +14,17 @@ class LanguageButton: NSButton {
         super.draw(dirtyRect)
     }
 
-	var language: Language? {
-		didSet {
-			reloadData()
-		}
-	}
+    var language: Language? {
+        didSet {
+            reloadData()
+        }
+    }
 
-	func reloadData() {
-		guard let language = language else {
-			return
-		}
-		self.title = language.fullName
-	}
-    
+    func reloadData() {
+        guard let language = language else {
+            return
+        }
+        self.title = language.fullName
+    }
+
 }

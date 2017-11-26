@@ -23,7 +23,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var outputPronounceButton: PronounceButton!
 
 	@IBOutlet weak var mainTranslateView: NSView!
-	
+
 	@IBOutlet weak var languagePicker: LanguagePickerView!
 
 
@@ -33,7 +33,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	var languageSender: LanguageButton? {
 		didSet {
 			guard let sender = languageSender,
-				let language = sender.language else {
+				  let language = sender.language else {
 				return
 			}
 			if !self.inputTextView.isEmpty && language == Languages.auto {
@@ -48,7 +48,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		}
 	}
 
-	var player : AVAudioPlayer?
+	var player: AVAudioPlayer?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -80,11 +80,11 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	@IBAction func preferencesClicked(_ sender: NSButton) {
 		if let menu = sender.menu,
-			let event = NSApp.currentEvent{
+		   let event = NSApp.currentEvent {
 			NSMenu.popUpContextMenu(menu, with: event, for: sender)
 		}
 	}
-	
+
 	@IBAction func clearButtonClicked(_ sender: NSButton) {
 		inputTextView.isEmpty = true
 		outputTextView.isEmpty = true
@@ -94,22 +94,22 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	@IBAction func pinButtonClicked(_ sender: NSButton) {
 		let delegate = NSApplication.shared.delegate as! AppDelegate
-		delegate.popover.behavior = sender.state == .on ? .semitransient: .transient
+		delegate.popover.behavior = sender.state == .on ? .semitransient : .transient
 		(sender.image, sender.alternateImage) = (sender.alternateImage, sender.image)
 	}
 
 	@IBAction func languageButtonClicked(_ sender: NSButton) {
-		if(inputLanguageButton.state == outputLanguageButton.state && sender.state == .on) {
-			if(sender == inputLanguageButton) {
+		if (inputLanguageButton.state == outputLanguageButton.state && sender.state == .on) {
+			if (sender == inputLanguageButton) {
 				outputLanguageButton.state = .off
 			} else {
 				inputLanguageButton.state = .off
 			}
 		}
-		
+
 		mainTranslateView.isHidden = sender.state == .on
 		languagePicker.isHidden = !mainTranslateView.isHidden
-		
+
 		if let button = sender as? LanguageButton {
 			languageSender = button
 		}
@@ -117,20 +117,22 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	@IBAction func pronounce(_ sender: PronounceButton) {
 		guard let superview = sender.superview as? TranslateView,
-			let textView = superview.textView,
-			let language = sender.language,
-			language != Languages.auto && !textView.isEmpty else {
-				return
+			  let textView = superview.textView,
+			  let language = sender.language,
+			  language != Languages.auto && !textView.isEmpty else {
+			return
 		}
 
 		Dictionary.shared.pronounce(text: textView.string, for: language) { (url) in
 			guard let data = try? Data(contentsOf: url),
-				let action = try? AVAudioPlayer(data: data) else {return}
+				  let action = try? AVAudioPlayer(data: data) else {
+				return
+			}
 			self.player = action
 			self.player?.play()
 		}
 	}
-	
+
 	@IBAction func swap(_ sender: NSButton) {
 		if isTranslated {
 			(inputTextView.string, outputTextView.string) = (outputTextView.string, inputTextView.string)
@@ -141,7 +143,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		}
 		updatePronounceLanguages()
 	}
-	
+
 }
 
 

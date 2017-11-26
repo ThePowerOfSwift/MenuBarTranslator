@@ -13,5 +13,5 @@ class TranslateClipView: NSClipView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
-    
+
 }

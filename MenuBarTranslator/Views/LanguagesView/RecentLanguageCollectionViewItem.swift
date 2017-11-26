@@ -9,19 +9,20 @@
 import Cocoa
 
 protocol RecentLanguageCollectionViewItemDelegate {
-	func delete(item: RecentLanguageCollectionViewItem)
+    func delete(item: RecentLanguageCollectionViewItem)
 }
 
 class RecentLanguageCollectionViewItem: LanguageCollectionViewItem {
 
-	@IBOutlet weak var closeButton: NSButton!
+    @IBOutlet weak var closeButton: NSButton!
 
-	var delegate: RecentLanguageCollectionViewItemDelegate?
+    var delegate: RecentLanguageCollectionViewItemDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-	@IBAction func closeButtonClicked(_ sender: NSButton) {
-		delegate?.delete(item: self)
-	}
+    @IBAction func closeButtonClicked(_ sender: NSButton) {
+        delegate?.delete(item: self)
+    }
 }

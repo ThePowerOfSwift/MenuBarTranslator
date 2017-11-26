@@ -12,10 +12,10 @@ import Cocoa
 extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageCollectionViewItemDelegate {
 	func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
 		guard indexPaths.count == 1,
-			let indexPath = indexPaths.first,
-			let item = collectionView.item(at: indexPath) as? LanguageCollectionViewItem,
-			let language = item.language else {
-				return
+			  let indexPath = indexPaths.first,
+			  let item = collectionView.item(at: indexPath) as? LanguageCollectionViewItem,
+			  let language = item.language else {
+			return
 		}
 		guard language != Languages.auto || languageSender != outputLanguageButton else { // output language can't be detected
 			return
@@ -34,12 +34,12 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 
 		languagePicker.isHidden = true
 		mainTranslateView.isHidden = false
-		
+
 		outputTextView.isEmpty = true
 	}
 
 	func delete(item: RecentLanguageCollectionViewItem) {
-		recentLanguages = recentLanguages.filter({$0 != item.language!})
+		recentLanguages = recentLanguages.filter({ $0 != item.language! })
 		languagePicker.recentLanguages.reloadData()
 	}
 }

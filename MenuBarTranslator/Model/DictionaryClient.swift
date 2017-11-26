@@ -9,21 +9,22 @@
 import Foundation
 
 class Dictionary {
-	private init() { }
+	private init() {
+	}
 
 	static let shared = Dictionary()
 
-	func translate(_ text: String, with direction: TranslateDirection, completionHandler:@escaping (String?) -> Void) {
+	func translate(_ text: String, with direction: TranslateDirection, completionHandler: @escaping (String?) -> Void) {
 
 		let requestor = RequestProcessor(request: Yandex.translate(text: text,
-		                                                           direction: direction).request)
+				direction: direction).request)
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
 				guard let json = json as? [String: Any],
-					let translatedArray = json["text"] as? [Any],
-					let translatedText = translatedArray[0] as? String else {
-						completionHandler(nil)
-						return
+					  let translatedArray = json["text"] as? [Any],
+					  let translatedText = translatedArray[0] as? String else {
+					completionHandler(nil)
+					return
 				}
 				completionHandler(translatedText)
 			}
@@ -35,14 +36,14 @@ class Dictionary {
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
 				guard let json = json as? [String: Any],
-					let langsArray = json["dirs"] as? [String] else {
-						print("fail languageDirections")
-						completion(nil)
-						return
+					  let langsArray = json["dirs"] as? [String] else {
+					print("fail languageDirections")
+					completion(nil)
+					return
 				}
-				var langArrayCouple  = [(String, String)]()
+				var langArrayCouple = [(String, String)]()
 				langsArray.forEach({
-					let langs =  $0.split(separator: "-").map(String.init)
+					let langs = $0.split(separator: "-").map(String.init)
 					langArrayCouple.append((langs[0], langs[1]))
 				})
 				completion(langArrayCouple)
@@ -55,14 +56,14 @@ class Dictionary {
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
 				guard let json = json as? [String: Any],
-					let langsArray = json["dirs"] as? [String] else {
-						print("fail languageDirections")
-						completion(nil)
-						return
+					  let langsArray = json["dirs"] as? [String] else {
+					print("fail languageDirections")
+					completion(nil)
+					return
 				}
-				var langArrayCouple  = [(String, String)]()
+				var langArrayCouple = [(String, String)]()
 				langsArray.forEach({
-					let langs =  $0.split(separator: "-").map(String.init)
+					let langs = $0.split(separator: "-").map(String.init)
 					langArrayCouple.append((langs[0], langs[1]))
 				})
 				completion(langArrayCouple)
@@ -75,10 +76,10 @@ class Dictionary {
 		requestor.makeCall(completion: { json, response, error in
 			DispatchQueue.main.async {
 				guard let json = json as? [String: Any],
-					let lang = json["lang"] as? String else {
-						print("fail detectLanguage")
-						completion(nil)
-						return
+					  let lang = json["lang"] as? String else {
+					print("fail detectLanguage")
+					completion(nil)
+					return
 				}
 				completion(lang)
 			}

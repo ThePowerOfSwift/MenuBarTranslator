@@ -14,29 +14,28 @@ class RequestProcessor {
 	typealias JSONHandler = (JSONObject?, HTTPURLResponse?, Error?) -> Void
 	typealias DataHandler = (URL?, URLResponse?, Error?) -> Void
 
-	var request : URLRequest
+	var request: URLRequest
 	let session: URLSession = URLSession(configuration: .default)
 
 	init(request: URLRequest) {
 		self.request = request
 	}
 
-	func makeCall (completion: @escaping JSONHandler){
+	func makeCall(completion: @escaping JSONHandler) {
 		let task = session.dataTask(with: self.request) { (data, response, error) in
 			guard let httpResponse = response as? HTTPURLResponse else {
 				completion(nil, nil, error as Error?)
 				return
 			}
 			if let data = data {
-				if 200...299 ~= httpResponse.statusCode{
+				if 200...299 ~= httpResponse.statusCode {
 					do {
 						let json = try JSONSerialization.jsonObject(with: data, options: []) as JSONObject
 						completion(json, httpResponse, nil)
 					} catch let error as NSError {
 						completion(nil, httpResponse, error)
 					}
-				}
-				else {
+				} else {
 					completion(nil, httpResponse, error)
 				}
 			} else {

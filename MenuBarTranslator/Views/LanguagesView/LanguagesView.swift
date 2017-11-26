@@ -13,8 +13,8 @@ class LanguagesView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-		self.layer?.cornerRadius = UIOptions.cornerRadius
-		self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
+        self.layer?.cornerRadius = UIOptions.cornerRadius
+        self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
     }
-    
+
 }
