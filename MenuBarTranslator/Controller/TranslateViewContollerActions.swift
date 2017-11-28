@@ -44,8 +44,7 @@ extension TranslateViewController {
 	}
 
 	func translate() {
-		if inputLanguageButton.language == Languages.auto {
-
+		if let language = inputLanguageButton.language, language.isAutoLanguage {
 			detect(for: inputLanguageButton, with: inputView.textView.string, completion: {
 				guard let language = self.inputLanguageButton.language else {
 					self.inputLanguageButton.language = Languages.auto

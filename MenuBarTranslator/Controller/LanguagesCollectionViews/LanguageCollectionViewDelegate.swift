@@ -24,7 +24,7 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 		languageSender?.language = language
 		languageSender?.state = .off
 
-		if language == Languages.auto {
+		if language.isAutoLanguage {
 			detect()
 		}
 

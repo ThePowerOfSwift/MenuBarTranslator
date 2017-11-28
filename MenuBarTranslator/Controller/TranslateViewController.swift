@@ -36,7 +36,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 				  let language = sender.language else {
 				return
 			}
-			if !self.inputView.textView.isEmpty && language == Languages.auto {
+			if !self.inputView.textView.isEmpty && language.isAutoLanguage {
 				print("detection")
 				Dictionary.shared.detectLanguage(by: self.inputView.textView.string, completion: { (lang) in
 					guard let lang = lang else {
@@ -141,7 +141,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			(inputView.textView.string, outputView.textView.string) = (outputView.textView.string, inputView.textView.string)
 		}
 
-		if inputLanguageButton.language != Languages.auto {
+		if let language = inputLanguageButton.language,  !language.isAutoLanguage {
 			(inputLanguageButton.language, outputLanguageButton.language) = (outputLanguageButton.language, inputLanguageButton.language)
 		}
 		updatePronounceLanguages()
