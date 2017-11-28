@@ -88,7 +88,7 @@ struct Languages {
 										Language(shortName: "sv", fullName: "Swedish"),
 										Language(shortName: "gd", fullName: "Scottish"),
 										Language(shortName: "et", fullName: "Estonian"),
-										Language(shortName: "jv", fullName: "Java"),
+										Language(shortName: "jv", fullName: "Javanese"),
 										Language(shortName: "ja", fullName: "Japanese")]
 
 	static var languageDirections = [String: [String]]()
