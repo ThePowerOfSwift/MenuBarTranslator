@@ -19,13 +19,9 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var inputLanguageButton: LanguageButton!
 	@IBOutlet weak var outputLanguageButton: LanguageButton!
 
-	weak var inputPronounceButton: PronounceButton!
-	weak var outputPronounceButton: PronounceButton!
-
 	@IBOutlet weak var mainTranslateView: NSView!
 
 	@IBOutlet weak var languagePicker: LanguagePickerView!
-
 
 	var isTranslated = false
 	var languages = Languages.languages
@@ -37,7 +33,6 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 				return
 			}
 			if !self.inputView.textView.isEmpty && language.isAutoLanguage {
-				print("detection")
 				Dictionary.shared.detectLanguage(by: self.inputView.textView.string, completion: { (lang) in
 					guard let lang = lang else {
 						return
@@ -55,8 +50,10 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
-		outputPronounceButton = outputView.pronounceButton
-		inputPronounceButton = inputView.pronounceButton
+		inputView.clearButton.action = #selector(clearButtonClicked(_:))
+
+		inputView.pronounceButton.action = #selector(pronounce(_:))
+		outputView.pronounceButton.action = #selector(pronounce(_:))
 
 		inputLanguageButton.language = Languages.english
 		outputLanguageButton.language = Languages.russian

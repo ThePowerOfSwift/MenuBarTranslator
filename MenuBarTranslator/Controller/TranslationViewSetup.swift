@@ -38,12 +38,12 @@ extension TranslateViewController {
 	}
 
 	fileprivate func updateOutputPronounceButton() {
-		outputPronounceButton.language = outputLanguageButton.language
-		outputPronounceButton.isEnabled = outputPronounceButton.isEnabled && !outputView.textView.isEmpty
+		outputView.pronounceButton.language = outputLanguageButton.language
+		outputView.pronounceButton.isEnabled = outputView.pronounceButton.isEnabled && !outputView.textView.isEmpty
 	}
 
 	fileprivate func updateInputPronounceButton() {
-		inputPronounceButton.language = inputLanguageButton.language
-		inputPronounceButton.isEnabled = inputPronounceButton.isEnabled && !inputView.textView.isEmpty
+		inputView.pronounceButton.language = inputLanguageButton.language
+		inputView.pronounceButton.isEnabled = inputView.pronounceButton.isEnabled && !inputView.textView.isEmpty
 	}
 }

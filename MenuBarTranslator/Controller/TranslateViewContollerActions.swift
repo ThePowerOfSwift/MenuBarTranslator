@@ -60,5 +60,4 @@ extension TranslateViewController {
 			translate(text: inputView.textView.string, with: direction)
 		}
 	}
-
 }
