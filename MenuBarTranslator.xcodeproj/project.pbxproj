@@ -97,7 +97,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A19F08401FCD55C000AC72CD /* TranslateView */ = {
+		A19F08401FCD55C000AC72CD /* IOTranslateView */ = {
 			isa = PBXGroup;
 			children = (
 				A19F08381FCCC4B900AC72CD /* TranslateView.xib */,
@@ -105,7 +105,7 @@
 				A19F083C1FCD538C00AC72CD /* InputTranslateView.xib */,
 				A19F083E1FCD53F600AC72CD /* InputTranslateView.swift */,
 			);
-			path = TranslateView;
+			path = IOTranslateView;
 			sourceTree = "<group>";
 		};
 		A19F08431FCD575A00AC72CD /* TextView */ = {
@@ -125,7 +125,7 @@
 				A1E9C2011FC2069F00B560ED /* PronounceButton.swift */,
 				A19F08361FCCC40F00AC72CD /* BGView.swift */,
 				A19F08431FCD575A00AC72CD /* TextView */,
-				A19F08401FCD55C000AC72CD /* TranslateView */,
+				A19F08401FCD55C000AC72CD /* IOTranslateView */,
 			);
 			path = TranslateView;
 			sourceTree = "<group>";

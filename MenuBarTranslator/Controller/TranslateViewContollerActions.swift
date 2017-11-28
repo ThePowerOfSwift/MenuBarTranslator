@@ -12,11 +12,11 @@ import Cocoa
 extension TranslateViewController {
 
 	func detect(completion: (() -> Void)? = nil) {
-		guard !self.inputTextView.isEmpty else {
+		guard !self.inputView.textView.isEmpty else {
 			updatePronounceLanguages()
 			return
 		}
-		detect(for: inputLanguageButton, with: inputTextView.string, completion: completion)
+		detect(for: inputLanguageButton, with: inputView.textView.string, completion: completion)
 	}
 
 	fileprivate func detect(for sender: LanguageButton?, with text: String, completion: (() -> Void)? = nil) {
@@ -37,7 +37,7 @@ extension TranslateViewController {
 				self.updatePronounceLanguages()
 				return
 			}
-			self.outputTextView.string = text
+			self.outputView.textView.string = text
 			self.isTranslated = true
 			self.updatePronounceLanguages()
 		}
@@ -46,7 +46,7 @@ extension TranslateViewController {
 	func translate() {
 		if inputLanguageButton.language == Languages.auto {
 
-			detect(for: inputLanguageButton, with: inputTextView.string, completion: {
+			detect(for: inputLanguageButton, with: inputView.textView.string, completion: {
 				guard let language = self.inputLanguageButton.language else {
 					self.inputLanguageButton.language = Languages.auto
 					self.updatePronounceLanguages()
@@ -54,11 +54,11 @@ extension TranslateViewController {
 				}
 
 				let direction = TranslateDirection(from: language, to: self.outputLanguageButton.language!)
-				self.translate(text: self.inputTextView.string, with: direction)
+				self.translate(text: self.inputView.textView.string, with: direction)
 			})
 		} else {
 			let direction = TranslateDirection(from: inputLanguageButton.language!, to: outputLanguageButton.language!)
-			translate(text: inputTextView.string, with: direction)
+			translate(text: inputView.textView.string, with: direction)
 		}
 	}
 

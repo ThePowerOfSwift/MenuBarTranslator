@@ -35,7 +35,7 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 		languagePicker.isHidden = true
 		mainTranslateView.isHidden = false
 
-		outputTextView.isEmpty = true
+		outputView.textView.isEmpty = true
 	}
 
 	func delete(item: RecentLanguageCollectionViewItem) {

@@ -16,9 +16,6 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var inputView: InputTranslateView!
 	@IBOutlet weak var outputView: TranslateView!
 
-	weak var inputTextView: TranslateTextView!
-	weak var outputTextView: TranslateTextView!
-
 	@IBOutlet weak var inputLanguageButton: LanguageButton!
 	@IBOutlet weak var outputLanguageButton: LanguageButton!
 
@@ -39,9 +36,9 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 				  let language = sender.language else {
 				return
 			}
-			if !self.inputTextView.isEmpty && language == Languages.auto {
+			if !self.inputView.textView.isEmpty && language == Languages.auto {
 				print("detection")
-				Dictionary.shared.detectLanguage(by: self.inputTextView.string, completion: { (lang) in
+				Dictionary.shared.detectLanguage(by: self.inputView.textView.string, completion: { (lang) in
 					guard let lang = lang else {
 						return
 					}
@@ -58,15 +55,13 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
-		outputTextView = outputView.textView
 		outputPronounceButton = outputView.pronounceButton
-		inputTextView = inputView.textView
 		inputPronounceButton = inputView.pronounceButton
 
 		inputLanguageButton.language = Languages.english
 		outputLanguageButton.language = Languages.russian
 
-		inputTextView.delegate = self
+		inputView.textView.delegate = self
 
 		languagePicker.allLanguages.dataSource = self
 		languagePicker.allLanguages.delegate = self
@@ -94,8 +89,8 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	}
 
 	@IBAction func clearButtonClicked(_ sender: NSButton) {
-		inputTextView.isEmpty = true
-		outputTextView.isEmpty = true
+		inputView.textView.isEmpty = true
+		outputView.textView.isEmpty = true
 
 		updatePronounceLanguages()
 	}
@@ -143,7 +138,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 	@IBAction func swap(_ sender: NSButton) {
 		if isTranslated {
-			(inputTextView.string, outputTextView.string) = (outputTextView.string, inputTextView.string)
+			(inputView.textView.string, outputView.textView.string) = (outputView.textView.string, inputView.textView.string)
 		}
 
 		if inputLanguageButton.language != Languages.auto {
