@@ -28,3 +28,9 @@ extension NSTextView {
         }
     }
 }
+
+extension NSButton {
+	var isActive: Bool {
+		return self.state == .on
+	}
+}

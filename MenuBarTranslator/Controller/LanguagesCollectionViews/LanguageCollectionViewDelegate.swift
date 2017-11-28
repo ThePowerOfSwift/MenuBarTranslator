@@ -14,15 +14,16 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 		guard indexPaths.count == 1,
 			  let indexPath = indexPaths.first,
 			  let item = collectionView.item(at: indexPath) as? LanguageCollectionViewItem,
-			  let language = item.language else {
+			  let language = item.language,
+			  let sender = languageView.activeButton else {
 			return
 		}
-		guard !language.isAutoLanguage || languageSender != outputLanguageButton else { // output language can't be detected
+		guard !language.isAutoLanguage || sender != languageView.outputLanguageButton else { // output language can't be detected
 			return
 		}
 
-		languageSender?.language = language
-		languageSender?.state = .off
+		sender.language = language
+		sender.state = .off
 
 		if language.isAutoLanguage {
 			detect()

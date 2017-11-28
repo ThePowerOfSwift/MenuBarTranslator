@@ -16,33 +16,14 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var inputView: InputTranslateView!
 	@IBOutlet weak var outputView: TranslateView!
 
-	@IBOutlet weak var inputLanguageButton: LanguageButton!
-	@IBOutlet weak var outputLanguageButton: LanguageButton!
-
 	@IBOutlet weak var mainTranslateView: NSView!
 
 	@IBOutlet weak var languagePicker: LanguagePickerView!
 
+	@IBOutlet weak var languageView: LanguageView!
 	var isTranslated = false
 	var languages = Languages.languages
 	var recentLanguages = Languages.standart
-	var languageSender: LanguageButton? {
-		didSet {
-			guard let sender = languageSender,
-				  let language = sender.language else {
-				return
-			}
-			if !self.inputView.textView.isEmpty && language.isAutoLanguage {
-				Dictionary.shared.detectLanguage(by: self.inputView.textView.string, completion: { (lang) in
-					guard let lang = lang else {
-						return
-					}
-					sender.language = Languages.searchLanguage(by: lang)
-				})
-			}
-		}
-	}
-
 	var player: AVAudioPlayer?
 
 	override func viewDidLoad() {
@@ -54,9 +35,12 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 
 		inputView.pronounceButton.action = #selector(pronounce(_:))
 		outputView.pronounceButton.action = #selector(pronounce(_:))
-
-		inputLanguageButton.language = Languages.english
-		outputLanguageButton.language = Languages.russian
+		languageView.swapButton.action = #selector(swap(_:))
+		languageView.inputLanguageButton.action = #selector(languageButtonClicked(_:))
+		languageView.outputLanguageButton.action = #selector(languageButtonClicked(_:))
+		
+		languageView.inputLanguageButton.language = Languages.english
+		languageView.outputLanguageButton.language = Languages.russian
 
 		inputView.textView.delegate = self
 
@@ -99,20 +83,16 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	}
 
 	@IBAction func languageButtonClicked(_ sender: NSButton) {
-		if (inputLanguageButton.state == outputLanguageButton.state && sender.state == .on) {
-			if (sender == inputLanguageButton) {
-				outputLanguageButton.state = .off
+		if (languageView.inputLanguageButton.state == languageView.outputLanguageButton.state && sender.state == .on) {
+			if (sender == languageView.inputLanguageButton) {
+				languageView.outputLanguageButton.state = .off
 			} else {
-				inputLanguageButton.state = .off
+				languageView.inputLanguageButton.state = .off
 			}
 		}
 
 		mainTranslateView.isHidden = sender.state == .on
 		languagePicker.isHidden = !mainTranslateView.isHidden
-
-		if let button = sender as? LanguageButton {
-			languageSender = button
-		}
 	}
 
 	@IBAction func pronounce(_ sender: PronounceButton) {
@@ -138,8 +118,8 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 			(inputView.textView.string, outputView.textView.string) = (outputView.textView.string, inputView.textView.string)
 		}
 
-		if let language = inputLanguageButton.language,  !language.isAutoLanguage {
-			(inputLanguageButton.language, outputLanguageButton.language) = (outputLanguageButton.language, inputLanguageButton.language)
+		if let language = languageView.inputLanguageButton.language,  !language.isAutoLanguage {
+			(languageView.inputLanguageButton.language, languageView.outputLanguageButton.language) = (languageView.outputLanguageButton.language, languageView.inputLanguageButton.language)
 		}
 		updatePronounceLanguages()
 	}

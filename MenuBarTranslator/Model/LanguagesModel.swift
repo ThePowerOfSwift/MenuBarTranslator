@@ -15,7 +15,7 @@ struct Languages {
 	static let turkish = Language(shortName: "tr", fullName: "Turkish", isPronunciationAvailable: true)
 	static let urkanian = Language(shortName: "uk", fullName: "Ukrainian", isPronunciationAvailable: true)
 	static let auto = Language(shortName: "auto", fullName: "Automatically")
-	static let standart = [english, russian, auto]
+	static let standart = [auto, english, russian]
 
 	static var languages: [Language] = [Languages.auto,
 										Language(shortName: "az", fullName: "Azerbaijani"),

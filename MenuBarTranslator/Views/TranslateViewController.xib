@@ -8,11 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
-                <outlet property="inputLanguageButton" destination="oqk-lQ-XGS" id="AEk-kE-8Tl"/>
                 <outlet property="inputView" destination="TM9-zs-jcu" id="kP4-5x-Qxx"/>
                 <outlet property="languagePicker" destination="UTp-lI-qZw" id="F0g-RI-pq8"/>
+                <outlet property="languageView" destination="bJi-Kx-bEJ" id="maN-QE-kFj"/>
                 <outlet property="mainTranslateView" destination="ez4-Zl-Mx8" id="Ibv-Qe-vAD"/>
-                <outlet property="outputLanguageButton" destination="psS-yB-KiL" id="cJd-9p-wko"/>
                 <outlet property="outputView" destination="E5E-TN-ZdH" id="9pG-kQ-zzq"/>
                 <outlet property="preferencesButton" destination="NSd-5K-TDM" id="vWw-HY-NEG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -63,44 +62,9 @@
                         <action selector="pinButtonClicked:" target="-2" id="xJB-Mx-L80"/>
                     </connections>
                 </button>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJi-Kx-bEJ" customClass="LanguagesView" customModule="MenuBarTranslator" customModuleProvider="target">
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJi-Kx-bEJ" customClass="LanguageView" customModule="MenuBarTranslator" customModuleProvider="target">
                     <rect key="frame" x="10" y="480" width="620" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mKu-ek-MeP">
-                            <rect key="frame" x="290" y="14" width="39" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="swap-arrows" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fbc-zE-uLK">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="swap:" target="-2" id="vLY-9k-U8X"/>
-                            </connections>
-                        </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqk-lQ-XGS" customClass="LanguageButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                            <rect key="frame" x="34" y="11" width="221" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="euR-4V-LMz">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                <font key="font" size="15" name="Helvetica"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="languageButtonClicked:" target="-2" id="0dn-Ap-Kim"/>
-                            </connections>
-                        </button>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psS-yB-KiL" customClass="LanguageButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                            <rect key="frame" x="364" y="11" width="221" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oor-Wi-qSk">
-                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                <font key="font" size="15" name="Helvetica"/>
-                            </buttonCell>
-                            <connections>
-                                <action selector="languageButtonClicked:" target="-2" id="EPO-ib-Kna"/>
-                            </connections>
-                        </button>
-                    </subviews>
                 </customView>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-5K-TDM">
                     <rect key="frame" x="10" y="10" width="15" height="15"/>
@@ -121,6 +85,5 @@
         <image name="pin" width="25.600000381469727" height="25.600000381469727"/>
         <image name="pin-alternate" width="25.600000381469727" height="25.600000381469727"/>
         <image name="settings" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="swap-arrows" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

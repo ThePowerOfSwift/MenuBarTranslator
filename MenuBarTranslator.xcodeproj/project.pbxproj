@@ -16,13 +16,15 @@
 		A19F08471FCD580D00AC72CD /* TranslateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F08441FCD580C00AC72CD /* TranslateTextView.swift */; };
 		A19F08481FCD580D00AC72CD /* TranslateScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F08451FCD580C00AC72CD /* TranslateScrollView.swift */; };
 		A19F08491FCD580D00AC72CD /* TranslateClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F08461FCD580D00AC72CD /* TranslateClipView.swift */; };
+		A19F08511FCE14F400AC72CD /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F08501FCE14F400AC72CD /* LanguageView.swift */; };
+		A19F08531FCE150300AC72CD /* LanguageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19F08521FCE150300AC72CD /* LanguageView.xib */; };
 		A19F34ED1FBDC1B100B26C70 /* TranslateTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegate.swift */; };
 		A19F34F51FBDC5AC00B26C70 /* DictionaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F01FBDC5AC00B26C70 /* DictionaryClient.swift */; };
 		A19F34F61FBDC5AC00B26C70 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F11FBDC5AC00B26C70 /* Language.swift */; };
 		A19F34F71FBDC5AC00B26C70 /* RequestProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F21FBDC5AC00B26C70 /* RequestProcessor.swift */; };
 		A19F34F81FBDC5AC00B26C70 /* YandexEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F34F31FBDC5AC00B26C70 /* YandexEndpoint.swift */; };
 		A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35011FBEF66B00B26C70 /* APIKeys.swift */; };
-		A19F35041FBEF95B00B26C70 /* UIOptions+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35031FBEF95B00B26C70 /* UIOptions+Extentions.swift */; };
+		A19F35041FBEF95B00B26C70 /* UIOptions+NSTextViewNSButtonExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35031FBEF95B00B26C70 /* UIOptions+NSTextViewNSButtonExtentions.swift */; };
 		A19F35061FBEFC4700B26C70 /* LanguagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35051FBEFC4700B26C70 /* LanguagesView.swift */; };
 		A19F35121FBF995900B26C70 /* LanguagePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A19F35101FBF995900B26C70 /* LanguagePickerView.xib */; };
 		A19F35131FBF995900B26C70 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19F35111FBF995900B26C70 /* LanguagePickerView.swift */; };
@@ -55,13 +57,15 @@
 		A19F08441FCD580C00AC72CD /* TranslateTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateTextView.swift; sourceTree = "<group>"; };
 		A19F08451FCD580C00AC72CD /* TranslateScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateScrollView.swift; sourceTree = "<group>"; };
 		A19F08461FCD580D00AC72CD /* TranslateClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslateClipView.swift; sourceTree = "<group>"; };
+		A19F08501FCE14F400AC72CD /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		A19F08521FCE150300AC72CD /* LanguageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageView.xib; sourceTree = "<group>"; };
 		A19F34EC1FBDC1B100B26C70 /* TranslateTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTextViewDelegate.swift; sourceTree = "<group>"; };
 		A19F34F01FBDC5AC00B26C70 /* DictionaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryClient.swift; sourceTree = "<group>"; };
 		A19F34F11FBDC5AC00B26C70 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A19F34F21FBDC5AC00B26C70 /* RequestProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProcessor.swift; sourceTree = "<group>"; };
 		A19F34F31FBDC5AC00B26C70 /* YandexEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexEndpoint.swift; sourceTree = "<group>"; };
 		A19F35011FBEF66B00B26C70 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
-		A19F35031FBEF95B00B26C70 /* UIOptions+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOptions+Extentions.swift"; sourceTree = "<group>"; };
+		A19F35031FBEF95B00B26C70 /* UIOptions+NSTextViewNSButtonExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIOptions+NSTextViewNSButtonExtentions.swift"; sourceTree = "<group>"; };
 		A19F35051FBEFC4700B26C70 /* LanguagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesView.swift; sourceTree = "<group>"; };
 		A19F35101FBF995900B26C70 /* LanguagePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguagePickerView.xib; sourceTree = "<group>"; };
 		A19F35111FBF995900B26C70 /* LanguagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		A19F08431FCD575A00AC72CD /* TextView */ = {
 			isa = PBXGroup;
 			children = (
+				A1E9C2011FC2069F00B560ED /* PronounceButton.swift */,
 				A19F08461FCD580D00AC72CD /* TranslateClipView.swift */,
 				A19F08451FCD580C00AC72CD /* TranslateScrollView.swift */,
 				A19F08441FCD580C00AC72CD /* TranslateTextView.swift */,
@@ -118,14 +123,23 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
-		A19F34EB1FBDC0D800B26C70 /* TranslateView */ = {
+		A19F08541FCE199400AC72CD /* LanguageView */ = {
 			isa = PBXGroup;
 			children = (
 				A1E9C1FB1FC1F70600B560ED /* LanguageButton.swift */,
-				A1E9C2011FC2069F00B560ED /* PronounceButton.swift */,
+				A19F08501FCE14F400AC72CD /* LanguageView.swift */,
+				A19F08521FCE150300AC72CD /* LanguageView.xib */,
+			);
+			path = LanguageView;
+			sourceTree = "<group>";
+		};
+		A19F34EB1FBDC0D800B26C70 /* TranslateView */ = {
+			isa = PBXGroup;
+			children = (
 				A19F08361FCCC40F00AC72CD /* BGView.swift */,
 				A19F08431FCD575A00AC72CD /* TextView */,
 				A19F08401FCD55C000AC72CD /* IOTranslateView */,
+				A19F08541FCE199400AC72CD /* LanguageView */,
 			);
 			path = TranslateView;
 			sourceTree = "<group>";
@@ -212,7 +226,7 @@
 		A1EC74F11FAFBD9F00957BA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A19F35031FBEF95B00B26C70 /* UIOptions+Extentions.swift */,
+				A19F35031FBEF95B00B26C70 /* UIOptions+NSTextViewNSButtonExtentions.swift */,
 				A1BE3C631F2BC4E200C9F9CE /* TranslateViewController.xib */,
 				A1BE3C591F2B97C100C9F9CE /* Main.storyboard */,
 				A19F34EB1FBDC0D800B26C70 /* TranslateView */,
@@ -282,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19F08531FCE150300AC72CD /* LanguageView.xib in Resources */,
 				A19F083D1FCD538C00AC72CD /* InputTranslateView.xib in Resources */,
 				A19F08391FCCC4B900AC72CD /* TranslateView.xib in Resources */,
 				A19F35121FBF995900B26C70 /* LanguagePickerView.xib in Resources */,
@@ -313,9 +328,10 @@
 				A19F35021FBEF66B00B26C70 /* APIKeys.swift in Sources */,
 				A19F35131FBF995900B26C70 /* LanguagePickerView.swift in Sources */,
 				A1556D551FBAE47600E73BE8 /* TranslationViewSetup.swift in Sources */,
+				A19F08511FCE14F400AC72CD /* LanguageView.swift in Sources */,
 				A19F08481FCD580D00AC72CD /* TranslateScrollView.swift in Sources */,
 				A1E9C2021FC2069F00B560ED /* PronounceButton.swift in Sources */,
-				A19F35041FBEF95B00B26C70 /* UIOptions+Extentions.swift in Sources */,
+				A19F35041FBEF95B00B26C70 /* UIOptions+NSTextViewNSButtonExtentions.swift in Sources */,
 				A19F34F61FBDC5AC00B26C70 /* Language.swift in Sources */,
 				A1BE3C541F2B97C100C9F9CE /* AppDelegate.swift in Sources */,
 				A1BE3C641F2BC4E200C9F9CE /* TranslateViewController.swift in Sources */,
