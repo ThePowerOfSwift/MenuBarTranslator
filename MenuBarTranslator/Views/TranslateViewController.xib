@@ -9,13 +9,11 @@
         <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
             <connections>
                 <outlet property="inputLanguageButton" destination="oqk-lQ-XGS" id="AEk-kE-8Tl"/>
-                <outlet property="inputPronounceButton" destination="1dl-8Q-9aU" id="HMy-LB-mlp"/>
-                <outlet property="inputTextView" destination="777-kg-RIk" id="48u-HI-QuO"/>
+                <outlet property="inputView" destination="TM9-zs-jcu" id="kP4-5x-Qxx"/>
                 <outlet property="languagePicker" destination="UTp-lI-qZw" id="F0g-RI-pq8"/>
                 <outlet property="mainTranslateView" destination="ez4-Zl-Mx8" id="Ibv-Qe-vAD"/>
                 <outlet property="outputLanguageButton" destination="psS-yB-KiL" id="cJd-9p-wko"/>
-                <outlet property="outputPronounceButton" destination="TEd-v2-Ql6" id="hsX-GP-Y8Q"/>
-                <outlet property="outputTextView" destination="2iI-fi-8d4" id="duu-Cs-QEC"/>
+                <outlet property="outputView" destination="E5E-TN-ZdH" id="9pG-kQ-zzq"/>
                 <outlet property="preferencesButton" destination="NSd-5K-TDM" id="vWw-HY-NEG"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="yandexReferenceLabel" destination="Ljz-6b-50r" id="zTV-oF-nex"/>
@@ -35,104 +33,13 @@
                     <rect key="frame" x="10" y="40" width="620" height="434"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TM9-zs-jcu" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
+                        <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TM9-zs-jcu" customClass="InputTranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRB-km-Rui" customClass="TranslateScrollView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="20" width="264" height="394"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="8gy-m8-9Xa" customClass="TranslateClipView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="249" height="394"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <textView ambiguous="YES" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="777-kg-RIk" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="249" height="394"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <size key="minSize" width="249" height="394"/>
-                                                <size key="maxSize" width="463" height="10000000"/>
-                                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </clipView>
-                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="MPx-sc-z8O">
-                                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </scroller>
-                                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="wOp-8P-b8k">
-                                        <rect key="frame" x="249" y="0.0" width="15" height="394"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </scroller>
-                                </scrollView>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dl-8Q-9aU" customClass="PronounceButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="275" y="366" width="20" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="Kc2-bg-kbE">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="pronounce:" target="-2" id="Crn-Oq-uud"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URs-B2-ffP">
-                                    <rect key="frame" x="275" y="394" width="20" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="clear" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="gcF-Vx-hwA">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="clearButtonClicked:" target="-2" id="MRc-8I-cXX"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                         </customView>
                         <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E5E-TN-ZdH" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
                             <rect key="frame" x="313" y="0.0" width="307" height="434"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czt-HR-nbo" customClass="TranslateScrollView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="20" width="264" height="394"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" id="UFE-8o-J2I" customClass="TranslateClipView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="249" height="394"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <textView ambiguous="YES" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="2iI-fi-8d4" customClass="TranslateTextView" customModule="MenuBarTranslator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="249" height="394"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <size key="minSize" width="249" height="394"/>
-                                                <size key="maxSize" width="463" height="10000000"/>
-                                                <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </clipView>
-                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="T9w-9f-D7s">
-                                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </scroller>
-                                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="8pv-pu-emC">
-                                        <rect key="frame" x="249" y="0.0" width="15" height="394"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </scroller>
-                                </scrollView>
-                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEd-v2-Ql6" customClass="PronounceButton" customModule="MenuBarTranslator" customModuleProvider="target">
-                                    <rect key="frame" x="275" y="366" width="20" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="speaker" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="5QF-BW-efS">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="pronounce:" target="-2" id="XUG-je-mwY"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                         </customView>
                     </subviews>
                 </customView>
@@ -211,11 +118,9 @@
         </customView>
     </objects>
     <resources>
-        <image name="clear" width="25.600000381469727" height="25.600000381469727"/>
         <image name="pin" width="25.600000381469727" height="25.600000381469727"/>
         <image name="pin-alternate" width="25.600000381469727" height="25.600000381469727"/>
         <image name="settings" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="speaker" width="25.600000381469727" height="25.600000381469727"/>
         <image name="swap-arrows" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

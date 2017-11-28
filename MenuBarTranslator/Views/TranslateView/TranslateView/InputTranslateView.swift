@@ -1,16 +1,19 @@
 //
-//  LanguagePickerView.swift
+//  InputTranslateView.swift
 //  MenuBarTranslator
 //
-//  Created by Artem Bobrov on 17.11.2017.
+//  Created by Artem Bobrov on 28.11.2017.
 //  Copyright © 2017 Artem Bobrov. All rights reserved.
 //
 
-import Foundation
 import Cocoa
 
-@IBDesignable
-class LanguagePickerView: NSView{
+class InputTranslateView: TranslateView {
+
+	@IBOutlet weak var clearButton: NSButton!
+	override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
@@ -23,6 +26,8 @@ class LanguagePickerView: NSView{
 	}
 
 	private func setup() {
-		
+		textView.isEditable = true
+		textView.isSelectable = true
 	}
+    
 }

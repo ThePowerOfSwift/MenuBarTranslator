@@ -13,14 +13,17 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	@IBOutlet weak var yandexReferenceLabel: NSTextField!
 	@IBOutlet weak var preferencesButton: NSButton!
 
-	@IBOutlet var inputTextView: TranslateTextView!
-	@IBOutlet var outputTextView: TranslateTextView!
+	@IBOutlet weak var inputView: InputTranslateView!
+	@IBOutlet weak var outputView: TranslateView!
+
+	weak var inputTextView: TranslateTextView!
+	weak var outputTextView: TranslateTextView!
 
 	@IBOutlet weak var inputLanguageButton: LanguageButton!
 	@IBOutlet weak var outputLanguageButton: LanguageButton!
 
-	@IBOutlet weak var inputPronounceButton: PronounceButton!
-	@IBOutlet weak var outputPronounceButton: PronounceButton!
+	weak var inputPronounceButton: PronounceButton!
+	weak var outputPronounceButton: PronounceButton!
 
 	@IBOutlet weak var mainTranslateView: NSView!
 
@@ -54,6 +57,11 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		super.viewDidLoad()
 		yandexReferenceSetup()
 		preferencesButtonSetup()
+
+		outputTextView = outputView.textView
+		outputPronounceButton = outputView.pronounceButton
+		inputTextView = inputView.textView
+		inputPronounceButton = inputView.pronounceButton
 
 		inputLanguageButton.language = Languages.english
 		outputLanguageButton.language = Languages.russian
