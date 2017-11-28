@@ -17,7 +17,7 @@ extension TranslateViewController: NSCollectionViewDelegate, RecentLanguageColle
 			  let language = item.language else {
 			return
 		}
-		guard language != Languages.auto || languageSender != outputLanguageButton else { // output language can't be detected
+		guard !language.isAutoLanguage || languageSender != outputLanguageButton else { // output language can't be detected
 			return
 		}
 

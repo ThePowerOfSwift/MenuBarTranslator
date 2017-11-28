@@ -122,7 +122,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		guard let superview = sender.superview as? TranslateView,
 			  let textView = superview.textView,
 			  let language = sender.language,
-			  language != Languages.auto && !textView.isEmpty else {
+			  !language.isAutoLanguage && !textView.isEmpty else {
 			return
 		}
 
