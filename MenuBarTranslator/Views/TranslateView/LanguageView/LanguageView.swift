@@ -19,6 +19,10 @@ class LanguageView: NSView {
 			  !inputLanguageButton.isActive && outputLanguageButton.isActive ? outputLanguageButton: nil
 	}
 
+	var isEqualStates: Bool {
+		return inputLanguageButton.state == outputLanguageButton.state
+	}
+
 	func switchStates() {
 		(inputLanguageButton.state, outputLanguageButton.state) = (outputLanguageButton.state, inputLanguageButton.state)
 	}

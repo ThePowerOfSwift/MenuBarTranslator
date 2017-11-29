@@ -83,7 +83,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	}
 
 	@IBAction func languageButtonClicked(_ sender: NSButton) {
-		if (languageView.inputLanguageButton.state == languageView.outputLanguageButton.state && sender.state == .on) {
+		if (languageView.isEqualStates && sender.state == .on) {
 			if (sender == languageView.inputLanguageButton) {
 				languageView.outputLanguageButton.state = .off
 			} else {
