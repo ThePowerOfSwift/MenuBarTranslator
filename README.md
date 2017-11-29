@@ -1,7 +1,17 @@
-# MenuBar Translator
+## MenuBarTranslator
 
-Application is created to translate text via Yandex Translate API.
+MenuBarTranslator is an app that allows to translate text directly from your menu bar.
 
-Some simple autocomplete feature included(via Datamuse API).
+Application is translating and pronouncing text via Yandex API Services.
 
-Autoresizable textfields.
+It is written in Swift 4 without any external libraries.
+
+Pronounciation is working **only** for: 
+* English
+* Russian
+* Turkish
+* Urkanian
+
+![translator](./img/main-translate.png)
+
+![picked](./img/language-pick.png)
