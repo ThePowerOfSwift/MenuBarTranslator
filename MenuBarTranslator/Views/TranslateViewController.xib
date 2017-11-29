@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="TranslateViewController" customModule="MenuBarTranslator" customModuleProvider="target">
+            <connections>
+                <outlet property="inputView" destination="TM9-zs-jcu" id="kP4-5x-Qxx"/>
+                <outlet property="languagePicker" destination="UTp-lI-qZw" id="F0g-RI-pq8"/>
+                <outlet property="languageView" destination="bJi-Kx-bEJ" id="maN-QE-kFj"/>
+                <outlet property="mainTranslateView" destination="ez4-Zl-Mx8" id="Ibv-Qe-vAD"/>
+                <outlet property="outputView" destination="E5E-TN-ZdH" id="9pG-kQ-zzq"/>
+                <outlet property="preferencesButton" destination="NSd-5K-TDM" id="vWw-HY-NEG"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="yandexReferenceLabel" destination="Ljz-6b-50r" id="zTV-oF-nex"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="550"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UTp-lI-qZw" customClass="LanguagePickerView" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="10" y="40" width="620" height="432"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ez4-Zl-Mx8">
+                    <rect key="frame" x="10" y="40" width="620" height="434"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TM9-zs-jcu" customClass="InputTranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="307" height="434"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                        <customView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E5E-TN-ZdH" customClass="TranslateView" customModule="MenuBarTranslator" customModuleProvider="target">
+                            <rect key="frame" x="313" y="0.0" width="307" height="434"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                    </subviews>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljz-6b-50r">
+                    <rect key="frame" x="34" y="5" width="211" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" alignment="left" title="Traslated by &quot;Yandex Translate&quot;" placeholderString="å" id="T7l-eG-eI7">
+                        <font key="font" size="13" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-oT-S8z">
+                    <rect key="frame" x="614" y="5" width="16" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="pin" imagePosition="overlaps" alignment="center" alternateImage="pin-alternate" imageScaling="proportionallyDown" inset="2" id="fVn-5j-V4b">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pinButtonClicked:" target="-2" id="xJB-Mx-L80"/>
+                    </connections>
+                </button>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bJi-Kx-bEJ" customClass="LanguageView" customModule="MenuBarTranslator" customModuleProvider="target">
+                    <rect key="frame" x="10" y="480" width="620" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NSd-5K-TDM">
+                    <rect key="frame" x="10" y="10" width="15" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="settings" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="txK-a0-YoZ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="preferencesClicked:" target="-2" id="YhS-4B-xqt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="1837" y="-363"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="pin" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="pin-alternate" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="settings" width="25.600000381469727" height="25.600000381469727"/>
+    </resources>
+</document>

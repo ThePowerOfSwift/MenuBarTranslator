@@ -75,7 +75,7 @@ xcuserdata
 ## Various settings
 
 ## Other
-
+.idea/*
 ### Xcode Patch ###
 #*.xcodeproj/*
 #!*.xcodeproj/project.pbxproj
