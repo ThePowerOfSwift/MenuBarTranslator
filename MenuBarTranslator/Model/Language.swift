@@ -28,6 +28,10 @@ struct Language: Equatable {
 	var image: NSImage? {
 		return NSImage(named: NSImage.Name(shortName))
 	}
+
+	var isAutoLanguage: Bool {
+		return self == Languages.auto
+	}
 }
 
 struct TranslateDirection {
@@ -44,7 +48,7 @@ struct TranslateDirection {
 	}
 
 	var string: String {
-		if from == Languages.auto {
+		if from.isAutoLanguage {
 			return "\(to.shortName.lowercased())"
 		}
 		return "\(from.shortName.lowercased())-\(to.shortName.lowercased())"

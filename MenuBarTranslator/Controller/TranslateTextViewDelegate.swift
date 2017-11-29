@@ -12,18 +12,19 @@ import Cocoa
 extension TranslateViewController: NSTextViewDelegate {
 	func textDidChange(_ notification: Notification) {
 		isTranslated = false
-		guard !inputTextView.isEmpty else {
-			outputTextView.isEmpty = true
+		guard !inputView.textView.isEmpty else {
+			outputView.textView.isEmpty = true
 			updatePronounceLanguages()
 			return
 		}
+		
 		translate()
 	}
 
 	func textDidEndEditing(_ notification: Notification) {
 		isTranslated = false
-		guard !inputTextView.isEmpty else {
-			outputTextView.isEmpty = true
+		guard !inputView.textView.isEmpty else {
+			outputView.textView.isEmpty = true
 			updatePronounceLanguages()
 			return
 		}

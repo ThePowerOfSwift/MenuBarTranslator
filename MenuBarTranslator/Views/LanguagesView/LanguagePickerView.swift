@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class LanguagePickerView: NSView {
+class LanguagePickerView: BGView {
     @IBOutlet weak var contentView: NSView!
     @IBOutlet weak var searchTextField: NSTextField!
     @IBOutlet weak var allLanguagesScrollView: NSScrollView!
@@ -23,8 +23,6 @@ class LanguagePickerView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
-        self.layer?.cornerRadius = UIOptions.cornerRadius
     }
 
     override init(frame frameRect: NSRect) {

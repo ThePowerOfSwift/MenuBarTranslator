@@ -8,13 +8,10 @@
 
 import Cocoa
 
-class LanguagesView: NSView {
+class LanguagesView: BGView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
-        self.layer?.cornerRadius = UIOptions.cornerRadius
-        self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
     }
 
 }
