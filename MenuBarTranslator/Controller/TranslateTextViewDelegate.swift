@@ -17,7 +17,7 @@ extension TranslateViewController: NSTextViewDelegate {
 			updatePronounceLanguages()
 			return
 		}
-		
+
 		translate()
 	}
 

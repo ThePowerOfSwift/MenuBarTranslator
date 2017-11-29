@@ -10,8 +10,8 @@ import Cocoa
 
 class LanguagesView: BGView {
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
+	override func draw(_ dirtyRect: NSRect) {
+		super.draw(dirtyRect)
+	}
 
 }

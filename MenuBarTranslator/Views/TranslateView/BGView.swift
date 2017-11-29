@@ -10,11 +10,11 @@ import Cocoa
 
 class BGView: NSView {
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
+	override func draw(_ dirtyRect: NSRect) {
+		super.draw(dirtyRect)
 
 		self.layer?.cornerRadius = UIOptions.cornerRadius
 		self.layer?.backgroundColor = UIOptions.backgroundColor.cgColor
-    }
-    
+	}
+
 }

@@ -91,30 +91,6 @@ struct Languages {
 										Language(shortName: "jv", fullName: "Javanese"),
 										Language(shortName: "ja", fullName: "Japanese")]
 
-	static var languageDirections = [String: [String]]()
-
-	static func setLanguageDirections(directionsArray: [(String, String)]?) {
-		guard let directions = directionsArray else {
-			return
-		}
-		directions.forEach({
-			if var array = languageDirections[$0.0] {
-				array += [$0.1]
-				languageDirections[$0.0] = array
-			} else {
-				languageDirections[$0.0] = [$0.1]
-			}
-		})
-	}
-
-	static func isDirectionExists(fromLanguage from: String, toLanguage to: String) -> Bool {
-		if let array = languageDirections[from] {
-			return array.contains(to)
-		}
-		return false
-	}
-
-
 	static func searchLanguage(by shortName: String) -> Language? {
 		return Languages.languages.filter({ $0.shortName == shortName }).first
 	}

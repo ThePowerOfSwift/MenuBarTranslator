@@ -16,7 +16,7 @@ extension TranslateViewController: NSCollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-		if collectionView == languagePicker.allLanguages {
+		if collectionView == languagePicker.allLanguages { // all languages collection view item
 			let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "LanguageCollectionViewItem"), for: indexPath)
 			guard let item = viewItem as? LanguageCollectionViewItem else {
 				return viewItem
@@ -24,6 +24,7 @@ extension TranslateViewController: NSCollectionViewDataSource {
 			item.language = languages[indexPath.item]
 			return item
 		}
+		// recent languages collection view item
 		let viewItem = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RecentLanguageCollectionViewItem"), for: indexPath)
 		guard let item = viewItem as? RecentLanguageCollectionViewItem else {
 			return viewItem

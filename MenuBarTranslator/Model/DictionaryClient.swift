@@ -8,9 +8,8 @@
 
 import Foundation
 
-class Dictionary {
-	private init() {
-	}
+class Dictionary { // singleton
+	private init() {}
 
 	static let shared = Dictionary()
 

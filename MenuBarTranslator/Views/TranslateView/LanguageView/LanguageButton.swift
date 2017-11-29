@@ -10,21 +10,21 @@ import Cocoa
 
 class LanguageButton: NSButton {
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
+	override func draw(_ dirtyRect: NSRect) {
+		super.draw(dirtyRect)
+	}
 
-    var language: Language? {
-        didSet {
-            reloadData()
-        }
-    }
+	var language: Language? {
+		didSet {
+			reloadData()
+		}
+	}
 
-    func reloadData() {
-        guard let language = language else {
-            return
-        }
-        self.title = language.fullName
-    }
+	func reloadData() {
+		guard let language = language else {
+			return
+		}
+		self.title = language.fullName
+	}
 
 }

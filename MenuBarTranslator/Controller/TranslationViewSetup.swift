@@ -32,6 +32,16 @@ extension TranslateViewController {
 		preferencesButton.menu = menu
 	}
 
+	func actionSetup() {
+		inputView.clearButton.action = #selector(clearButtonClicked(_:))
+		inputView.pronounceButton.action = #selector(pronounce(_:))
+		outputView.pronounceButton.action = #selector(pronounce(_:))
+
+		languageView.swapButton.action = #selector(swap(_:))
+		languageView.inputLanguageButton.action = #selector(languageButtonClicked(_:))
+		languageView.outputLanguageButton.action = #selector(languageButtonClicked(_:))
+	}
+
 	func updatePronounceLanguages() {
 		updateInputPronounceButton()
 		updateOutputPronounceButton()

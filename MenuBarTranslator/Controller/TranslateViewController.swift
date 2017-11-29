@@ -24,6 +24,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 	var isTranslated = false
 	var languages = Languages.languages
 	var recentLanguages = Languages.standart
+
 	var player: AVAudioPlayer?
 
 	override func viewDidLoad() {
@@ -31,13 +32,7 @@ class TranslateViewController: NSViewController, AVAudioPlayerDelegate {
 		yandexReferenceSetup()
 		preferencesButtonSetup()
 
-		inputView.clearButton.action = #selector(clearButtonClicked(_:))
-
-		inputView.pronounceButton.action = #selector(pronounce(_:))
-		outputView.pronounceButton.action = #selector(pronounce(_:))
-		languageView.swapButton.action = #selector(swap(_:))
-		languageView.inputLanguageButton.action = #selector(languageButtonClicked(_:))
-		languageView.outputLanguageButton.action = #selector(languageButtonClicked(_:))
+		actionSetup()
 		
 		languageView.inputLanguageButton.language = Languages.english
 		languageView.outputLanguageButton.language = Languages.russian

@@ -11,9 +11,10 @@ import Cocoa
 class InputTranslateView: TranslateView {
 
 	@IBOutlet weak var clearButton: NSButton!
+
 	override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
+		super.draw(dirtyRect)
+	}
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
@@ -29,5 +30,5 @@ class InputTranslateView: TranslateView {
 		textView.isEditable = true
 		textView.isSelectable = true
 	}
-    
+
 }

@@ -14,8 +14,8 @@ class TranslateView: NSView {
 	@IBOutlet var textView: TranslateTextView!
 
 	override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-    }
+		super.draw(dirtyRect)
+	}
 
 	override init(frame frameRect: NSRect) {
 		super.init(frame: frameRect)
@@ -30,7 +30,9 @@ class TranslateView: NSView {
 	}
 
 	func xibSetup() {
-		guard let contentView = loadViewFromNib() else { return }
+		guard let contentView = loadViewFromNib() else {
+			return
+		}
 		contentView.frame = bounds
 		contentView.autoresizingMask = [.width, .height]
 		addSubview(contentView)
@@ -46,7 +48,9 @@ class TranslateView: NSView {
 
 		if success {
 			for tlo in topLevelObjects! {
-				if let view = tlo as? NSView { return view }
+				if let view = tlo as? NSView {
+					return view
+				}
 			}
 		}
 		return nil
@@ -57,5 +61,5 @@ class TranslateView: NSView {
 		textView.isSelectable = true
 		pronounceButton.isEnabled = false
 	}
-    
+
 }
